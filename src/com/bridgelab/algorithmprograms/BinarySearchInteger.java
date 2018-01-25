@@ -30,7 +30,8 @@ public class BinarySearchInteger {
 
 		System.out.println("element search for : ");
 		int key=sc.nextInt();
-		Arrays.sort(arr);
+		
+		utility.insertionSortInteger(arr);
 		System.out.println("after sorting array : ");
 		for(int a:arr) {
 			System.out.print(a+" ");

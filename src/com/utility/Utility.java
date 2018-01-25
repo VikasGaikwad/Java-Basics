@@ -325,18 +325,33 @@ public class Utility {
 				if(sum==i) {
 					System.out.println();
 					System.out.print(i+" ");
-					
+
 				}
 			}
-			
+
 		}
-		
+
 	}
+	/**Function to calculate the windchill
+	 * @param T
+	 * @param V
+	 */
+	public static void windChill(double T,double V) {
+
+		if((T<51) && (V<120||V>3)) {
+			double ans = 35.74 + (0.6215*T) + ((0.4275*T)-35.75)*(Math.pow(V, 0.16));
+			System.out.println("Wind chill is :"+ans);
+		}
+		else {
+			System.out.println("Enter correct values...");
+		}
+	}
+
 	/**Function used to sorting the unsorted array and 
-	 * search integer element using bubble sort.
+	 * search integer element using binary search.
 	 * @param arr
 	 * @param key
-	 * @return searched value.
+	 * @return 
 	 */
 	public static int binarySearch(int arr[],int key) {
 		Scanner sc=new Scanner(System.in);
@@ -366,25 +381,110 @@ public class Utility {
 		if ( first > last )
 			return -1;
 		return middle;
-		
-	
+
+
 
 	}
-	/**Function to calculate the windchill
-	 * @param T
-	 * @param V
+	/**Fuction define the insertion sort operation on int array.
+	 * @param arr
 	 */
-	public static void windChill(double T,double V) {
-	
-	if((T<51) && (V<120||V>3)) {
-		double ans = 35.74 + (0.6215*T) + ((0.4275*T)-35.75)*(Math.pow(V, 0.16));
-		System.out.println("Wind chill is :"+ans);
+	public static void insertionSortInteger(int []arr) {
+		int n=arr.length;
+		for(int j=1;j<n;j++) {
+			int key=arr[j];
+			int i=j-1;
+			while(i>-1 && arr[i]>key) {
+				arr[i+1]=arr[i];
+				i--;
+			}
+			arr[i+1]=key;
+			System.out.print("[");
+			for(int d:arr) {
+				System.out.print(d+" , ");
+			}
+			System.out.println("]");
+		}
 	}
-	else {
-		System.out.println("Enter correct values...");
+
+	/**Function is defined for sorting the array string using 
+	 * insertion sort.
+	 * @param arr
+	 * @param str
+	 */
+	public static void insertionSortString(char[] arr,String str) {
+		int length=str.length();
+		for(int i=0;i<length;i++) {
+			arr[i] = str.charAt(i);
+		}
+		for(int j=1;j<length;j++) {
+			char  key = arr[j];
+			int i=j-1;
+
+			while((i>-1)&&(arr[i]>key)) {
+				arr[i+1] = arr[i];
+				i--;
+			}
+
+			arr[i+1] = key;
+		}
+		System.out.println("after sorting string : ");
+		for(int k=0;k<length;k++){
+			System.out.print(" "+arr[k]);
+		}
 	}
+
+	/**Fuction define thesortingthe integer array using the
+	 * Bubble Sort technic.
+	 * @param arr
+	 */
+	public static void bubbleSortInteger(int []arr) { 
+		int n = arr.length; for (int i = 0; i < n-1; i++) {
+			for (int j = 0; j < n-i-1; j++) {
+				if (arr[j] > arr[j+1])
+				{
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+
+			}
+
+		}
+		System.out.println("\n\nafter sorting the array : ");
+		for(int c: arr) {
+			System.out.print(c+"  ");
+		}
+
 	}
-	
+	/**Function used to Sorts an array of String by 
+	 * using the bubble sort
+	 * @param arr
+	 */
+	public static void bubbleSortString(String[] arr,int size)
+	{
+		Scanner sc=new Scanner(System.in);
+		//int size=arr.length;
+		String temp;
+
+		for(int x=1;x<size;x++)
+		{
+			for(int y=0;y<size-x;y++)
+			{
+				if(arr[y].compareTo(arr[y+1])>0)
+				{
+					temp=arr[y];
+					arr[y]=arr[y+1];
+					arr[y+1]=temp;
+
+				}
+			}
+		}
+		System.out.println("The sorted values are ");
+		for(int i=0;i<size;i++){
+			System.out.print(arr[i]+"  ");
+		}	
+	}
+
 }
 
 
