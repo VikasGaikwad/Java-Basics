@@ -3,43 +3,83 @@ package com.bridgelabz.algorithmprograms;
 import java.util.Scanner;
 
 public class VendingMachine{
-	public static int total=0,index=0;
 
-
-
-	public static int vendingMachine(int money,int [] notes) {
+	static int arr[] = {1000,500,100,50,10,5,2,1};
+	static int i=0;
+	static int Total=0;
+	public static void main(String args[]) {
+		Scanner sc =new Scanner(System.in);
 		
-		if(money==0||index>notes.length) {
-			return 0;
-		}
-		if(money>notes[index]) {
-	while(money!=0) {
-		money=money-notes[index];
-		System.out.println(notes[index]);
-			//int rem=money%notes[index];
-			//int cla=money/10;
-			//total=total+ cla;
+		
+		System.out.println("Enter a amount :");
+		int amount = sc.nextInt();
+		
+		calculate cal[] = new calculate[8];
+		vendingMachin(amount,cal);
+		
+	}	
+
+		/**Function defines the calculation of notes in the range of amount.
+		 * @param amount
+		 * @param cal
+		 * @return
+		 */
+		public static int vendingMachin(int amount,calculate []cal) {
 			
-			//System.out.println(notes[index]+" notes..... "+cla);
-	}index++;
-		}
-	//	index++;
-		
-		
-		return vendingMachine(money, notes);
+			
+			int count=0;
+			int note = 0;
+			
+			if(i==arr.length){
+			
+				System.out.println("Total notes are "+Total);
+				return -1;
+			}
+			if(amount==0) {
+				
+				System.out.println("Total notes are "+Total);
+				return -1;
+			}
+			else {
+				
+					
+					while(amount>=arr[i]){
+						Total++;
+						note = arr[i];
+						count++;
+						amount = amount-arr[i];
+					}
+					int m=0;
+					 
+					cal[m] = new calculate(note,count);
+					i++;
+					if(cal[m].note==0||cal[m].times==0) {
+						
+						System.out.print("");
+					}
+					else {
+						cal[m].print();
+					}
+				m++;
+					
+			}
+			
+			return vendingMachin(amount,cal);
 	}
-
+}
+class calculate{
 	
-
-	public static void main(String[] args) {
+	int note;
+int times;
+	
+	calculate(int note,int times){
+		this.note =note;
+		this.times =times;
 		
-
-		Scanner scanner=new Scanner(System.in);
-		int money;
-		System.out.println("enter money : ");
-		money=scanner.nextInt();
-		int notes[]= {1000,500,100,50,10,5,2,1};
-		vendingMachine(money,notes);
-		System.out.println("total number of notes to change "+total);
+	}
+	
+	public void print() {
+		
+		System.out.println(note+" Note is "+times+" Times");
 	}
 }

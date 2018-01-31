@@ -6,6 +6,7 @@ public class ComputeSqrt{
 
 	public static void main(String args[]) {
 		Scanner sc =new Scanner(System.in);
+		System.out.println("enter number : ");
 		double nonnegative = sc.nextDouble(); 
 		double epsilon = 1e-15;
 		double t = nonnegative; 

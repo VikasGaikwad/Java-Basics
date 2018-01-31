@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.Utility;
 
-/**purpose: class is defined for sort the string 
+/**purpose: class is defined for sort the string
+ * or words 
  * array using insertion sort technic.
  * @author bridgeit
  * @since 25 jan 2017
