@@ -6,7 +6,7 @@ import javax.swing.SortingFocusTraversalPolicy;
 
 import com.bridgelabz.utility.Utility;
 
-public class IntToBinary {
+public class ToBinaryNibble {
 	public static void main(String[] args) {
 	
 		Scanner scanner=new Scanner(System.in);

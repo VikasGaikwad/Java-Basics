@@ -5,6 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class BankingCashCounter {
+	
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the number of people waiting in the row ");

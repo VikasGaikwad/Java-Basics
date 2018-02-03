@@ -10,10 +10,41 @@ public class Bank {
 	public static int DEFAULT_BALANCE=2000;
 	Scanner scanner=new Scanner(System.in);
 
+	
+	public Bank(String name,int account_number,int balance) {
+		this.name=name;
+		this.account_number=account_number;
+		this.balance=balance;
+		System.out.println(" Completed...");
+	}
+	public int checkBalance() {
+		return balance;
+	}
+	public void widthdraw(int value) {
+		if(balance>value) {
+			balance-=value;
+			if(DEFAULT_BALANCE<=0) {
+				System.out.println("maintain account with minimum 2000...");
+				System.exit(0);
+
+			}
+			System.out.println(value+" removed from account number "+account_number+" balance left "+balance);
+
+		}
+		else {
+			System.out.println("not Sufficeint balance ...press 1 checking balance...");
+		}
+	}
+	public void diposite(int amount) {
+		balance+=amount;
+		this.DEFAULT_BALANCE+=amount;
+		System.out.println(amount+" added to account number : "+account_number+" new balance is "+balance);
+
+	}
 	void process() {
 		int action=1;
 		int value;
-		while(action>=0||action<=3) {
+		while(action!=0) {
 			System.out.println("enter 1 to check balance : ");
 			System.out.println("enter 2 to widthdraw amount : ");
 			System.out.println("enter 3 to diposite amount : ");
@@ -44,36 +75,6 @@ public class Bank {
 				System.out.println("enter a valid input ");
 			}
 		}
-	}
-	public Bank(String name,int account_number,int balance) {
-		this.name=name;
-		this.account_number=account_number;
-		this.balance=balance;
-		System.out.println(" Completed...");
-	}
-	public int checkBalance() {
-		return balance;
-	}
-	public void widthdraw(int value) {
-		if(balance>value) {
-			balance-=value;
-			if(DEFAULT_BALANCE<=0) {
-				System.out.println("maintain account with minimum 2000...");
-				System.exit(0);
-
-			}
-			System.out.println(value+" removed from account number "+account_number+" balance left "+balance);
-
-		}
-		else {
-			System.out.println("not Sufficeint balance ...press 1 checking balance...");
-		}
-	}
-	public void diposite(int amount) {
-		balance+=amount;
-		this.DEFAULT_BALANCE+=amount;
-		System.out.println(amount+" added to account number : "+account_number+" new balance is "+balance);
-
 	}
 
 
