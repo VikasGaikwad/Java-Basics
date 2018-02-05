@@ -124,7 +124,7 @@ public class TicTacToe{
 		int count=0;
 			while(true) {
 				
-				System.out.println("Player : "+obj.getCurrentPlayerChoice()+"th turn");
+				System.out.println("Player : "+obj.getCurrentPlayerChoice()+" turn");
 				
 				System.out.println("Enter position of Row & Column");
 				int r = sc.nextInt();

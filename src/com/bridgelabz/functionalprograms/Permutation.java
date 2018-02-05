@@ -7,7 +7,7 @@ public class Permutation
     public static void main(String[] args)
     {
     	Utility utility=new Utility();
-        String str = "ABC";
+        String str = "ABCD";
         int n = str.length();
         Permutation permutation = new Permutation();
         utility.permute(str, 0, n-1);

@@ -18,21 +18,24 @@ public class Utility {
 	 */
 
 	public static long startTime() {
-		long a=System.nanoTime();
+		long a = System.nanoTime();
 		elapsedTime(a, a);
 		return a;
 	}
+
 	public static long endTime() {
-		long b=System.nanoTime();
-		elapsedTime(b,b);
+		long b = System.nanoTime();
+		elapsedTime(b, b);
 		return b;
 	}
-	public static long elapsedTime(long a,long b) {
-		long elapsedTime =b - a; 
-		System.out.println("Time require to call method in millis: "+(elapsedTime/1000)/60);
+
+	public static long elapsedTime(long a, long b) {
+		long elapsedTime = b - a;
+		System.out.println("Time require to call method in millis: " + (elapsedTime / 1000) / 60);
 		return elapsedTime;
 
 	}
+
 	public static void stringReplace(String str1, String str2) {
 		System.out.println(str1.replaceAll("<<UserName>>", str2));
 
@@ -253,40 +256,40 @@ public class Utility {
 		System.out.println("Root 2 of X :" + X2);
 		// return 0;
 	}
+
 	/**
-	 * To fix the first position element and pass remaining string to the same function
+	 * To fix the first position element and pass remaining string to the same
+	 * function
+	 * 
 	 * @param l
 	 * @param r
 	 */
-	public void permute(String str, int l, int r)
-	{
+	public void permute(String str, int l, int r) {
 		if (l == r) {
 			System.out.println("l==r :");
 			System.out.println(str);
-		}else
-		{
-			for (int i = l; i <= r; i++)
-			{
-				System.out.println("Before swap :"+str);	
-				str = swap(str,l,i);
-				System.out.println("After swap :"+str);
-				permute(str, l+1, r);
+		} else {
+			for (int i = l; i <= r; i++) {
+				System.out.println("Before swap :" + str);
+				str = swap(str, l, i);
+				System.out.println("After swap :" + str);
+				permute(str, l + 1, r);
 
 			}
 		}
 	}
 
 	/**
-	 * @param To interchanging the position of i and j 
+	 * @param To
+	 *            interchanging the position of i and j
 	 * @param i
 	 * @param j
 	 * @return
 	 */
-	public String swap(String a, int i, int j)
-	{
+	public String swap(String a, int i, int j) {
 		char temp;
 		char[] charArray = a.toCharArray();
-		temp = charArray[i] ;
+		temp = charArray[i];
 		charArray[i] = charArray[j];
 		charArray[j] = temp;
 		return String.valueOf(charArray);
@@ -320,144 +323,118 @@ public class Utility {
 	 * 
 	 * @param x
 	 */
-	/*public static void primeNumber(int x) {
-		int arr_anagram[]=new int[1000];
-		int k=0;
-		for (int i = 2; i < x; i++) {
-			boolean checkPrime = true;
-			for (int j = 2; j < i; j++) {
-				if (i % j == 0) {
-					checkPrime = false;
-					break;
-				}
-			}
-
-			if (checkPrime) {
-				arr_anagram[k]=i;
-				k++;
-				System.out.println(i + " ");
-
-			}
-
-		}
-	}*/
+	/*
+	 * public static void primeNumber(int x) { int arr_anagram[]=new int[1000]; int
+	 * k=0; for (int i = 2; i < x; i++) { boolean checkPrime = true; for (int j = 2;
+	 * j < i; j++) { if (i % j == 0) { checkPrime = false; break; } }
+	 * 
+	 * if (checkPrime) { arr_anagram[k]=i; k++; System.out.println(i + " ");
+	 * 
+	 * }
+	 * 
+	 * } }
+	 */
 
 	/**
 	 * Function to check given number is prime or not.
 	 * 
 	 * @param x
 	 */
-	/*public static boolean checkPrime(int x) {
-		int count = 0;
-		for (int i = 1; i <= x; i++) {
-			if (x % i == 0) {
-				count++;
-			}
-		}
-		if (count == 2)
-			return true;
-		return false;
-	}*/
+	/*
+	 * public static boolean checkPrime(int x) { int count = 0; for (int i = 1; i <=
+	 * x; i++) { if (x % i == 0) { count++; } } if (count == 2) return true; return
+	 * false; }
+	 */
 
 	/**
 	 * Function to check the prime number is prime or not
 	 * 
 	 * @param x
 	 */
-	/*public static void paliPrime(int x) {
-		for (int i = 1; i <= x; i++) {
-			int count = 0;
-			for (int j = 1; j <= i; j++) {
-				if (i % j == 0) {
-					count++;
+	/*
+	 * public static void paliPrime(int x) { for (int i = 1; i <= x; i++) { int
+	 * count = 0; for (int j = 1; j <= i; j++) { if (i % j == 0) { count++;
+	 * 
+	 * } } if (count == 2) {
+	 * 
+	 * int num = i; int rev = 0; int sum = 0; while (num > 0) { rev = num % 10; sum
+	 * = (sum * 10) + rev; num = num / 10; } if (sum == i) { System.out.println();
+	 * System.out.print(i + " ");
+	 * 
+	 * } }
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 
-				}
-			}
-			if (count == 2) {
-
-				int num = i;
-				int rev = 0;
-				int sum = 0;
-				while (num > 0) {
-					rev = num % 10;
-					sum = (sum * 10) + rev;
-					num = num / 10;
-				}
-				if (sum == i) {
-					System.out.println();
-					System.out.print(i + " ");
-
-				}
-			}
-
-		}
-
-	}*/
-
-	/**Funtion is defined entered two numbers/strings are anagram or not.
+	/**
+	 * Funtion is defined entered two numbers/strings are anagram or not.
+	 * 
 	 * @param anagram1
 	 * @param anagram2
 	 * @return
 	 */
-	public static boolean anagramDetection(String anagram1,String anagram2) {
+	public static boolean anagramDetection(String anagram1, String anagram2) {
 
-		char char1[]=anagram1.toCharArray();
-		char char2[]=anagram2.toCharArray();
+		char char1[] = anagram1.toCharArray();
+		char char2[] = anagram2.toCharArray();
 		Arrays.sort(char1);
 		Arrays.sort(char2);
-		String string1=String.valueOf(char1);
-		String string2=String.valueOf(char2);
+		String string1 = String.valueOf(char1);
+		String string2 = String.valueOf(char2);
 
-		if(!string1.equals(string2))
+		if (!string1.equals(string2))
 			return false;
 
 		return true;
 	}
-	/**Function to define the number is prime or not.
+
+	/**
+	 * Function to define the number is prime or not.
+	 * 
 	 * @param start
 	 * @return
 	 */
 	public static String isPrimeNumber(int start) {
 		String primeNumber = "";
-		for (int i = 1; i <= start; i++)         
-		{ 		  	  
-			int counter=0; 	  
-			for(int num =i; num>=1; num--)
-			{
-				if(i%num==0)
-				{
+		for (int i = 1; i <= start; i++) {
+			int counter = 0;
+			for (int num = i; num >= 1; num--) {
+				if (i % num == 0) {
 					counter = counter + 1;
 				}
 			}
-			if (counter ==2)
-			{
-				primeNumber = primeNumber + i+" ";
-			}	
+			if (counter == 2) {
+				primeNumber = primeNumber + i + " ";
+			}
 		}
 		return primeNumber;
 	}
 
-	/**Function defines the number is Palindrome or not.
+	/**
+	 * Function defines the number is Palindrome or not.
+	 * 
 	 * @param arraysAnagram
 	 */
 	public static void palindrom(String[] arraysAnagram) {
 		int[] numbers = new int[arraysAnagram.length];
-		for(int i = 0;i < arraysAnagram.length;i++) {
+		for (int i = 0; i < arraysAnagram.length; i++) {
 			numbers[i] = Integer.parseInt(arraysAnagram[i]);
 		}
-		int temp,reverse_num,rem=0,i=0,num=0;
-		while(i<numbers.length){
-			temp=numbers[i];
-			num=temp;
-			reverse_num=0;
-			while(temp!=0){
-				rem=temp%10;
-				temp=temp/10;
-				reverse_num=reverse_num*10+rem;
+		int temp, reverse_num, rem = 0, i = 0, num = 0;
+		while (i < numbers.length) {
+			temp = numbers[i];
+			num = temp;
+			reverse_num = 0;
+			while (temp != 0) {
+				rem = temp % 10;
+				temp = temp / 10;
+				reverse_num = reverse_num * 10 + rem;
 			}
 			i++;
-			if(num==reverse_num)
-				System.out.print(" "+num);
+			if (num == reverse_num)
+				System.out.print(" " + num);
 		}
 	}
 
@@ -511,36 +488,34 @@ public class Utility {
 		return middle;
 
 	}
-	/**Function is used to find the word from String.
+
+	/**
+	 * Function is used to find the word from String.
+	 * 
 	 * @param str
 	 * @param key
 	 */
-	public static void binarySearchString(String []str,String key) {
-		int low=0;
-		int high=str.length-1;
-		int mid=0;
+	public static void binarySearchString(String[] str, String key) {
+		int low = 0;
+		int high = str.length - 1;
+		int mid = 0;
 
-		while(low<=high) {	
-			mid=(low+high)/2;
-			if(key.compareTo(str[mid])==0) {
+		while (low <= high) {
+			mid = (low + high) / 2;
+			if (key.compareTo(str[mid]) == 0) {
 				System.out.println(mid);
 				System.out.println();
-			}
-			else if(key.compareTo(str[mid])<0) {
-				high=mid;
+			} else if (key.compareTo(str[mid]) < 0) {
+				high = mid;
 				System.out.println(mid);
 				System.out.println();
-			}
-			else if(key.compareTo(str[mid])>0)
-			{
-				low=mid+1;
+			} else if (key.compareTo(str[mid]) > 0) {
+				low = mid + 1;
 				System.out.println(mid);
 				System.out.println();
 			}
 			break;
 		}
-
-
 
 	}
 
@@ -568,29 +543,29 @@ public class Utility {
 		}
 	}
 
-	/**Function is used to Sorting the entered String.
+	/**
+	 * Function is used to Sorting the entered String.
+	 * 
 	 * @param array
 	 */
-	public static void insertionSortString(String [] array) {
-		for(int i = 1;i<array.length;i++) {
-			for(int j =i;j>0;j--) {
-				if(array[j].compareTo(array[j-1])<0) {
+	public static void insertionSortString(String[] array) {
+		for (int i = 1; i < array.length; i++) {
+			for (int j = i; j > 0; j--) {
+				if (array[j].compareTo(array[j - 1]) < 0) {
 					String temp = array[j];
-					array[j] = array[j-1];
-					array[j-1] = temp;
+					array[j] = array[j - 1];
+					array[j - 1] = temp;
 
 				}
-
 
 			}
 		}
 
 		System.out.println("InsertionSort for String done");
 		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i]+"  ");
+			System.out.print(array[i] + "  ");
 		}
 	}
-
 
 	/**
 	 * Fuction define thesortingthe integer array using the Bubble Sort technic.
@@ -624,11 +599,11 @@ public class Utility {
 	 * Function used to Sorts an array of String by using the bubble sort
 	 * 
 	 * @param arr
-	 * @return 
+	 * @return
 	 */
 	public static String bubbleSortString(String[] arr) {
 
-		int size=arr.length;
+		int size = arr.length;
 		String temp = null;
 
 		for (int x = 1; x < size; x++) {
@@ -648,44 +623,46 @@ public class Utility {
 		}
 		return temp;
 	}
-	/**Function defines that outputs the binary (base 2) 
-	 * representation of the decimal number typed as the input.
+
+	/**
+	 * Function defines that outputs the binary (base 2) representation of the
+	 * decimal number typed as the input.
+	 * 
 	 * @param num
 	 */
 	public static void toBinary(int num) {
 		String binary = Integer.toBinaryString(num);
-		System.out.println("Binary is :"+binary);
+		System.out.println("Binary is :" + binary);
 		int a = Integer.parseInt(binary);
-		int j=1;
-		int deci=0;
-		int rem =1;
-		while(a>0) {
-			rem=a%10;
-			deci=deci+rem*j;
-			j =j*2;
-			a =a/10;
+		int j = 1;
+		int deci = 0;
+		int rem = 1;
+		while (a > 0) {
+			rem = a % 10;
+			deci = deci + rem * j;
+			j = j * 2;
+			a = a / 10;
 		}
 		char ch[] = binary.toCharArray();
-		int count=0;
-		int sum =0;
-		for(int i=ch.length-1;i>=0;i--){
-			if(ch[i]=='1') {
-				System.out.print(sum+(int)(Math.pow(2, count))+"+");
-				sum = sum+(int)(Math.pow(2, count));
+		int count = 0;
+		int sum = 0;
+		for (int i = ch.length - 1; i >= 0; i--) {
+			if (ch[i] == '1') {
+				System.out.print(sum + (int) (Math.pow(2, count)) + "+");
+				//sum = sum + (int) (Math.pow(2, count));
 			}
 			count++;
 		}
-		System.out.println(" sum is :"+sum);
-		if(sum==num) {
+		System.out.println(" sum is :" + sum);
+		if (sum == num) {
 			System.out.println("power of 2");
-		}
-		else {
+		} else {
 			System.out.println("Not power of 2");
 		}
 	}
 
-
-	/**Function defines the accurate number between 1 to N-1
+	/**
+	 * Function defines the accurate number between 1 to N-1
 	 * 
 	 */
 	public static void findYournumber() {
@@ -693,80 +670,82 @@ public class Utility {
 
 		System.out.println("Enter a num for range");
 
-		int N = (int) Math.pow(2,sc.nextInt());
-		int range = N-1;
-		System.out.println("Think num between "+0+" to "+range);
+		int N = (int) Math.pow(2, sc.nextInt());
+		int range = N - 1;
+		System.out.println("Think num between " + 0 + " to " + range);
 
-		int low=0;
-		int high=range;
-		int mid = (low+high)/2;
-		while(low!=mid) {
+		int low = 0;
+		int high = range;
+		int mid = (low + high) / 2;
+		while (low != mid) {
 
-
-			System.out.println("Is your num present in "+low+" To "+mid+" Enter True or False");
-			boolean flag =sc.nextBoolean(); 
-			if(flag==true) {
+			System.out.println("Is your num present in " + low + " To " + mid + " Enter True or False");
+			boolean flag = sc.nextBoolean();
+			if (flag == true) {
 
 				high = mid;
-				mid = (low+high)/2;
-			}
-			else if(flag==false) {
+				mid = (low + high) / 2;
+			} else if (flag == false) {
 
 				low = mid;
-				mid = (low+high)/2;
+				mid = (low + high) / 2;
 			}
 		}
-		System.out.println("Which one is our num "+low+" or "+high);
+		System.out.println("Which one is our num " + low + " or " + high);
 		int ans = sc.nextInt();
-		System.out.println("Your Num is "+ans);
+		System.out.println("Your Num is " + ans);
 	}
-	/**Function is used to convert integer to Binary
+
+	/**
+	 * Function is used to convert integer to Binary
+	 * 
 	 * @param integer
 	 */
-	public static void intToBinary(int integer) {		
-		String as=Integer.toBinaryString(integer);
-		System.out.println("\n Binary value of "+integer +" : "
-				+Integer.toBinaryString(integer));		
+	public static void intToBinary(int integer) {
+		String as = Integer.toBinaryString(integer);
+		System.out.println("\n Binary value of " + integer + " : " + Integer.toBinaryString(integer));
 		nibbleCounting(as);
 	}
-	/**Function is defined for conversion of Binary to integer
+
+	/**
+	 * Function is defined for conversion of Binary to integer
+	 * 
 	 * @param as
 	 */
 	public static void binaryToInt(String as) {
-		int x=Integer.parseInt(as,2);		
-		System.out.println("\n Binary to decimal : "+Integer.parseInt(as,2));
+		int x = Integer.parseInt(as, 2);
+		System.out.println("\n Binary to decimal : " + Integer.parseInt(as, 2));
 		if (resultantPowerOfTwo(x))
 			System.out.println("Yes");
 		else
 			System.out.println("No");
 
-
 	}
 
 	/**
-	 * Function is used to sorting the integer array using
-	 *  merge sort.
+	 * Function is used to sorting the integer array using merge sort.
+	 * 
 	 * @param a
 	 * @param low
 	 * @param high
 	 */
-	public static void sort(int[] a, int low, int high) 
+	public static void sort(int[] a, int low, int high)
 
 	{
 
-		int N = high - low;         
+		int N = high - low;
 
-		if (N <= 1) 
+		if (N <= 1)
 
-			return; 
+			return;
 
-		int mid = low + N/2; 
+		int mid = low + N / 2;
 
-		// recursively sort 
+		// recursively sort
 
-		sort(a, low, mid); 
+		sort(a, low, mid);
 
-		sort(a, mid, high); 
+		sort(a, mid, high);
 
 		// merge two sorted subarrays
 
@@ -774,60 +753,65 @@ public class Utility {
 
 		int i = low, j = mid;
 
-		for (int k = 0; k < N; k++) 
+		for (int k = 0; k < N; k++)
 
 		{
 
-			if (i == mid)  
+			if (i == mid)
 
 				temp[k] = a[j++];
 
-			else if (j == high) 
+			else if (j == high)
 
 				temp[k] = a[i++];
 
-			else if (a[j]<a[i]) 
+			else if (a[j] < a[i])
 
 				temp[k] = a[j++];
 
-			else 
+			else
 
 				temp[k] = a[i++];
 
-		}    
+		}
 
-		for (int k = 0; k < N; k++) 
+		for (int k = 0; k < N; k++)
 
-			a[low + k] = temp[k];         
+			a[low + k] = temp[k];
 
 	}
-	/**Function is defined to swap the nibble of Binary stream.
+
+	/**
+	 * Function is defined to swap the nibble of Binary stream.
+	 * 
 	 * @param as
 	 */
 	public static void nibbleCounting(String as) {
-		char [] array=as.toCharArray();
-		while(as.length()!=8) {
-			as=0+as;
+		char[] array = as.toCharArray();
+		while (as.length() != 8) {
+			as = 0 + as;
 
 		}
-		int j=4;
-		char [] array1=as.toCharArray();
-		for(int i=0;i<array1.length/2;i++) {
-			char temp=array1[i];
-			array1[i]=array1[j];
-			array1[j]=temp;
+		int j = 4;
+		char[] array1 = as.toCharArray();
+		for (int i = 0; i < array1.length / 2; i++) {
+			char temp = array1[i];
+			array1[i] = array1[j];
+			array1[j] = temp;
 			j++;
 		}
 
 		System.out.println("\n after swapping nibble : ");
 		System.out.println(array1);
 
-		String array3=String.valueOf(array1);
+		String array3 = String.valueOf(array1);
 		binaryToInt(array3);
 
 	}
-	/**Function is defined to check the int number is 
-	 * resultant power of two or not.
+
+	/**
+	 * Function is defined to check the int number is resultant power of two or not.
+	 * 
 	 * @param x
 	 * @return
 	 */
@@ -835,18 +819,17 @@ public class Utility {
 		if (x == 0)
 			return false;
 
-		while (x != 1)
-		{
+		while (x != 1) {
 			if (x % 2 != 0)
 				return false;
 			x = x / 2;
 		}
-		if (x%2!=0)
+		if (x % 2 != 0)
 			System.out.println("Yes");
 		else
 			System.out.println("No");
 		return true;
 
 	}
-	
+
 }

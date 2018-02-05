@@ -25,7 +25,7 @@ public class BinarySearchFile {
 					word=bufferReader.readLine();
 
 					bufferReader.close();
-					String[] array=word.split(",");
+					String[] array=word.split(" ");
 
 
 					for(String ele:array) {
