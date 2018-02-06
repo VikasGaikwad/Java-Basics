@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Stack;
 
 
 
@@ -1003,5 +1004,35 @@ public class Utility {
 			System.out.println(e);
 		}
 	}
+	/**function is used to check parenthesis.
+	 * @param exp
+	 * @param stk
+	 */
+	public static void balanceParanthesis(String exp, Stack<Integer> stk)
+	{
+		int length = exp.length();
+
+		System.out.println("\nMatches and Mismatches:\n");
+		for (int i = 0; i < length; i++) 
+		{
+			char ch = exp.charAt(i);
+			if (ch == '(')
+				stk.push(i);
+
+			else if (ch == ')') 
+			{
+				try {
+					int p = stk.pop();
+					System.out.println("parenthes is matched");
+				} catch (Exception e) 
+				{
+					System.out.println("Parenthes is un mached");
+				}
+			}
+		}
+		while (!stk.isEmpty()) {
+			System.out.println((stk.pop()) + " is un matched");
+		}
+}
 
 }
