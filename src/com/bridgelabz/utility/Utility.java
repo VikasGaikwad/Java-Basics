@@ -1,8 +1,15 @@
 package com.bridgelabz.utility;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
+
+
 
 /**
  * @author bridgeit
@@ -16,7 +23,7 @@ public class Utility {
 	 * @param str1
 	 * @param str2
 	 */
-
+	Scanner scanner=new Scanner(System.in);
 	public static long startTime() {
 		long a = System.nanoTime();
 		elapsedTime(a, a);
@@ -830,6 +837,171 @@ public class Utility {
 			System.out.println("No");
 		return true;
 
+	}
+	/**funtion reads the file from file manager.
+	 * 
+	 */
+	public static void readFile(File file) {
+		try {
+			//File file=new File("/home/bridgeit/Documents/Programs/Java Basics/src/Unoredered.txt");
+			BufferedReader bufferedReader=new BufferedReader(new FileReader(file));
+			String  words=bufferedReader.readLine();
+			fileDataList(words);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	/**function used to writing data to the file.
+	 * @param linkedlist
+	 */
+	public static void writeFile(LinkedList linkedlist) {
+		try {
+			FileWriter fileWriter=new FileWriter("/home/bridgeit/Documents/Programs/Java Basics/src/Unoredered.txt");
+			for(int i=0;i<linkedlist.size();i++) {
+				String addWord=linkedlist.get(i)+" ";
+				fileWriter.write(addWord);
+				fileWriter.flush();
+				//fileWriter.close();
+
+			}
+
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	/**function used to list the data from file.
+	 * @param words
+	 */
+	public static void fileDataList(String words) {
+		String [] string=words.split(" ");
+		for(String element:string) {
+			System.out.println(element);
+		}
+		LinkedList<String> linkedlist=new LinkedList<String>();
+		for(int i=0;i<string.length;i++)
+		{
+			linkedlist.add(string[i]);
+
+
+		}
+		System.out.println(linkedlist);
+		searchFromFile(linkedlist);
+	}
+	/**function used to search the int from file.
+	 * @param linkedlist
+	 */
+	/**
+	 * @param linkedlist
+	 */
+	@SuppressWarnings({ "unchecked", "resource" })
+	public static void searchFromFile(@SuppressWarnings("rawtypes") LinkedList linkedlist) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("enter the word to search from file : ");
+		String search=scanner.nextLine();
+		boolean found = true;
+		for(int i=0;i<linkedlist.size();i++) 
+		{
+			if(linkedlist.get(i).equals(search)) 
+			{
+				found = false;
+				linkedlist.remove(search);
+				writeFile(linkedlist);
+				break;
+
+			}
+
+		}
+
+		if(found == true) {
+
+			linkedlist.add(search);
+			writeFile(linkedlist);
+
+		}
+
+	}
+	/**function used to sread values from file.
+	 * @param file
+	 */
+	public static void readFromFile(File file) {
+		try {
+
+			BufferedReader bufferedReader=new BufferedReader(new FileReader(file));
+			String  words=bufferedReader.readLine();
+
+			filesDataList(words);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void filesDataList(String words) {
+		String [] string=words.split(" ");
+		Arrays.sort(string);
+		for(String element:string) {
+			System.out.println(element);
+		}
+		LinkedList<String> linkedlist=new LinkedList<String>();
+		for(int i=0;i<string.length;i++)
+		{
+			linkedlist.add(string[i]);
+
+
+		}
+		System.out.println(linkedlist);
+		searchingFromFile(linkedlist);
+	}
+	/**function used to search the int from file.
+	 * @param linkedlist
+	 */
+	@SuppressWarnings({ "unchecked", "resource" })
+	public static void searchingFromFile(@SuppressWarnings("rawtypes") LinkedList linkedlist) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("enter the number to search from file : ");
+		String search=scanner.nextLine();
+		boolean found = true;
+		for(int i=0;i<linkedlist.size();i++) 
+		{
+			if(linkedlist.get(i).equals(search)) 
+			{
+				found = false;
+				linkedlist.remove(search);
+				writeToFile(linkedlist);
+				break;
+
+			}
+
+		}
+
+		if(found == true) {
+
+			linkedlist.add(search);
+			writeToFile(linkedlist);
+
+		}
+
+	}
+	/**function used to write data to file.
+	 * @param linkedlist
+	 */
+	public static void writeToFile(LinkedList linkedlist) {
+		try {
+			FileWriter fileWriter=new FileWriter("/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/datastructure/int.txt");
+			for(int i=0;i<linkedlist.size();i++) {
+				String addWord=linkedlist.get(i)+" ";
+				fileWriter.write(addWord);
+
+				fileWriter.flush();
+				//fileWriter.close();
+
+			}
+
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }
