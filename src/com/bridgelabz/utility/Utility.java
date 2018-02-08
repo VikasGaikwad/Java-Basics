@@ -68,15 +68,13 @@ public class Utility {
 				tails++;
 			}
 		}
-		System.out.println("***************************************************************");
-		System.out.println("*****total number of heads out of " + times + " is " + heads);
-		System.out.println("*****total number of tails out of " + times + " is " + tails);
+		System.out.println("total number of heads out of " + times + " is " + heads);
+		System.out.println("total number of tails out of " + times + " is " + tails);
 		double per1, per2;
 		per1 = (double) ((heads / times) * 100);
 		per2 = (double) ((tails / times) * 100);
-		System.out.println("*****the percentage of head is : =" + per1 + "%");
-		System.out.println("*****the percentage of tails is : =" + per2 + "%");
-		System.out.println("***************************************************************");
+		System.out.println("the percentage of head is : =" + per1 + "%");
+		System.out.println("the percentage of tails is : =" + per2 + "%");
 
 	}
 
@@ -123,9 +121,7 @@ public class Utility {
 			sum = sum + (float) 1 / i;
 
 		}
-		System.out.println("***************************************************************");
-		System.out.println("********the total sum of harmonic number is : " + sum + "********");
-		System.out.println("***************************************************************");
+		System.out.println("the total sum of harmonic number is : " + sum);
 
 	}
 
@@ -532,7 +528,7 @@ public class Utility {
 	 * 
 	 * @param arr
 	 */
-	public static void insertionSortInteger(int[] arr) {
+	public static int [] insertionSortInteger(int[] arr) {
 		int n = arr.length;
 		for (int j = 1; j < n; j++) {
 			int key = arr[j];
@@ -543,12 +539,13 @@ public class Utility {
 			}
 			arr[i + 1] = key;
 			// System.out.print(arr[i]);
-			for (int d : arr) {
+			/*for (int d : arr) {
 				System.out.print(d + " , ");
-			}
-			System.out.println();
-
+			}*/
+			
+//return arr;
 		}
+		return arr;
 	}
 
 	/**
@@ -569,10 +566,10 @@ public class Utility {
 			}
 		}
 
-		System.out.println("InsertionSort for String done");
-		for (int i = 0; i < array.length; i++) {
+		//System.out.println("InsertionSort for String done");
+		/*for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + "  ");
-		}
+		}*/
 	}
 
 	/**
@@ -609,7 +606,7 @@ public class Utility {
 	 * @param arr
 	 * @return
 	 */
-	public static String bubbleSortString(String[] arr) {
+	public static String[] bubbleSortString(String[] arr) {
 
 		int size = arr.length;
 		String temp = null;
@@ -624,12 +621,12 @@ public class Utility {
 				}
 			}
 		}
-		System.out.println("The sorted strings are ");
-		for (int i = 0; i < size; i++) {
+		//System.out.println("The sorted strings are ");
+		/*for (int i = 0; i < size; i++) {
 			System.out.println();
 			System.out.print(arr[i] + " ");
-		}
-		return temp;
+		}*/
+		return arr;
 	}
 
 	/**

@@ -1,93 +1,79 @@
 package com.bridgelabz.datastructure;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
+import com.bridgelabz.utility.Stack;
 import com.bridgelabz.utility.StackLinked;
 
 public class PrimeAnagramStack_13 {
-	public static char[] convertStringToCharArray(String string) {
-		String str1=string.toLowerCase();
-		char [] charArray=str1.toCharArray();
-		return charArray;
+public static void main(String[] args) {
+		
+		System.out.println("Anagram number in 2D array: ");
+		System.out.println();
+		twoDAnagram(1000);
+		
 	}
-	public static int[] countIntFrequency(String string) {
-		char [] ch=convertStringToCharArray(string);
-		int [] frequency=new int[10];
-		int i=0;
-		int length=ch.length;
-		while(i<length) {
-			frequency[ch[i]-48]++;
-			i++;
+	public static void twoDAnagram(int size) {
+		Stack stack = new Stack();
+		int number = size;
+		boolean status2, status, status1;
+		int k = 1;
+		int temp =100;
+		for (int i = 11; i < size; i++)
+		{
+			for (int j = i + 1; j < number - 1; j++)
+			{
+				status2 = anagramNum(i, j);
+				status1 = primeNum(i);
+				status = primeNum(j);
+				
+				if (status2 && status && status1) 
+				{
+					
+					
+					stack.push(i);
+					stack.push(j);
+				
+					
+				}
+
+			}
 		}
-		return frequency;
+		stack.print();
+		
 	}
-	public static boolean checkAnagram(String string1,String string2) {
-		boolean isAnagram=true;
-		if(string1.length()!=string2.length()) {
-			return isAnagram=false;
-		}else {
-			int [] array1=countIntFrequency(string1);
-			int [] array2=countIntFrequency(string2);
-			for(int i=0;i<10;i++) {
-				if(array1[i]!=array2[i]) {
-					isAnagram=false;
-					break;
+	public static boolean primeNum(int num) {
+		
+		if (num < 2)
+		{
+			return false;
+		} else {
+			int temp;
+			for (int i = 2; i <= num / 2; i++) {
+				temp = num % i;
+				if (temp == 0) {
+					return false;
+
 				}
 			}
+			return true;
 		}
-		return isAnagram;
+
 	}
-	public static boolean checkPrimeNumber(int number) {
-		boolean isPrime=false;
-		int count=0;
-		for(int i=0;i<=number;i++) {
-			if(number%i==0) {
-				count++;
-			}
-			if(count==2) {
-				isPrime=true;
-			}
-			
-		}
-		return isPrime;
-	}
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter the start and end range of numbers ");
-		int start = scanner.nextInt();
-		int end=scanner.nextInt();
-		primeAnagramStack(start, end);
-		scanner.close();
-	}
-	public static void primeAnagramStack(int start,int end) {
-		StackLinked<String> sl=new StackLinked<String>();
-		boolean isPrimeAnagram=false;
-		ArrayList<String> primeList=new ArrayList<String>();
-		for(int j=start;j<=end;j++) {
-			if(checkPrimeNumber(j)) {
-				primeList.add(Integer.toString(j));
-				
-				
-			}
-		}
-		
-		for(int i=0;i<primeList.size()-1;i++) {
-			int j=i+1;
-			while(j<primeList.size()) {
-				isPrimeAnagram=checkAnagram(primeList.get(i),primeList.get(j));
-				if(isPrimeAnagram) {
-					sl.push(primeList.get(i));
-					sl.push(primeList.get(j));
-				}
-				j++;
-			}
-		}
-		for(int i=sl.size();i>0;i=i-2) {
-			System.out.println(sl.pop()+" "+sl.pop());
-		}
-		
-		
+
+	public static boolean anagramNum(int num, int num1) {
+		String str1 = "";
+		String str2 = "";
+		str1 = String.valueOf(num);
+		str2 = String.valueOf(num1);
+		char[] charFromWord = str1.toCharArray();
+		char[] charFromAnagram = str2.toCharArray();
+		Arrays.sort(charFromWord);
+		Arrays.sort(charFromAnagram);
+		return Arrays.equals(charFromWord, charFromAnagram);
+
 	}
 
 }
