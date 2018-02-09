@@ -11,6 +11,7 @@ public class Hashing {
 	public static void main(String[] args) throws Exception {
 		File file = new File(
 				"/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/datastructure/hashing.txt");
+		@SuppressWarnings("resource")
 		BufferedReader buffer = new BufferedReader(new FileReader(file));
 
 		String str = buffer.readLine();
