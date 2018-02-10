@@ -24,7 +24,7 @@ public class Utility {
 	 * @param str1
 	 * @param str2
 	 */
-	Scanner scanner=new Scanner(System.in);
+	static Scanner scanner=new Scanner(System.in);
 	public static long startTime() {
 		long a = System.nanoTime();
 		elapsedTime(a, a);
@@ -457,178 +457,6 @@ public class Utility {
 			System.out.println("Enter correct values...");
 		}
 	}
-
-	/**
-	 * Function used to sorting the unsorted array and search integer element using
-	 * binary search.
-	 * 
-	 * @param arr
-	 * @param key
-	 * @return
-	 */
-	public static int binarySearch(int arr[], int key) {
-		Scanner sc = new Scanner(System.in);
-
-		int first = 0;
-		int last = arr.length - 1;
-		int middle = (first + last) / 2;
-
-		while (first <= last) {
-			if (arr[middle] < key) {
-
-				first = middle + 1;
-				// System.out.println(first);
-			}
-
-			else if (arr[middle] == key) {
-				return middle;
-			} else {
-				last = middle - 1;
-			}
-			middle = (first + last) / 2;
-		}
-		if (first > last)
-			return -1;
-		return middle;
-
-	}
-
-	/**
-	 * Function is used to find the word from String.
-	 * 
-	 * @param str
-	 * @param key
-	 */
-	public static void binarySearchString(String[] str, String key) {
-		int low = 0;
-		int high = str.length - 1;
-		int mid = 0;
-
-		while (low <= high) {
-			mid = (low + high) / 2;
-			if (key.compareTo(str[mid]) == 0) {
-				System.out.println(mid);
-				System.out.println();
-			} else if (key.compareTo(str[mid]) < 0) {
-				high = mid;
-				System.out.println(mid);
-				System.out.println();
-			} else if (key.compareTo(str[mid]) > 0) {
-				low = mid + 1;
-				System.out.println(mid);
-				System.out.println();
-			}
-			break;
-		}
-
-	}
-
-	/**
-	 * Fuction define the insertion sort operation on int array.
-	 * 
-	 * @param arr
-	 */
-	public static int [] insertionSortInteger(int[] arr) {
-		int n = arr.length;
-		for (int j = 1; j < n; j++) {
-			int key = arr[j];
-			int i = j - 1;
-			while (i > -1 && arr[i] > key) {
-				arr[i + 1] = arr[i];
-				i--;
-			}
-			arr[i + 1] = key;
-			// System.out.print(arr[i]);
-			/*for (int d : arr) {
-				System.out.print(d + " , ");
-			}*/
-			
-//return arr;
-		}
-		return arr;
-	}
-
-	/**
-	 * Function is used to Sorting the entered String.
-	 * 
-	 * @param array
-	 */
-	public static void insertionSortString(String[] array) {
-		for (int i = 1; i < array.length; i++) {
-			for (int j = i; j > 0; j--) {
-				if (array[j].compareTo(array[j - 1]) < 0) {
-					String temp = array[j];
-					array[j] = array[j - 1];
-					array[j - 1] = temp;
-
-				}
-
-			}
-		}
-
-		//System.out.println("InsertionSort for String done");
-		/*for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + "  ");
-		}*/
-	}
-
-	/**
-	 * Fuction define thesortingthe integer array using the Bubble Sort technic.
-	 * 
-	 * @param arr
-	 */
-	public static void bubbleSortInteger(int[] arr) {
-		int n = arr.length;
-		for (int i = 0; i < n - 1; i++) {
-			for (int j = 0; j < n - i - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
-
-			}
-
-		}
-		System.out.println();
-		System.out.println("\nafter sorting the array : ");
-		for (int c : arr) {
-
-			System.out.print(c + "  ");
-
-		}
-
-	}
-
-	/**
-	 * Function used to Sorts an array of String by using the bubble sort
-	 * 
-	 * @param arr
-	 * @return
-	 */
-	public static String[] bubbleSortString(String[] arr) {
-
-		int size = arr.length;
-		String temp = null;
-
-		for (int x = 1; x < size; x++) {
-			for (int y = 0; y < size - x; y++) {
-				if (arr[y].compareTo(arr[y + 1]) > 0) {
-					temp = arr[y];
-					arr[y] = arr[y + 1];
-					arr[y + 1] = temp;
-
-				}
-			}
-		}
-		//System.out.println("The sorted strings are ");
-		/*for (int i = 0; i < size; i++) {
-			System.out.println();
-			System.out.print(arr[i] + " ");
-		}*/
-		return arr;
-	}
-
 	/**
 	 * Function defines that outputs the binary (base 2) representation of the
 	 * decimal number typed as the input.
@@ -1031,5 +859,295 @@ public class Utility {
 			System.out.println((stk.pop()) + " is un matched");
 		}
 }
+	/*
+	 * This Function calls All Sorting algorithm
+	 * @param string[]
+	 * @param int []
+	 */
+	public static void callAlgos(String[] sTring, int[] iNteger) 
+	{
+		// TODO Auto-generated method stub
+		String [] algoArray = {"binarySearchString","binarySearchInt","insertionSortString","insertionSortInt","bubbleSortString","bubbleSortInt"};
+		double elapsedTime[] = new double[algoArray.length];
+		double startTime,endTime,eTime=0;
+		int k=0;
+		startTime = System.nanoTime();
+		System.out.println("Enter The String That You Want To Find");
+		String stringFind = scanner.next();
+		if(Utility.binarySearchString(Utility.bubbleSortString(sTring),stringFind))
+			System.out.println("Found");
+		else
+			System.out.println("Not Found");
+		endTime  = System.nanoTime();
+		eTime = (endTime-startTime)*Math.pow(10, -9);
+		System.out.println("Time required to do binary search of String is = "+eTime+" seconds");
+		elapsedTime[k++] = eTime;
+		
+		startTime = System.nanoTime();
+		System.out.println("Enter The value That You Want To Find");
+		int findNumber = scanner.nextInt();
+		if(Utility.binarySearchInt(Utility.bubbleSortInt(iNteger),findNumber))
+			System.out.println("Found");
+		else
+			System.out.println("Not Found");
+		endTime  = System.nanoTime();
+		eTime = (endTime-startTime)*Math.pow(10, -9);
+		System.out.println("Time required to do binary search of Integers is = "+eTime+" seconds");
+		elapsedTime[k++] = eTime;
+		
+		startTime = System.nanoTime();
+		Utility.insertionSortString(sTring);
+		endTime  = System.nanoTime();
+		eTime = (endTime-startTime)*Math.pow(10, -9);
+		System.out.println("Time required to do insertion Sort of String is = "+eTime+" seconds");
+		elapsedTime[k++] = eTime;
+		
+		startTime = System.nanoTime();
+		Utility.insertionSortInt(iNteger);
+		endTime  = System.nanoTime();
+		eTime = ((endTime-startTime)*Math.pow(10, -9));
+		System.out.println("Time required to do insertion Sort of Integers is = "+eTime+" seconds");
+		elapsedTime[k++] = eTime;
+		
+		startTime = System.nanoTime();
+		Utility.bubbleSortString(sTring);
+		endTime  = System.nanoTime();
+		eTime = (endTime-startTime)*Math.pow(10, -9);
+		System.out.println("Time required to do bubble Sort of String is = "+eTime+" seconds");
+		elapsedTime[k++] = eTime;
+		
+		
+		startTime = System.nanoTime();
+		Utility.bubbleSortInt(iNteger);
+		endTime  = System.nanoTime();
+		eTime = (endTime-startTime)*Math.pow(10, -9);
+		System.out.println("Time required to do bubble Sort Integers is = "+eTime+" seconds");
+		elapsedTime[k++] = eTime;
+		sortElapsedTime(elapsedTime,algoArray);
+	}
+	/*
+	 * To arrange elapsedtime of each sorting method
+	 * @param elapsedTime[]
+	 * @param algoArray[]  
+	 */
+	public static void sortElapsedTime(double []elapsedTime,String[]algoArray) 
+	{
+		// TODO Auto-generated method stub
+		int i,j;
+		for(i=0;i<elapsedTime.length;i++)
+		{
+			for(j=0;j<elapsedTime.length;j++)
+			{
+				if(elapsedTime[i]>elapsedTime[j])
+				{
+					//elapsed time sorting
+					double temp = elapsedTime[i];
+					elapsedTime[i] = elapsedTime[j];
+					elapsedTime[j] = temp;
+					//respective array sorting
+					String temp1 = algoArray[i];
+					algoArray[i] = algoArray[j];
+					algoArray[j] = temp1;
+				}
+			 
+			}
+			
+		}
+		System.out.println("Sorted Array In Ascending Order:");
+		for(i=elapsedTime.length-1;i>=0;i--)
+		{
+			System.out.println(algoArray[i]+" = "+elapsedTime[i]);
+		}
+		
+	}
+	 /*
+	  * binarySearchString function to read string and find whether the user 
+	  * expected word is there in the string or not
+	  */
+	 public static boolean binarySearchString(String [] city,String key)
+	 {
+		 int i,j;
+			int len = city.length; 
+			for(i=0;i<city.length;i++)
+			{
+				for(j=i+1;j<city.length;j++)
+				{
+					if(city[i].compareTo(city[j])>0)
+					{
+						String str;
+						str = city[i];
+						city[i] = city[j];
+						city[j] = str;
+					}
+				}
+			}
+			for(i=0;i<len ;i++)
+			{
+				System.out.print(city[i]+" ");
+			}
+			System.out.println();
+			int mid = len/2,start = 0,end = len-1;
+			for(i=0;i<len ;i++)
+			{
+				int num;
+				num=key.compareTo(city[mid]);
+				if(num==0)
+				{	
+					return true;
+					
+				}
+				else if (num<0)
+				{
+					end = mid--; 
+					mid = (start+end)/2;
+				}		
+				else
+				{
+					start = mid++;
+					mid = (start+end)/2;
+				}
+			}
+			return false; 
+		}
+			
+		/*
+		 * Bubble Sort for Integers
+		 */
 
+		public static int[] bubbleSortInt(int[] iNteger) 
+		{
+			// TODO Auto-generated method stub
+			for(int i = 0;i<iNteger.length;i++)
+			{
+				for(int j = i+1;j<iNteger.length;j++)
+				{
+					if(iNteger[j]<iNteger[i])
+					{
+						int temp = iNteger[i];
+						iNteger[i] = iNteger[j] ;
+						iNteger[j] = temp;
+					}
+				}
+			}
+			System.out.println("Sorted Array Of BubbleSort:");
+			for(int i = 0;i<iNteger.length;i++)
+			{
+				System.out.print( iNteger[i]+"   ");
+			}
+			System.out.println();
+			return iNteger;
+		}
+		
+		/*
+		 * Bubble Sort for Strings
+		 */
+		public static String[] bubbleSortString(String[] sTring) 
+		{
+			// TODO Auto-generated method stub
+			for(int i = 0;i<sTring.length;i++)
+			{
+				for(int j = i+1;j<sTring.length;j++)
+				{
+					if(sTring[j].compareTo(sTring[i])<0)
+					{
+						String temp = sTring[i];
+						sTring[i] = sTring[j] ;
+						sTring[j] = temp;
+					}
+				}
+			}
+			System.out.println("Sorted Array Of BubbleSort:");
+			for(int i = 0;i<sTring.length;i++)
+			{
+				System.out.print( sTring[i]+"   ");
+			}
+			System.out.println();	
+			return sTring;
+		}
+		/*
+		 * Insertion Sort for Integers
+		 */
+
+		public static void insertionSortInt(int[] iNteger) 
+		{
+			// TODO Auto-generated method stub
+			int i,j;
+			
+			for(j=1;j<iNteger.length;j++)
+			{
+				i = j-1;  
+				while(i>=0)
+				{
+					if(iNteger[j]<(iNteger[i]))
+					{
+						int  str;
+						str = iNteger[j];
+						iNteger[j] = iNteger[i];
+						iNteger[i] = str;
+					}
+					i--;
+				}
+				
+			}
+			System.out.println("Sorted Array Of Insertion Sort:");
+			for(i = 0;i<iNteger.length;i++)
+			{
+				System.out.print( iNteger[i]+"   ");
+			}
+			System.out.println();
+		}
+		/*
+		 * Insertion Sort for Strings
+		 */
+		public static void insertionSortString(String[] string) 
+		{
+			// TODO Auto-generated method stub
+			int i,j;
+			for(i = 1;i<string.length;i++) 
+			{
+				for(j =i;j>0;j--) 
+				{
+					if(string[j].compareTo(string[j-1])<0) 
+					{
+						 String temp = string[j];
+						 string[j] = string[j-1];
+						 string[j-1] = temp;
+					}
+				}
+			}
+			
+			for(i=0;i<string.length;i++)
+				System.out.print(string[i]+" ");
+			System.out.println();
+		}
+		/*
+		 * binary Search for Integers
+		 */
+		public static boolean binarySearchInt(int[] iNteger,int key) 
+		{
+			// TODO Auto-generated method stub
+			
+			int i,j;
+			
+			int mid = iNteger.length/2,start = 0,end = iNteger.length-1;
+			for(i=0;i<iNteger.length ;i++)
+			{
+				if(key==iNteger[mid])
+				{
+					return true;
+					
+				}else if(key<iNteger[mid])
+				{
+					end = mid-1; 
+					mid = (start+end)/2;
+				}
+				else
+				{
+					start = mid+1;
+					mid = (start+end)/2;
+				}
+			}
+
+			return false;
+}
 }

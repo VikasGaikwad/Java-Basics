@@ -1,6 +1,7 @@
 package com.bridgelabz.oop;
 
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import org.json.simple.JSONArray;
@@ -8,45 +9,49 @@ import org.json.simple.JSONObject;
 
 public class StockReport {
 
+	@SuppressWarnings({ "resource", "unused", "unchecked" })
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
-		JSONObject jsonObject=new JSONObject();
-		JSONArray array=new JSONArray();
-		//String [] stock= {"stock_name","number_of_shares","share_price"};
-		
-			System.out.println("Enter the number of stocks : ");
-			int number=scanner.nextInt();			
 
-			for(int i=0;i<number;i++) {
-				JSONObject innerObject=new JSONObject();
-				System.out.println("enter the stock name : ");
-				String s_name=scanner.next();
-				innerObject.put("stock_name", s_name);
-				System.out.println("enter the number of shares : ");
-				int n_shares=scanner.nextInt();
-				innerObject.put("number_of_shares", n_shares);
-				System.out.println("enter the share prize : ");
-				int s_price=scanner.nextInt();
-				innerObject.put("shareprice", s_price);
-				double cal=((number/100)*n_shares*s_price);
-				innerObject.put("total value of each stock", cal);
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the number of companies...");
+		int number = scanner.nextInt();
+		JSONObject parentObject = new JSONObject();
+		JSONArray array = new JSONArray();
+		for (int i = 1; i <= number; i++) {
+			JSONObject jsonObject = new JSONObject();
 
-				array.add(innerObject);
+			System.out.println("Enter the name of company : " + i);
+			String company = scanner.next();
+			jsonObject.put("comnapy", company);
 
-			}
-			//jsonObject.put(array, stocks);
-		
-		PrintWriter printWriter = null;
+			System.out.println("Enter the number of  share for " + company + " company ..");
+			int shares = scanner.nextInt();
+			jsonObject.put("Number of Shares", shares);
+
+			System.out.println("Enter the share amount for " + company + " company");
+			int amount = scanner.nextInt();
+			jsonObject.put("amount of shares", amount);
+
+			int total = amount * shares;
+			int total_stock;
+
+			jsonObject.put("total : ", total);
+			array.add(jsonObject);
+
+		}
+
+		parentObject.put("Stock_report", array);
+		System.out.print(parentObject);
 		try {
-			printWriter=new PrintWriter("/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/utility/stock.json");
-			System.out.println("file write success...");
-		} catch (Exception e) {
+			FileWriter writer = new FileWriter("/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/utility/stock.json",true);
+			writer.write(parentObject.toJSONString());
+			writer.close();
+			System.out.println("success...");
+		} catch (IOException e) {
+
 			e.printStackTrace();
 		}
-		printWriter.write((jsonObject.toString()));
-		printWriter.close();
 
 	}
+
 }
-
-

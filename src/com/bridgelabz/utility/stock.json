@@ -1,0 +1,34 @@
+{
+	"Stock_report": [
+		{
+			"amount of shares": 65,
+			"total : ": 21060,
+			"Number of Shares": 324,
+			"comnapy": "Oracle"
+		},
+		{
+			"amount of shares": 65,
+			"total : ": 42705,
+			"Number of Shares": 657,
+			"comnapy": "SunMicrosystem"
+		},
+		{
+			"amount of shares": 32,
+			"total : ": 1728,
+			"Number of Shares": 54,
+			"comnapy": "Google"
+		},
+		{
+			"amount of shares": 98,
+			"total : ": 43512,
+			"Number of Shares": 444,
+			"comnapy": "Apple"
+		},
+		{
+			"amount of shares": 9,
+			"total : ": 1107,
+			"Number of Shares": 123,
+			"comnapy": "Lenovo"
+		}
+	]
+}
