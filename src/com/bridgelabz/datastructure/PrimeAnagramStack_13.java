@@ -1,21 +1,18 @@
 package com.bridgelabz.datastructure;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 import com.bridgelabz.utility.Stack;
-import com.bridgelabz.utility.StackLinked;
 
 public class PrimeAnagramStack_13 {
 public static void main(String[] args) {
 		
 		System.out.println("Anagram number in 2D array: ");
 		System.out.println();
-		twoDAnagram(1000);
+		twoDAnagramStack(1000);
 		
 	}
-	public static void twoDAnagram(int size) {
+	public static void twoDAnagramStack(int size) {
 		Stack stack = new Stack();
 		int number = size;
 		boolean status2, status, status1;
@@ -25,9 +22,9 @@ public static void main(String[] args) {
 		{
 			for (int j = i + 1; j < number - 1; j++)
 			{
-				status2 = anagramNum(i, j);
-				status1 = primeNum(i);
-				status = primeNum(j);
+				status2 = anagramNumStack(i, j);
+				status1 = primeNumStack(i);
+				status = primeNumStack(j);
 				
 				if (status2 && status && status1) 
 				{
@@ -41,10 +38,10 @@ public static void main(String[] args) {
 
 			}
 		}
-		stack.print();
+		stack.printStack();
 		
 	}
-	public static boolean primeNum(int num) {
+	public static boolean primeNumStack(int num) {
 		
 		if (num < 2)
 		{
@@ -63,7 +60,7 @@ public static void main(String[] args) {
 
 	}
 
-	public static boolean anagramNum(int num, int num1) {
+	public static boolean anagramNumStack(int num, int num1) {
 		String str1 = "";
 		String str2 = "";
 		str1 = String.valueOf(num);

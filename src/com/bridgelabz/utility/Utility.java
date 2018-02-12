@@ -1,3 +1,4 @@
+
 package com.bridgelabz.utility;
 
 import java.io.BufferedReader;
@@ -5,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -24,7 +26,7 @@ public class Utility {
 	 * @param str1
 	 * @param str2
 	 */
-	static Scanner scanner=new Scanner(System.in);
+	public static Scanner scanner=new Scanner(System.in);
 	public static long startTime() {
 		long a = System.nanoTime();
 		elapsedTime(a, a);
@@ -1011,7 +1013,7 @@ public class Utility {
 		}
 			
 		/*
-		 * Bubble Sort for Integers
+		 *function is used to Bubble Sort for Integers
 		 */
 
 		public static int[] bubbleSortInt(int[] iNteger) 
@@ -1039,7 +1041,7 @@ public class Utility {
 		}
 		
 		/*
-		 * Bubble Sort for Strings
+		 * function is used to Bubble Sort for Strings
 		 */
 		public static String[] bubbleSortString(String[] sTring) 
 		{
@@ -1065,7 +1067,7 @@ public class Utility {
 			return sTring;
 		}
 		/*
-		 * Insertion Sort for Integers
+		 * function is used to Insertion Sort for Integers
 		 */
 
 		public static void insertionSortInt(int[] iNteger) 
@@ -1096,8 +1098,8 @@ public class Utility {
 			}
 			System.out.println();
 		}
-		/*
-		 * Insertion Sort for Strings
+		/*function is used to soerting the string using insertion sort
+		 * 
 		 */
 		public static void insertionSortString(String[] string) 
 		{
@@ -1120,7 +1122,7 @@ public class Utility {
 				System.out.print(string[i]+" ");
 			System.out.println();
 		}
-		/*
+		/*function is used to search the binary integer range.
 		 * binary Search for Integers
 		 */
 		public static boolean binarySearchInt(int[] iNteger,int key) 
@@ -1150,4 +1152,371 @@ public class Utility {
 
 			return false;
 }
+		/**function will check the year is leap or not
+		 * @param year
+		 * @return
+		 */
+		public static boolean LeapYear(int year)
+		{
+			if(year%400 == 0||year%4 == 0 && year%100!=0)
+				return true;
+			else
+				return false;
+			
+		}
+		/**function is defined for display the actual 
+		 * date of calander.
+		 * @param d
+		 * @param m
+		 * @param y
+		 * @return
+		 */
+		public static int weekDay(int d,int m,int y)
+		{
+			int y1=0,x,m1,d1;
+			y1 = y - (14 - m) / 12;
+			x = y1 + y1/4 -y1/100 + y1/400;
+			m1 = m + 12 * ((14 - m) / 12) - 2;
+			d1 = (d+ x + 31*m1 / 12) % 7;
+			return d1;
+			
+		}
+		/**function is used to diaplay the calander using queue.
+		 * @param month
+		 * @param year
+		 */
+		public static void queueCalender(int month, int year)
+		{
+			// TODO Auto-generated method stub
+			int count=0;
+			int number =1;
+			LinkedListQueue<LinkedListQueue<String>> queue = new LinkedListQueue<LinkedListQueue<String>>();
+			for(int i=0;i<6;i++) 
+			{
+			queue.enqueue(new LinkedListQueue<String>());
+			}
+			//to return the day where we will start the month
+			int day=weekDay(number,month, year);
+			//making a Queue to store the days of the week
+			queue.getAtPosition(0).enqueue("sun");
+			queue.getAtPosition(0).enqueue("mon");
+			queue.getAtPosition(0).enqueue("tue");
+			queue.getAtPosition(0).enqueue("wed");
+			queue.getAtPosition(0).enqueue("thr");
+			queue.getAtPosition(0).enqueue("fri");
+			queue.getAtPosition(0).enqueue("sat");
+			
+			//array list for number of days that a month carries
+			int []daysOfTheMonths = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+			String[] months = {"",                              
+			           "January", "February", "March","April", "May", "June","July", "August", "September",
+			           "October", "November", "December"
+			       		};
+			//Setting feb as 29 if the year is leap
+			if(LeapYear(year)&& month==2)
+				daysOfTheMonths[2]=29;
+			
+			for(int j = 1; j < 7; j++ ) 
+			{
+				for(int k =0;k<7;k++) 
+				{
+					if(count < day) 
+					{
+						queue.getAtPosition(j).enqueue("   ");
+						count++;
+					}
+					else if(number<=daysOfTheMonths[month]) 
+					{
+						if(number<10)
+							queue.getAtPosition(j).enqueue(" "+Integer.toString(number++)+" ");
+						else
+						queue.getAtPosition(j).enqueue(Integer.toString(number++)+" ");
+					}
+				}
+		    }
+			System.out.println(" "+months[month]+" "+year);
+			for(int i=0;i<6;i++) 
+			{
+				for(int j =0;j<7;j++)
+				{
+					String date =queue.getAtPosition(i).dequeue();
+					if(date==null)
+					{
+						break;
+					}
+					System.out.print(" "+date);
+				}
+				System.out.println();
+			}
+		}
+		 
+			/**function is used to store the queue in stack and dispaly 
+			 * the calander..
+			 * @param month
+			 * @param year
+			 */
+			public static void stackCalender(int month, int year) 
+			{
+					// TODO Auto-generated method stub
+				int count=0;
+				int number =1;
+				int indexCounter =0;
+				int loopCounter =0;
+				LinkedListStack<String> stack1=new LinkedListStack<>();
+				LinkedListStack<String> stack2 = new LinkedListStack<String>();
+				String []weekDays = {"sun","mon","tue","wed","thr","fri","sat"};
+				
+				//array list for number of days that a month carries
+				int []daysMonth = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+						
+				//Setting feb as 29 if the year is leap
+				if(LeapYear(year) && month==2)
+					daysMonth[2]=29;
+				
+				//to return the day where we will start the month
+				int day=weekDay(number,month, year);		
+				
+				//for(int i = 0; i < 7; i++ ) {
+				while(count < day) {
+					stack1.push("   ");
+				    count++;
+				}
+				while(number<=daysMonth[month]) 
+				{
+					if(number<10)
+						stack1.push(" "+Integer.toString(number++)+" ");
+					else
+						stack1.push(Integer.toString(number++)+" ");
+				}
+				//to make sure that printing array doesnt runs out of loop
+				indexCounter =count+(number-1);
+				
+				//moving elements from one stack to another
+				for(int i=stack1.size()-1;i>=0;i--) 
+				{
+					stack2.push(stack1.pop());
+				}
+				
+				//Displaying the Calander
+				//month and year
+				System.out.println(" "+daysMonth[month]+" "+year);
+				//days of the week
+				for (int i = 0; i < weekDays.length; i++) 
+				{
+					System.out.print(" "+weekDays[i]);
+				}
+				System.out.println();
+				for(int i =0;i<6;i++) 
+				{
+					for(int j=0;j<7;j++) 
+					{
+						if(loopCounter==indexCounter)
+							break;
+						System.out.print(" "+stack2.pop());
+						loopCounter++;
+					}
+					System.out.println();
+				}
+			}
+			/**function is used to print prime numbers using 2D array
+			 * @param startOfRange
+			 * @param endOfRange
+			 */
+			public static void print2DArray(int startOfRange, int endOfRange) {
+				int start = 0;
+				int end = 100;
+				ArrayList<ArrayList<Integer>> arraylist = new ArrayList<ArrayList<Integer>>();
+				for (int i = 0; i < 10; i++) {
+					arraylist.add(new ArrayList<Integer>());
+				}
+				for (int i = 0; i < 10; i++) {
+					for (int j = start; j <= endOfRange; j++) {
+						if (checkPrimeNumber(j) && j > start && j <= end)
+							arraylist.get(i).add(j);
+					}
+					start += 100;
+					end += 100;
+				}
+				for (int i = 0; i < 10; i++) {
+					for (int j = 0; j < arraylist.get(i).size(); j++) {
+						System.out.print(arraylist.get(i).get(j) + " ");
+					}
+					System.out.println();
+				}
+			}
+			/**function is used to check the prime numbers.
+			 * @param number
+			 * @return
+			 */
+			public static boolean checkPrimeNumber(int number) {
+				boolean isPrime=false;
+				int count=0;
+				if (number < 2)
+				{
+					return false;
+				} else {
+					int temp;
+					for (int i = 2; i <= number / 2; i++) {
+						temp = number % i;
+						if (temp == 0) {
+							return false;
+
+						}
+					}
+					return true;
+				}
+
+		}
+			/**function is used add number in 2D array
+			 * @param size
+			 */
+			public static void twoDAnagram(int size) {
+
+				int number = size;
+				boolean check3, check2, check1;
+				@SuppressWarnings("unused")
+				int k = 1;
+				int temp =100;
+				for (int i = 11; i < size; i++)
+				{
+					for (int j = i + 1; j < number - 1; j++)
+					{
+						check3 = anagramNum(i, j);
+						check1 = primeNum(i);
+						check2 = primeNum(j);
+
+						if (check3 && check2 && check1) 
+						{
+
+							if(j>temp){
+								System.out.println();
+								temp = temp+100;
+							}
+							System.out.print(" " + i + " ");
+							System.out.print(" " + j + " ");
+
+						}
+
+					}
+				}
+				System.out.println();
+			}
+			/**function is used to check the numbr is prime or not
+			 * @param num
+			 * @return
+			 */
+			public static boolean primeNum(int num) {
+
+				if (num < 2)
+				{
+					return false;
+				} else {
+					int temp;
+					for (int i = 2; i <= num / 2; i++) {
+						temp = num % i;
+						if (temp == 0) {
+							return false;
+
+						}
+					}
+					return true;
+				}
+
+			}
+
+			/**function is used to check the anagram
+			 * @param num
+			 * @param num1
+			 * @return
+			 */
+			public static boolean anagramNum(int num, int num1) {
+				String str1 = "";
+				String str2 = "";
+				str1 = String.valueOf(num);
+				str2 = String.valueOf(num1);
+				char[] charFromWord = str1.toCharArray();
+				char[] charFromAnagram = str2.toCharArray();
+				Arrays.sort(charFromWord);
+				Arrays.sort(charFromAnagram);
+				return Arrays.equals(charFromWord, charFromAnagram);
+
+			}
+			/**function is used to check the the number
+			 * inside the queue is anagram or not
+			 * @param size
+			 */
+			public static void twoDAnagramQueue(int size) {
+				Queue queue = new Queue();
+				int number = size;
+				boolean status2, status, status1;
+				int k = 1;
+				int temp =100;
+				for (int i = 11; i < size; i++)
+				{
+					for (int j = i + 1; j < number - 1; j++)
+					{
+						status2 = anagramNumQueue(i, j);
+						status1 = primeNumQueue(i);
+						status = primeNumQueue(j);
+						
+						if (status2 && status && status1) 
+						{
+		 
+
+							queue.enqueue(i);
+
+							queue.enqueue(j);
+							
+						}
+
+					}
+				}
+				queue.print();
+				
+			}
+			/**function is used to check the prime number from queue
+			 * @param num
+			 * @return
+			 */
+			public static boolean primeNumQueue(int num) {
+				
+				if (num < 2)
+				{
+					return false;
+				} else {
+					int temp;
+					for (int i = 2; i <= num / 2; i++) {
+						temp = num % i;
+						if (temp == 0) {
+							return false;
+
+						}
+					}
+					return true;
+				}
+
+			}
+
+			/**function is used to check the anagram number from queue
+			 * @param num
+			 * @param num1
+			 * @return
+			 */
+			public static boolean anagramNumQueue(int num, int num1) {
+				String str1 = "";
+				String str2 = "";
+				str1 = String.valueOf(num);
+				str2 = String.valueOf(num1);
+				char[] charFromWord = str1.toCharArray();
+				char[] charFromAnagram = str2.toCharArray();
+				Arrays.sort(charFromWord);
+				Arrays.sort(charFromAnagram);
+				return Arrays.equals(charFromWord, charFromAnagram);
+
+			}
+			
+
 }
+
+			
+			

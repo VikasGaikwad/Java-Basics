@@ -44,7 +44,7 @@ public class Stack {
 				throw new EmptyStackException();
 			}
 		}
-		public void print()
+		public void printStack()
 		{
 			if(isEmpty())
 			{

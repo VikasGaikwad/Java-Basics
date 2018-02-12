@@ -1,10 +1,10 @@
 package com.bridgelabz.oop;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.Scanner;
 
 import org.json.simple.JSONArray;
@@ -23,10 +23,13 @@ public class InventaryDataManagement_1 {
 		for (String nameOfProduct : names) {
 			System.out.println("enter the number of varieties of " + nameOfProduct);
 			JSONArray jsonArray = new JSONArray();
+			
 			int varities = scanner.nextInt();
+			
 			for (int i = 0; i < varities; i++) {
+				
 				JSONObject jsonObject = new JSONObject();
-				System.out.println("Enter the name : ");
+				System.out.println("Enter the name of: "+nameOfProduct);
 				String name = scanner.next();
 				jsonObject.put("name", name);
 				System.out.println("enter the waight in kg : ");
@@ -35,7 +38,7 @@ public class InventaryDataManagement_1 {
 				System.out.println("enter the price/kg : ");
 				int price = scanner.nextInt();
 				jsonObject.put("price", price);
-				jsonObject.put("Total Amount : ", weight * price);
+				jsonObject.put("total", weight * price);
 
 				jsonArray.add(jsonObject);
 			}
@@ -43,59 +46,46 @@ public class InventaryDataManagement_1 {
 
 		}
 
-		PrintWriter printWriter = null;
+		FileWriter writer= null;
 		try {
-			printWriter = new PrintWriter("/home/bridgeit/Documents/Programs/Java Basics/src/FirstInventory.json");
+			writer= new FileWriter("/home/bridgeit/Documents/Programs/Java Basics/src/FirstInventory.json");
 			System.out.println("file write success...");
+			writer.write((parentJsonObject.toString()));
+			writer.flush();
+			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		printWriter.write((parentJsonObject.toString()));
-		printWriter.flush();
-		printWriter.close();
+		
 
 		// read the same file again..
 		try {
 			JSONParser jsonParser = new JSONParser();
-			// FileReader fileReader=new FileReader("/home/bridgeit/Documents/Programs/Java
-			// Basics/src/FirstInventory.json");
-			// Object object=jsonParser.parse(fileReader);
-			JSONObject obj = (JSONObject) jsonParser
-					.parse(new FileReader("/home/bridgeit/Documents/Programs/Java Basics/src/FirstInventory.json"));
-
-			JSONObject jsonObject = (JSONObject) obj;
-			JSONArray Wheats = (JSONArray) jsonObject.get("Wheats");
-
-			for (Object o : Wheats) {
-				JSONObject objs = (JSONObject) o;
-				String name = objs.get("name").toString();
-				System.out.println("name--->" + name);
+			String url="/home/bridgeit/Documents/Programs/Java Basics/src/FirstInventory.json";
+			File file=new File(url);
+			if(file.exists()) {
+				System.out.println("file is exist on"+file.getAbsolutePath());
 			}
-			/*
-			 * System.out.println(Wheats.toJSONString());
-			 * 
-			 * System.out.println(jsonObject.toJSONString());
-			 * 
-			 * String name = jsonObject.get("name").toString();
-			 * System.out.println("name--->" + name); Integer weight =
-			 * Integer.parseInt(jsonObject.get("weight").toString()); Integer price =
-			 * Integer.parseInt(jsonObject.get("price").toString()); Integer total =
-			 * Integer.parseInt(jsonObject.get("Total Amount : ").toString());
-			 * 
-			 * System.out.println("Name: " + name); System.out.println("weight " + weight);
-			 * System.out.println("price" + price); System.out.println("Total Amount :" +
-			 * total);
-			 */
-
-			// fileReader.close();
-			JSONArray msg = (JSONArray) jsonObject.get("msg");
-			/*
-			 * Iterator<String> iterator = msg.iterator(); while (iterator.hasNext()) {
-			 * System.out.println(iterator.next()); }
-			 */
-			for (Object c : msg) {
-				System.out.println(c + "");
+			else {
+				System.out.println("this path is incorrect:"+file.getAbsolutePath());
 			}
+			
+			JSONObject obj = (JSONObject) jsonParser.parse(new FileReader(url));
+			//System.out.println(obj);
+		
+
+
+			JSONArray wheatArray = (JSONArray)obj.get("Wheats");
+			JSONArray pulsesArray = (JSONArray)obj.get("Pulses");
+			JSONArray riceArray = (JSONArray)obj.get("Rice");
+			/*System.out.println(wheatArray);
+			System.out.println(pulsesArray);
+			System.out.println(riceArray);*/
+			readWheats(wheatArray);
+			readPulses(pulsesArray);
+			readRice(riceArray);
+
+			
 
 		} catch (FileNotFoundException e) {
 
@@ -108,5 +98,45 @@ public class InventaryDataManagement_1 {
 		}
 
 	}
+	private static void readWheats(JSONArray wheatArray) {
+		JSONObject tempObj=null;
+		for(int i=0;i<wheatArray.size();i++) {
+			tempObj=(JSONObject) wheatArray.get(i);
+			System.out.println("---------------------\n");
+			System.out.println(tempObj.get("price"));
+			System.out.println(tempObj.get("name"));
+			System.out.println(tempObj.get("weight"));
+			System.out.println(tempObj.get("total"));
+			System.out.println("\n---------------------");
+			
+		}
+	}
+private static void readPulses(JSONArray pulsesArray) {
+	JSONObject tempObj=null;
+	for(int i=0;i<pulsesArray.size();i++) {
+		tempObj=(JSONObject) pulsesArray.get(i);
+		System.out.println("---------------------\n");
+		System.out.println(tempObj.get("price"));
+		System.out.println(tempObj.get("name"));
+		System.out.println(tempObj.get("weight"));
+		System.out.println(tempObj.get("total"));
+		System.out.println("\n---------------------");
+		
+	}
+	}
+private static void readRice(JSONArray riceArray) {
+	JSONObject tempObj=null;
+	for(int i=0;i<riceArray.size();i++) {
+		tempObj=(JSONObject) riceArray.get(i);
+		System.out.println("---------------------\n");
+		System.out.println(tempObj.get("price"));
+		System.out.println(tempObj.get("name"));
+		System.out.println(tempObj.get("weight"));
+		System.out.println(tempObj.get("total"));
+		System.out.println("\n---------------------");
+		
+	}
+	
+}
 
 }
