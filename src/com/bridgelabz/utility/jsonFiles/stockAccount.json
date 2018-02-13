@@ -1,0 +1,94 @@
+{
+	"stock": [
+		{
+			"stock_report_with_total_value": 284704,
+			"stock_names": "google",
+			"value_in_dollar": 65,
+			"share_price": 656
+		},
+		{
+			"stock_report_with_total_value": 57072,
+			"stock_names": "facebook",
+			"value_in_dollar": 951.0,
+			"number_of_share": 656,
+			"share_price": 87
+		},
+		{
+			"stock_report_with_total_value": ,
+			"stock_names": "oracle",
+			"value_in_dollar": 84.0,
+			"number_of_share": 66,
+			"share_price": 77
+		},
+		{
+			"stock_report_with_total_value": 144900,
+			"stock_names": "suzuki",
+			"value_in_dollar": 2415.0,
+			"number_of_share": 230,
+			"share_price": 630
+		},
+		{
+			"stock_report_with_total_value": 2970,
+			"stock_names": "hero",
+			"value_in_dollar": 49.0,
+			"number_of_share": 54,
+			"share_price": 55
+		},
+		{
+			"stock_report_with_total_value": 22624,
+			"stock_names": "rrrr",
+			"value_in_dollar": 377.0,
+			"number_of_share": 5656,
+			"share_price": 4
+		},
+		{
+			"stock_report_with_total_value": 4104,
+			"stock_names": "ttt",
+			"value_in_dollar": 68.0,
+			"number_of_share": 54,
+			"share_price": 76
+		},
+		{
+			"stock_report_with_total_value": 324,
+			"stock_names": "bbb",
+			"value_in_dollar": 5.0,
+			"number_of_share": 54,
+			"share_price": 6
+		},
+		{
+			"stock_report_with_total_value": 418485678,
+			"stock_names": "rere",
+			"value_in_dollar": 6974761.0,
+			"number_of_share": 54654,
+			"share_price": 7657
+		},
+		{
+			"stock_report_with_total_value": 36660,
+			"stock_names": "tretret",
+			"value_in_dollar": 611.0,
+			"number_of_share": 564,
+			"share_price": 65
+		},
+		{
+			"stock_report_with_total_value": 2376,
+			"stock_names": "vikkk",
+			"value_in_dollar": 39.0,
+			"number_of_share": 54,
+			"share_price": 44
+		},
+		{
+			"stock_report_with_total_value": 3510,
+			"stock_names": "asasss",
+			"value_in_dollar": 58.0,
+			"number_of_share": 54,
+			"share_price": 65
+		},
+		{
+			"stock_report_with_total_value": 50692,
+			"stock_names": "gftyt",
+			"value_in_dollar": 844.0,
+			"number_of_share": 667,
+			"share_price": 76
+		}
+	]
+}

@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 
@@ -19,6 +21,20 @@ import java.util.Stack;
  * @since:19 sep 2018
  */
 public class Utility {
+	public static void scannerInt(int x) {
+		Scanner scanner=new Scanner(System.in);
+		int number=scanner.nextInt();
+	}
+	public static void scannerString(File file) {
+		Scanner scanner=new Scanner(System.in);
+		String string=scanner.next();
+	}
+
+	public static void scannerdouble(double x) {
+		Scanner scanner=new Scanner(System.in);
+		double doubleValue=scanner.nextDouble();
+	}
+
 
 	/**
 	 * Function to replace the String.
@@ -1513,6 +1529,15 @@ public class Utility {
 				Arrays.sort(charFromAnagram);
 				return Arrays.equals(charFromWord, charFromAnagram);
 
+			}
+			public static String replaceMent(String message,String strToBeReplace,String replceStr) {
+				String msg = message;
+				Pattern pat = Pattern.compile(strToBeReplace);
+				Matcher matcher = pat.matcher(msg);
+				while(matcher.find()) {
+					message = matcher.replaceAll(matcher.quoteReplacement(replceStr));
+				}
+				return message;
 			}
 			
 

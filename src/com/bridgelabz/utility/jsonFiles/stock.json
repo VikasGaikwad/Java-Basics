@@ -1,1 +1,22 @@
-{"stock":[{"stock_report_with_total_value":2795,"stock_names":"google","number_of_share":43,"share_price":65},{"stock_report_with_total_value":270,"stock_names":"amazon","number_of_share":5,"share_price":54}]}
+{
+	"stock": [
+		{
+			"stock_report_with_total_value": 50000,
+			"stock_names": "google",
+			"number_of_share": 500,
+			"share_price": 100
+		},
+		{
+			"stock_report_with_total_value": 240000,
+			"stock_names": "amazon",
+			"number_of_share": 400,
+			"share_price": 600
+		},
+		{
+			"stock_report_with_total_value": 400000,
+			"stock_names": "oracle",
+			"number_of_share": 500,
+			"share_price": 800
+		}
+	]
+}

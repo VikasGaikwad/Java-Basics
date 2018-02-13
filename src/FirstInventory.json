@@ -1,1 +1,26 @@
-{"Wheats":[{"total":336,"price":56,"name":"543","weight":6}],"Pulses":[{"total":2322,"price":54,"name":"fs","weight":43}],"Rice":[{"total":20,"price":4,"name":"fdgs","weight":5}]}
+{
+	"Wheats": [
+		{
+			"total": 336,
+			"price": 56,
+			"name": "543",
+			"weight": 6
+		}
+	],
+	"Pulses": [
+		{
+			"total": 2322,
+			"price": 54,
+			"name": "fs",
+			"weight": 43
+		}
+	],
+	"Rice": [
+		{
+			"total": 20,
+			"price": 4,
+			"name": "fdgs",
+			"weight": 5
+		}
+	]
+}
