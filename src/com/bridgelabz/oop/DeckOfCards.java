@@ -6,17 +6,17 @@ public class DeckOfCards {
 	@SuppressWarnings("rawtypes")
 	public static GenericQueue queue = new GenericQueue(35);
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//generateCards();
 		int total_players=4;
-		int number_of_cards=13;
+		int number_of_cards=9;
 		String [] deck_of_cards=assignCards();
 		String [] deck_of_shuffle_cards=shuffle(deck_of_cards);
-		String[][] player_cards=distributeCards(deck_of_shuffle_cards,number_of_cards,total_players);
+		String[][] player_cards=distributeCards(deck_of_shuffle_cards,total_players,number_of_cards);
 		
 		System.out.println("cards after sorting : ");
-		printSortedCards(player_cards,number_of_cards,total_players);
+		printSortedCards(player_cards,total_players,number_of_cards);
+		printCardsQueue();
 
 	}
 	public static String[] assignCards() {
@@ -54,11 +54,11 @@ public class DeckOfCards {
 		
 	}
 	@SuppressWarnings("unused")
-	public static String[][] distributeCards(String [] deck_of_shuffle_cards,int number_of_cards,int total_players) {
+	public static String[][] distributeCards(String [] deck_of_shuffle_cards,int total_players,int number_of_cards) {
 		
 		int index=0;
 		//stored inside the 2 d array..
-		String [][] two_D_Array=new String[number_of_cards][total_players];
+		String [][] two_D_Array=new String[total_players][number_of_cards];
 		for(int i=0;i<total_players;i++) {
 			for(int j=0;j<number_of_cards;j++) {
 				two_D_Array[i][j]=deck_of_shuffle_cards[index++];
@@ -104,7 +104,7 @@ public class DeckOfCards {
 		}
 	}
 	public static void printCardsQueue() {
-		for(int i=0;i<60;i++) {
+		for(int i=0;i<28;i++) {
 			System.out.println(queue.frontEle());
 			queue.Dequeue();
 		}

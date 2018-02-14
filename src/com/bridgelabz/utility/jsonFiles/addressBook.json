@@ -1,0 +1,60 @@
+{
+	"book": [
+		{
+			"address": "nasik",
+			"last_name": "Gaikwad",
+			"phone_number": "9657343430",
+			"state": "maharashtra",
+			"first_name": "Vikas",
+			"zip_code": "433256"
+		},
+		{
+			"address": "Malkapur",
+			"last_name": "fegde",
+			"phone_number": "767566767",
+			"state": "Telangana",
+			"first_name": "Harshal",
+			"zip_code": "654323"
+		},
+		{
+			"address": "Nanded",
+			"last_name": "xyz",
+			"phone_number": "423153477",
+			"state": "Karnataka",
+			"first_name": "Anil",
+			"zip_code": "999786"
+		},
+		{
+			"address": "Ujjain",
+			"last_name": "shaikh",
+			"phone_number": "565456",
+			"state": "Madhya",
+			"first_name": "Sana",
+			"zip_code": "Pradesh"
+		},
+		{
+			"address": "Yeola",
+			"last_name": "Vaidya",
+			"phone_number": "656365465",
+			"state": "Maharashtra",
+			"first_name": "Nikhil",
+			"zip_code": "65436"
+		},
+		{
+			"address": "patna",
+			"last_name": "yadav",
+			"phone_number": "6464646",
+			"state": "bihar",
+			"first_name": "raja",
+			"zip_code": "455345"
+		},
+		{
+			"address": "vani",
+			"last_name": "mandalkar",
+			"phone_number": "5435366",
+			"state": "maharashtra",
+			"first_name": "rahul",
+			"zip_code": "543535"
+		}
+	]
+}
