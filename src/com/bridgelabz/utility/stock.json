@@ -1,34 +1,35 @@
+*************************************************
+[
 {
-	"Stock_report": [
+	"amount": 18700,
+
+	"user_Name": "nikhil",
+	"number_Share": 480
+},
+{
+	"amount": 15000,
+	"user_Name": "pranav",
+	"number_Share": 1007
+},
+{
+	"amount": 5800,
+	"user_Name": "rahul",
+	"number_Share": 597
+},
+{
+	"amount": 16000,
+	"user_Name": "anil",
+	"number_Share": 103
+},
+{
+	"amount": 20000,
+	"user_Name": "vikas",
+	"number_Share": 30
+}
+]
+		**************************************************
 		{
-			"amount of shares": 65,
-			"total : ": 21060,
-			"Number of Shares": 324,
-			"comnapy": "Oracle"
-		},
-		{
-			"amount of shares": 65,
-			"total : ": 42705,
-			"Number of Shares": 657,
-			"comnapy": "SunMicrosystem"
-		},
-		{
-			"amount of shares": 32,
-			"total : ": 1728,
-			"Number of Shares": 54,
-			"comnapy": "Google"
-		},
-		{
-			"amount of shares": 98,
-			"total : ": 43512,
-			"Number of Shares": 444,
-			"comnapy": "Apple"
-		},
-		{
-			"amount of shares": 9,
-			"total : ": 1107,
-			"Number of Shares": 123,
-			"comnapy": "Lenovo"
+	"amount": 500,
+	"stock_Symbol": "@",
+	"Count": 811
 		}
-	]
-}{"Stock_report":[{"amount of shares":100,"total : ":400000,"Number of Shares":4000,"comnapy":"amazon"},{"amount of shares":200,"total : ":600000,"Number of Shares":3000,"comnapy":"google"}]}

@@ -2,7 +2,7 @@ package com.bridgelabz.oop;
 
 import com.bridgelabz.utility.oopUtility;
 
-public class DeckOfCards
+public class DeckOfCards10
 {
 	public static void main(String[] args) 
 	{
@@ -10,11 +10,11 @@ public class DeckOfCards
 		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10",
 				"Jack", "Queen", "King", "Ace"};
 
-		oopUtility.deckOfCards(suits,ranks);
+		oopUtility.deckOfCardsQueue(suits,ranks);
 
 	}
 
 
-
 	
-}
+		
+	}

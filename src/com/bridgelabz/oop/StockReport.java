@@ -1,104 +1,72 @@
 package com.bridgelabz.oop;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
+import com.bridgelabz.utility.StockUtility;
 
 public class StockReport {
+	@SuppressWarnings({ "unchecked", "unused" })
+	public static void main(String[] args){
 
+		JSONArray jsonArray = new JSONArray();
+		StockUtility utility = new StockUtility();
+		System.out.println("How many numbers of  company");
+		int number = StockUtility.getInt();
+		String[] companyName = new String[number];
+		int share[] = new int[number];
+		int amount[] = new int[number];
+		int total[] = new int[number];
+		System.out.println("Enter company name");
+		int totalStock=0;
+		for(int i=0; i<number; i++){
+			companyName[i] = StockUtility.getString();
+		}
 
-	@SuppressWarnings({ "resource", "unchecked", "unused" })
-	public static void main(String[] args) {
-		JSONObject outerJson=new JSONObject();
-		JSONArray jsonArray=new JSONArray();
+		for(int i=0; i<number; i++){
+			System.out.println("Enter the number of shares for "+companyName[i]);
+			share[i] = StockUtility.getInt();
 
-		Scanner scanner = new Scanner(System.in);
+			System.out.println("Enter the share amount of "+companyName[i]);
+			amount[i] = StockUtility.getInt();
+		}
+		for(int i=0; i<number; i++){
 
-		System.out.println("enter the total number of companies : ");
-		int numbers=scanner.nextInt();			
+			total[i] = share[i]*amount[i];
+		}
+		System.out.println("\n");
+		
+		PrintWriter printWriter =null;
+		try {
+			printWriter = new
+					PrintWriter("/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/utility/jsonFiles/stock_report.json");
+		} catch (FileNotFoundException e1) {
+			
+			e1.printStackTrace();
+		}
 
-		for(int i=0;i<numbers;i++) {
-			JSONObject jsonObject=new JSONObject();
-			System.out.println("enter companies name/stock name : ");
-			String stock_names=scanner.next();
-			jsonObject.put("stock_names", stock_names);
-
-			System.out.println("enter companies numbers of shares ");
-			int number_of_share=scanner.nextInt();
-			jsonObject.put("number_of_share", number_of_share);
-
-			System.out.println("enter companies shares price : ");
-			int share_price=scanner.nextInt();
-			jsonObject.put("share_price", share_price);
-			int sum=0;
-			int stock_report_with_total_value=number_of_share*share_price;
-			jsonObject.put("stock_report_with_total_value", stock_report_with_total_value);
-
+		for(int i=0; i<number; i++)
+		{
+			System.out.println(" company name : "+companyName[i]+", share : "+share[i]+", amount : "+amount[i]+", total : "+total[i]);
+					JSONObject jsonObject = new JSONObject();
+			jsonObject.put("Company Name -",companyName[i]);
+			jsonObject.put("Shares -",share[i]);
+			jsonObject.put("Price -",amount[i]);
+			jsonObject.put("total -",total[i]);
 			jsonArray.add(jsonObject);
 
-
-
 		}
 
-		//
-		outerJson.put("stock", jsonArray);
-		System.out.println(outerJson);
-
-
-		String url="/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/utility/jsonFiles/stock.json";
-		File file=new File(url);
-
-		if (file.exists()) {
-
-			try {
-				FileWriter writer=new FileWriter(url);
-				writer.write(outerJson.toJSONString());
-				writer.flush();
-				writer.close();
-				System.out.println("file write successfully...");
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
-			JSONParser jsonParser=new JSONParser();
-			File file2=new File(url);
-			if(file.exists()) {
-				try {
-					JSONObject jsonObject=(JSONObject) jsonParser.parse(new FileReader(url));
-					JSONArray stock_report_with_total_value= (JSONArray) jsonObject.get("stock");
-					readingStock(stock_report_with_total_value);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-			}	
+		printWriter.write(jsonArray.toJSONString());
+		printWriter.flush();
+		printWriter.close();
+		System.out.println();
+		for(int i=0; i<number; i++){
+			totalStock+= share[i]*amount[i];
 		}
-	}
-
-	private static void readingStock(JSONArray stock_report_with_total_value) {
-		JSONObject tempObject=null;
-		Long  total_share=(long) 0;
-		for(int i=0;i<stock_report_with_total_value.size();i++) {
-			tempObject=(JSONObject) stock_report_with_total_value.get(i);
-			System.out.println("---------------------\n");
-			System.out.println(tempObject.get("stock_names") +":"+ tempObject.get("stock_report_with_total_value"));
-			Long temp=(Long) tempObject.get("stock_report_with_total_value");
-			total_share=total_share+temp;
-			//System.out.println(temp.getClass());
-			System.out.println("\n---------------------");
-
-
-		}
-		System.out.println("Total shares of companies : "+total_share);
-
+		System.out.println("Total stock is : "+totalStock);
 	}
 }
-
-

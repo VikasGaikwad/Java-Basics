@@ -265,6 +265,7 @@ public class AdressBookUtility {
 		String last_name = scanner.next();
 		boolean flag=validatePerson(first_name,last_name);
 		if(flag) {
+			System.out.println("before remove");
 			removePerson(first_name,last_name);
 			System.out.println("Person remove successfully");
 		}else {
@@ -275,7 +276,8 @@ public class AdressBookUtility {
 			}
 		}
 	}
-	public static boolean validatePerson(String first_name,String last_name) throws FileNotFoundException, IOException, ParseException {
+	public static boolean validatePerson(String firstName,String lastName) throws FileNotFoundException, IOException, ParseException {
+		System.out.println("inside in validate function1");
 		boolean flag=false;
 		File file = new File(path);
 		JSONParser parse = new JSONParser();
@@ -285,7 +287,8 @@ public class AdressBookUtility {
 		JSONObject compareObj;
 		for(int i=0;i<array.size();i++) {
 			compareObj = (JSONObject) array.get(i);
-			if((compareObj.get("FirstName").equals(first_name))&&(compareObj.get("last_name").equals(last_name))) {
+			if((compareObj.get("first_name").equals(firstName))&&(compareObj.get("last_name").equals(lastName))) {
+				System.out.println("validate object"+compareObj);
 				flag=true;
 			}
 		}
@@ -293,6 +296,7 @@ public class AdressBookUtility {
 	}
 	@SuppressWarnings("unchecked")
 	public static void removePerson(String first_name,String last_name) throws FileNotFoundException, IOException, ParseException {
+		System.out.println("in remove function");
 		File file=new File(path);
 		JSONParser jsonParser=new JSONParser();
 		Object obj=jsonParser.parse(new FileReader(file));
@@ -303,7 +307,9 @@ public class AdressBookUtility {
 		for (int i = 0; i < jsonArray.size(); i++) {
 			compareObject=(JSONObject)jsonArray.get(i);
 			if((compareObject.get("first_name").equals(first_name))&&(compareObject.get("last_name").equals(last_name))){
+				System.out.println("before remove object"+compareObject);
 				jsonArray.remove(compareObject);
+				System.out.println("in remove inside if");
 
 				addressArrayContainObj.put("book", jsonArray);
 
