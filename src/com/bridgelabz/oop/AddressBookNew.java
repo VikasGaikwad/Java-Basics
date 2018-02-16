@@ -1,15 +1,11 @@
 package com.bridgelabz.oop;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
 import org.json.simple.parser.ParseException;
 
 import com.bridgelabz.utility.AdressBookUtility;
@@ -24,7 +20,7 @@ public class AddressBookNew {
 		do {
 			System.out.println("*****************************");
 
-			System.out.println("1. Add new person"+"\n2. Delete Person"+"\n3. Sorting "+"\n4. Display");
+			System.out.println("\t1. Add new person"+"\n\t2. Delete Person"+"\n\t3. Sorting "+"\n\t4. Edit Details"+"\n\t5. Display");
 			System.out.println("*****************************");
 
 			System.out.println("select choice : ");
@@ -32,7 +28,7 @@ public class AddressBookNew {
 			switch(choice) {
 			case 1:
 				System.out.println("Adding new person\n");
-				AdressBookUtility.entryCode(path);
+				AdressBookUtility.personInfo(path);
 				break;
 			case 2:System.out.println("Delete  persons info :");
 			AdressBookUtility.delete();
@@ -43,6 +39,9 @@ public class AddressBookNew {
 				AdressBookUtility.sortJson();
 				break;
 			case 4:
+				System.out.println("Edit person info : ");
+				AdressBookUtility.edit();
+			case 5:
 				System.out.println("Displaying values from json : ");
 				AdressBookUtility.display(path);
 				break;
@@ -54,7 +53,7 @@ public class AddressBookNew {
 			ch=scanner.next().charAt(0);
 		}while(ch=='Y' ||ch=='y'); 
 
-
+scanner.close();
 	}
 
 	

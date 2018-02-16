@@ -1,1 +1,28 @@
-{"book":{"address":"pune","last_name":"vaidya","phone_number":"7868565","state":"maharashtra","first_name":"pranav","zip_code":"545656"}}
+{
+	"book": [
+		{
+			"address": "jalgaon",
+			"last_name": "fegade",
+			"phone_number": "654",
+			"state": "maharashtra",
+			"first_name": "harshal",
+			"zip_code": "54366"
+		},
+		{
+			"address": "nashik",
+			"last_name": "vaidya",
+			"phone_number": "5455666",
+			"state": "maharashtra",
+			"first_name": "nikhil",
+			"zip_code": "543535"
+		},
+		{
+			"address": "nashik",
+			"last_name": "fegade",
+			"phone_number": "65465466",
+			"state": "maharashtra",
+			"first_name": "vikas",
+			"zip_code": "1"
+		}
+	]
+}
