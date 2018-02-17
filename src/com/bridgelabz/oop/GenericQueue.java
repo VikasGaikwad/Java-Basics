@@ -1,5 +1,10 @@
 package com.bridgelabz.oop;
 
+/**
+ * @author bridgeit
+ *
+ * @param <T>
+ */
 public class GenericQueue<T> {
 
 	private int front;

@@ -12,12 +12,22 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**purpose :-this is Utility class to define all method to which needfull for AddressBook.
+ * @author bridgeit
+ * @since- 14-feb-2018
+ */
 public class AdressBookUtility {
 	static Scanner scanner=new Scanner(System.in);
 
 	static String path="/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/utility/jsonFiles/addressBook.json";
 
 
+	/**
+	 * @param paththe- path to which object is from read.
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	@SuppressWarnings("unchecked")
 	public static void personInfo(String path) throws FileNotFoundException, IOException, ParseException {
 		File file = new File(path);
@@ -130,6 +140,10 @@ public class AdressBookUtility {
 
 
 	}
+	/**
+	 * @param path-path of file on which to write data.
+	 * @param object-object of JSON Object class.
+	 */
 	public static void writeToJson(String path,JSONObject object) {
 		File file=new File(path);
 
@@ -148,6 +162,12 @@ public class AdressBookUtility {
 		}
 
 	}
+	/**
+	 * @param paththe- path to which object is from read.
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	public static void display(String path) throws FileNotFoundException, IOException, ParseException {
 
 		File file=new File(path);
@@ -178,6 +198,11 @@ public class AdressBookUtility {
 	}
 
 
+	/**	
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	public static void delete() throws FileNotFoundException, IOException, ParseException {
 
 
@@ -187,7 +212,7 @@ public class AdressBookUtility {
 		String last_name = scanner.next();
 		boolean flag=validatePerson(first_name,last_name);
 		if(flag) {
-			
+
 			removePerson(first_name,last_name);
 			System.out.println("Person remove successfully");
 		}else {
@@ -198,6 +223,14 @@ public class AdressBookUtility {
 			}
 		}
 	}
+	/**
+	 * @param firstName-get the first name as parameter
+	 * @param lastName-get the first name as parameter
+	 * @return-return person after validating.
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	public static boolean validatePerson(String firstName,String lastName) throws FileNotFoundException, IOException, ParseException {
 		System.out.println("inside in validate function1");
 		boolean flag=false;
@@ -216,6 +249,13 @@ public class AdressBookUtility {
 		}
 		return flag;
 	}
+	/**
+	 * @param firstName-get the first name as parameter
+	 * @param lastName-get the first name as parameter	
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	@SuppressWarnings("unchecked")
 	public static void removePerson(String firstName,String lastName) throws FileNotFoundException, IOException, ParseException {
 		System.out.println("in remove function");
@@ -231,7 +271,7 @@ public class AdressBookUtility {
 			if((compareObject.get("first_name").equals(firstName))&&(compareObject.get("last_name").equals(lastName))){
 				System.out.println("before remove object"+compareObject);
 				jsonArray.remove(compareObject);
-				
+
 
 				addressArrayContainObj.put("book", jsonArray);
 
@@ -244,6 +284,11 @@ public class AdressBookUtility {
 		writeToJson(path, addressArrayContainObj);
 
 	}
+	/**	
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	@SuppressWarnings({ "resource" })
 	public static void edit() throws FileNotFoundException, IOException, ParseException {
 
@@ -270,6 +315,14 @@ public class AdressBookUtility {
 	}
 
 
+	/**
+	 * @param name-first name to be check.
+	 * @param old_param-put name inside old_param
+	 * @param new_Param	-new name for old name
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	@SuppressWarnings({ "unchecked" })
 	private static void UpdateDetails(String name, String old_param, String new_Param) throws FileNotFoundException, IOException, ParseException {
 		JSONArray updateDetailsArray=new JSONArray();
@@ -288,6 +341,12 @@ public class AdressBookUtility {
 		writeToJson(path, containObject);
 
 	}
+	/**	
+	 * @return-return person after validating.
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	private static JSONArray getPresentArray() throws FileNotFoundException, IOException, ParseException {
 		File file=new File(path);
 		JSONParser parser=new JSONParser();
@@ -313,91 +372,106 @@ public class AdressBookUtility {
 		return flag;
 
 	}
+	/**	
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
 	public static void sortJson() throws FileNotFoundException, IOException, ParseException {
-	System.out.println("1.Sort By Name\t2.Sort By Zip code");
-	int choice=scanner.nextInt();
-	switch(choice) {
-	case 1:
-		sortByName();
-		System.out.println("successfully sorted by name");
-		break;
-	case 2:
-		sortByZip();
-		System.out.println("successfully sorted by zip code");
-		break;
-	default:
-	}
-}
-@SuppressWarnings({ "unchecked" })
-public static void sortByName() throws FileNotFoundException, IOException, ParseException {
-	File file=new File(path);
-	JSONParser jsonParser=new JSONParser();
-	Object obj=jsonParser.parse(new FileReader(file));
-	JSONObject outerObject=(JSONObject)obj;
-	JSONArray jsonArray=(JSONArray)outerObject.get("book");
-
-	JSONObject obj1=null;
-	JSONObject obj2=null;
-	JSONObject temp=null;
-
-	for(int i=0;i<jsonArray.size()-1;i++) {
-		for(int j=0;j<jsonArray.size()-1;j++) {
-			obj1=(JSONObject)jsonArray.get(j);
-			obj2=(JSONObject)jsonArray.get(j+1);
-
-			String n1=(String)obj1.get("first_name");
-			String n2=(String)obj2.get("first_name");
-
-			String name1=n1.toLowerCase();
-			String name2=n2.toLowerCase();
-
-			if(name1.compareTo(name2)>0) {
-				temp=(JSONObject)jsonArray.get(j);
-				jsonArray.remove(j);
-				jsonArray.add(j,obj2);//placing  obj2 to value j
-				jsonArray.remove(j+1);//now both places have [obj2,obj2] so i remove second obj2
-				jsonArray.add(j+1,temp);//adding obj2 object value at second position, which is stored in temp.
-
-			}
+		System.out.println("1.Sort By Name\t2.Sort By Zip code");
+		int choice=scanner.nextInt();
+		switch(choice) {
+		case 1:
+			sortByName();
+			System.out.println("successfully sorted by name");
+			break;
+		case 2:
+			sortByZip();
+			System.out.println("successfully sorted by zip code");
+			break;
+		default:
 		}
 	}
-	JSONObject addressArrayContainObj=new JSONObject();
-	addressArrayContainObj.put("book", jsonArray);
-	writeToJson(path, addressArrayContainObj);
-}
-@SuppressWarnings("unchecked")
-public static void sortByZip() throws FileNotFoundException, IOException, ParseException {
-	File file=new File(path);
-	JSONParser jsonParser=new JSONParser();
-	Object obj=jsonParser.parse(new FileReader(file));
-	JSONObject outerObject=(JSONObject)obj;
-	JSONArray jsonArray=(JSONArray)outerObject.get("book");
+	/**
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
+	@SuppressWarnings({ "unchecked" })
+	public static void sortByName() throws FileNotFoundException, IOException, ParseException {
+		File file=new File(path);
+		JSONParser jsonParser=new JSONParser();
+		Object obj=jsonParser.parse(new FileReader(file));
+		JSONObject outerObject=(JSONObject)obj;
+		JSONArray jsonArray=(JSONArray)outerObject.get("book");
 
-	JSONObject obj1=null;
-	JSONObject obj2=null;
-	JSONObject temp=null;
+		JSONObject obj1=null;
+		JSONObject obj2=null;
+		JSONObject temp=null;
 
-	for(int i=0;i<jsonArray.size()-1;i++) {
-		for(int j=0;j<jsonArray.size()-1;j++) {
-			obj1=(JSONObject)jsonArray.get(j);
-			obj2=(JSONObject)jsonArray.get(j+1);
+		for(int i=0;i<jsonArray.size()-1;i++) {
+			for(int j=0;j<jsonArray.size()-1;j++) {
+				obj1=(JSONObject)jsonArray.get(j);
+				obj2=(JSONObject)jsonArray.get(j+1);
 
-			String zip1=(String)obj1.get("zip_code");
-			String zip2=(String)obj2.get("zip_code");
+				String n1=(String)obj1.get("first_name");
+				String n2=(String)obj2.get("first_name");
 
+				String name1=n1.toLowerCase();
+				String name2=n2.toLowerCase();
 
-			if(zip1.compareTo(zip2)>0) {
-				temp=(JSONObject)jsonArray.get(j);
-				jsonArray.remove(j);
-				jsonArray.add(j,obj2);
-				jsonArray.remove(j+1);
-				jsonArray.add(j+1,temp);
+				if(name1.compareTo(name2)>0) {
+					temp=(JSONObject)jsonArray.get(j);
+					jsonArray.remove(j);
+					jsonArray.add(j,obj2);//placing  obj2 to value j
+					jsonArray.remove(j+1);//now both places have [obj2,obj2] so i remove second obj2
+					jsonArray.add(j+1,temp);//adding obj2 object value at second position, which is stored in temp.
 
+				}
 			}
 		}
+		JSONObject addressArrayContainObj=new JSONObject();
+		addressArrayContainObj.put("book", jsonArray);
+		writeToJson(path, addressArrayContainObj);
 	}
-	JSONObject addressArrayContainObj=new JSONObject();
-	addressArrayContainObj.put("book", jsonArray);
-	writeToJson(path, addressArrayContainObj);
-}
+	/**
+	 * @throws FileNotFoundException-exception while file is missing.
+	 * @throws IOException-exception while writing to file
+	 * @throws ParseException-exception while reading from file.
+	 */
+	@SuppressWarnings("unchecked")
+	public static void sortByZip() throws FileNotFoundException, IOException, ParseException {
+		File file=new File(path);
+		JSONParser jsonParser=new JSONParser();
+		Object obj=jsonParser.parse(new FileReader(file));
+		JSONObject outerObject=(JSONObject)obj;
+		JSONArray jsonArray=(JSONArray)outerObject.get("book");
+
+		JSONObject obj1=null;
+		JSONObject obj2=null;
+		JSONObject temp=null;
+
+		for(int i=0;i<jsonArray.size()-1;i++) {
+			for(int j=0;j<jsonArray.size()-1;j++) {
+				obj1=(JSONObject)jsonArray.get(j);
+				obj2=(JSONObject)jsonArray.get(j+1);
+
+				String zip1=(String)obj1.get("zip_code");
+				String zip2=(String)obj2.get("zip_code");
+
+
+				if(zip1.compareTo(zip2)>0) {
+					temp=(JSONObject)jsonArray.get(j);
+					jsonArray.remove(j);
+					jsonArray.add(j,obj2);
+					jsonArray.remove(j+1);
+					jsonArray.add(j+1,temp);
+
+				}
+			}
+		}
+		JSONObject addressArrayContainObj=new JSONObject();
+		addressArrayContainObj.put("book", jsonArray);
+		writeToJson(path, addressArrayContainObj);
+	}
 }

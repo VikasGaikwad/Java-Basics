@@ -1,21 +1,18 @@
 package com.bridgelabz.oop;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONAware;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
+
 import org.json.simple.parser.ParseException;
 
 import com.bridgelabz.utility.oopUtility;
 
+/**purpose: implements a data type that might be used by a financial institution 
+ * to keep track of customer information.
+ * @author bridgeit
+ *@since:10-feb-2018
+ */
 public class StockAccout {
 	static Scanner scanner=new Scanner(System.in);
 

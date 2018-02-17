@@ -2,6 +2,10 @@ package com.bridgelabz.oop;
 
 import java.util.Scanner;
 
+/**purpose:Maintain the List of CompanyShares in a Linked List. 
+ * @author bridgeit
+ *@since-:09-feb-2018
+ */
 public class CompanyShare {
 	
 

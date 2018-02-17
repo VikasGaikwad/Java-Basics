@@ -1,5 +1,9 @@
 package com.bridgelabz.oop;
 
+/**purpose-Maintain the List of CompanyShares in a Linked List
+ * @author bridgeit
+ *
+ */
 public class LinkedList {
 
 	ListNode6 head;
@@ -10,6 +14,9 @@ public class LinkedList {
 
 		return length;
 	}
+	/**
+	 * @param data-data to insert at first node in linkedlist.
+	 */
 	public void insertbegin(int data){
 
 		ListNode6 node = new ListNode6(data);
@@ -19,6 +26,9 @@ public class LinkedList {
 
 	}
 
+	/**
+	 * @param data-data to insert at last node in linkedlist.
+	 */
 	public void insertend(int data){
 
 		ListNode6 node = new ListNode6(data);
@@ -38,6 +48,11 @@ public class LinkedList {
 		}
 	}
 
+	/**
+	 * @param data-data to insert at middle node in linkedlist.
+	 * @param position-position is decide by using the position
+	 *  of first and last position.
+	 */
 	public void insertmiddle(int data, int position){
 
 		ListNode6 temp = head;
@@ -52,6 +67,9 @@ public class LinkedList {
 		length++;
 	}
 
+	/**
+	 * function used to delete at first node in linkedlist.
+	 */
 	public void deletefirstnode(){
 
 		ListNode6 temp = head;
@@ -60,6 +78,9 @@ public class LinkedList {
 		length--;
 	}
 
+	/**
+	 *  function used to delete at last node in linkedlist.
+	 */
 	public void deletelastnode(){
 
 		ListNode6 last = head;
@@ -72,6 +93,9 @@ public class LinkedList {
 		previousTolast.next = null;
 		length--;
 	}
+	/**
+	 * @param position-delete node from appropriate position.
+	 */
 	public void deletenode(int position){
 
 		if(position == 1){
@@ -83,6 +107,9 @@ public class LinkedList {
 		}
 		length--;
 	}
+	/**
+	 * function is used to print the linked list data.
+	 */
 	public void printList()
 	{
 		ListNode6 tnode = head;

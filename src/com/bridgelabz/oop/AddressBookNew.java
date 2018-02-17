@@ -10,6 +10,11 @@ import org.json.simple.parser.ParseException;
 
 import com.bridgelabz.utility.AdressBookUtility;
 
+/**purpose: Create Object Oriented Analysis and Design of a simple Address Book Problem.
+ * @since- 14-feb-2018
+ * @author bridgeit
+ *
+ */
 public class AddressBookNew {
 	
 	static Scanner scanner=new Scanner(System.in);

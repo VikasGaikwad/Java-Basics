@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.Utility;
 
+/**purpose:-Regular Expression Demonstration program.
+@since-13-feb-2018
+ * @author bridgeit
+ *
+ */
 public class RegularExpression {
 
 	private static Scanner sc= new Scanner(System.in);

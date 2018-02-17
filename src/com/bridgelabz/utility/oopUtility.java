@@ -21,6 +21,10 @@ import com.bridgelabz.oop.Stack1;
 
 public class oopUtility {
 	static Scanner scanner=new Scanner(System.in);
+	/**function is used to buy the shares.
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	@SuppressWarnings("unchecked")
 	public static void Buy() throws IOException, ParseException {
 
@@ -137,6 +141,10 @@ public class oopUtility {
 			System.out.println("File does not exits");
 		}
 	}
+	/**function is used to sell shares.
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	@SuppressWarnings("unchecked")
 	public static void sell() throws IOException, ParseException {
 
@@ -247,6 +255,10 @@ public class oopUtility {
 			System.out.println("File does not exits");
 		}
 	}
+	/**function is used to display the user data from json file
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	public static void display() throws IOException, ParseException {
 
 		FileReader reader1 = new
@@ -273,6 +285,10 @@ public class oopUtility {
 			System.out.println("-----------------------------------------");
 		}
 	}
+	/**function is used to create the new user
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	@SuppressWarnings("unchecked")
 	public static void createUser() throws IOException, ParseException{
 
@@ -323,6 +339,10 @@ public class oopUtility {
 
 		}
 	}
+	/**
+	 * @param suits-types of card.
+	 * @param ranks-total cards with their rank.
+	 */
 	public static void deckOfCards(String[] suits, String[] ranks) {
 		String array[][] = new String[4][9];
 
@@ -333,10 +353,10 @@ public class oopUtility {
 		for (int i = 0; i < ranks.length; i++) {
 			for (int j = 0; j < suits.length; j++) {
 				deck[suits.length * i + j] = ranks[i] + " " + suits[j];
-				
-				
+
+
 			}
-			
+
 		}
 
 		for (int i = 0; i < numberOfCards; i++) {
@@ -356,15 +376,20 @@ public class oopUtility {
 			System.out.println("\n");
 		}
 	}
+	/**
+	 * @param suits-types of card.
+	 * @param ranks-total cards with their rank.
+	 */
+	
 	public static void deckOfCardsQueue(String[] suits, String[] ranks) {
 
 		String array[][] = new String[4][9];
 
-		
+
 		int numberOfCards = suits.length * ranks.length;
 		String[] deck = new String[numberOfCards];
 
-	
+
 		for (int i = 0; i < ranks.length; i++) {
 			for (int j = 0; j < suits.length; j++) {
 				deck[suits.length * i + j] = ranks[i] + "->" + suits[j];
@@ -372,7 +397,7 @@ public class oopUtility {
 			}
 		}
 
-	
+
 		for (int i = 0; i < numberOfCards; i++) {
 			int random = i + (int) (Math.random() * (numberOfCards - i));
 			String temp = deck[random];

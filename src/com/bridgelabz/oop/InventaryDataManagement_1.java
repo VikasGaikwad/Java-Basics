@@ -12,6 +12,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**purpose:JSON Inventory Data Management of Rice, Pulses and Wheats and
+ *  The Inventory Manager will use InventoryFactory to create Inventory Object from JSON.
+ * @author bridgeit
+ *@since-10-feb-2018
+ */
 public class InventaryDataManagement_1 {
 
 	@SuppressWarnings({ "unchecked", "unused", "resource" })
@@ -98,6 +103,9 @@ public class InventaryDataManagement_1 {
 		}
 
 	}
+	/**function is used to read wheat data
+	 * @param wheatArray
+	 */
 	private static void readWheats(JSONArray wheatArray) {
 		JSONObject tempObj=null;
 		for(int i=0;i<wheatArray.size();i++) {
@@ -111,6 +119,9 @@ public class InventaryDataManagement_1 {
 			
 		}
 	}
+/**function is used to read pulse data
+ * @param pulsesArray
+ */
 private static void readPulses(JSONArray pulsesArray) {
 	JSONObject tempObj=null;
 	for(int i=0;i<pulsesArray.size();i++) {
@@ -124,6 +135,9 @@ private static void readPulses(JSONArray pulsesArray) {
 		
 	}
 	}
+/**function is used to rice wheat data
+ * @param riceArray
+ */
 private static void readRice(JSONArray riceArray) {
 	JSONObject tempObj=null;
 	for(int i=0;i<riceArray.size();i++) {
