@@ -47,12 +47,12 @@ public class Bank {
 			}
 			if(number==0)
 			{
-				System.out.println("thankyou for banking");
+				System.out.println("thank you for banking");
 				
 			}
 			else
 			{
-				System.out.println("enter a valid input ");
+				System.out.println("Enter your Choice.. ");
 			}
 		}
 

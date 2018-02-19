@@ -1530,10 +1530,16 @@ public class Utility {
 				return Arrays.equals(charFromWord, charFromAnagram);
 
 			}
+			/**
+			 * @param message-getting string from Expression class to change with expression.
+			 * @param strToBeReplace-accept the pattern which is to be changed.
+			 * @param replceStr-replace the string with new pattern.
+			 * @return-return the message
+			 */
 			public static String replaceMent(String message,String strToBeReplace,String replceStr) {
-				String msg = message;
-				Pattern pat = Pattern.compile(strToBeReplace);
-				Matcher matcher = pat.matcher(msg);
+				
+				Pattern pattern = Pattern.compile(strToBeReplace);
+				Matcher matcher = pattern.matcher(message);
 				while(matcher.find()) {
 					message = matcher.replaceAll(matcher.quoteReplacement(replceStr));
 				}

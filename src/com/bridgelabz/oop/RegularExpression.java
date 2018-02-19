@@ -18,25 +18,28 @@ public class RegularExpression {
 	private static String[] pattern = { "<full name>", "<name>", "xxxxxxxxxx", "01/01/2016" };
 	private static String message = "Hello <name>,\nWe have your fullname as <full name> in our system. \n"
 			+ "Your contact number is 91-xxxxxxxxxx. \n" + "Please,let us know in case of any clarification \n"
-			+ "Thankyou BridgeLabz \n01/01/2016.";
+			+ "Thankyou BridgeLabz \n01/01/2018.";
 	private static String[] replacePattern = new String[pattern.length];
 	
 	
 	public static void main(String args[]) {
 		int index=0;
 		Expression exp = new Expression();
+		
 		System.out.println("Enter a full name:");
 		String fullName = sc.nextLine();
-		exp.setFullName(fullName);
-		replacePattern[index++]=exp.getfullName();
+		
+		replacePattern[index++]=fullName;
+		
 		System.out.println("Enter name:");
+		
 		String name = sc.nextLine();
-		exp.setName(name);
-		replacePattern[index++]=exp.getName();
+		replacePattern[index++]= name;
+		
 		System.out.println("Enter mobile no:");
-		String mob = sc.nextLine();
-		exp.setPhoneNumber(mob);
-		replacePattern[index++]=exp.getPhoneNumber();
+		String mobile = sc.nextLine();
+		replacePattern[index++]=mobile;
+		
 		Date dt = new Date();
 		SimpleDateFormat sm =new SimpleDateFormat("DD/MM/YY");
 		replacePattern[index++]=sm.format(dt);

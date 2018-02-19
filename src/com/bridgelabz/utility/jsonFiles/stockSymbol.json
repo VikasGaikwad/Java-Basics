@@ -1,8 +1,1 @@
-[
-	{
-		"Company Name": "vikas",
-		"total": 2823638,
-		"Price": 65666,
-		"Shares": 43
-	}
-]
+[{"amount":500,"stock_Symbol":"@","Count":811},{"amount":1000,"stock_Symbol":"#","Count":550},{"amount":1500,"stock_Symbol":"!","Count":539}]

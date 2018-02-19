@@ -18,9 +18,7 @@ public class StockAccout {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IOException, ParseException {
-
-
-		//Utility utility = new Utility();
+	
 		int choice;
 		System.out.println();
 		

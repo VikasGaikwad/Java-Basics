@@ -22,8 +22,8 @@ import com.bridgelabz.oop.Stack1;
 public class oopUtility {
 	static Scanner scanner=new Scanner(System.in);
 	/**function is used to buy the shares.
-	 * @throws IOException
-	 * @throws ParseException
+	 * @throws IOException-throws exception while reading/writing file.
+	 * @throws ParseException-occure when reading file.
 	 */
 	@SuppressWarnings("unchecked")
 	public static void Buy() throws IOException, ParseException {
@@ -185,7 +185,7 @@ public class oopUtility {
 						if
 						(obj1.get("stock_Symbol").equals(symbol))
 						{
-							System.out.println("Enter the	amount");
+							System.out.println("Enter the amount");
 							int ammount = scanner.nextInt();
 
 							int bal =
@@ -197,14 +197,10 @@ public class oopUtility {
 							int stockShare =
 									Integer.parseInt(obj1.get("Count").toString());
 
-							int numofshare = ammount /
-									price;
+							int numofshare = ammount /price;
 							int newbal = bal + ammount;
-							int sharecountcus = noShare -
-
-									numofshare;
-							int sharecountstock = stockShare
-									+ numofshare;
+							int sharecountcus = noShare -numofshare;
+							int sharecountstock = stockShare+ numofshare;
 
 							obj.remove("amount");
 							obj.remove("number_Share");
@@ -221,7 +217,7 @@ public class oopUtility {
 					}
 
 					System.out.println();
-					System.out.println("Your shares sell successfully on...");
+					System.out.println("Your shares sold successfully ...");
 
 					Queue queue = new Queue();
 					Stack1 stack1 = new Stack1();
@@ -361,6 +357,7 @@ public class oopUtility {
 
 		for (int i = 0; i < numberOfCards; i++) {
 			int random = i + (int) (Math.random() * (numberOfCards - i));
+			System.out.println(random);
 			String temp = deck[random];
 			deck[random] = deck[i];
 			deck[i] = temp;
@@ -380,7 +377,7 @@ public class oopUtility {
 	 * @param suits-types of card.
 	 * @param ranks-total cards with their rank.
 	 */
-	
+
 	public static void deckOfCardsQueue(String[] suits, String[] ranks) {
 
 		String array[][] = new String[4][9];

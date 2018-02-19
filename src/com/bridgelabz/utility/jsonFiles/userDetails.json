@@ -1,12 +1,1 @@
-[
-	{
-		"amount": 5455,
-		"user_Name": "vikas",
-		"number_Share": 5555
-	},
-	{
-		"amount": 10000,
-		"user_Name": "nikhil",
-		"number_Share": 5000
-	}
-]
+[{"amount":5255,"user_Name":"vikas","number_Share":5555},{"amount":14000,"user_Name":"nikhil","number_Share":4998},{"amount":5999,"user_Name":"raja","number_Share":45}]

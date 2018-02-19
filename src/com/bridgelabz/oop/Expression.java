@@ -11,7 +11,7 @@ public class Expression {
 	private String name;
 	private String phoneNumber;
 
-	/**method is used to define full name
+	/**method is used to set full name using setter().
 	 * @param fullName
 	 */
 	
