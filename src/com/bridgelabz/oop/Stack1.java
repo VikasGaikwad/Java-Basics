@@ -2,8 +2,6 @@ package com.bridgelabz.oop;
 
 import java.util.EmptyStackException;
 
-import com.bridgelabz.oop.Stack1.Node;
-
 public class Stack1 {
 
 	public class Node{

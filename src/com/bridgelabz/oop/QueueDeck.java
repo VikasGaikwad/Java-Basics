@@ -2,24 +2,17 @@ package com.bridgelabz.oop;
 
 public class QueueDeck
 {
-	//linked list variables
-	private Node front, rear; 
-	
 	//variable to check size 
 	private int size;
 
 	//linked list Node contains data and next
 	private class Node
-	{ 
-		String data;
-		Node next;
+	{
 	} 
 	
 	//constructor of queue
 	public QueueDeck()
 	{
-		front = null;
-		rear = null;
 		size = 0;
 	}
 	
@@ -32,18 +25,12 @@ public class QueueDeck
 	//inserting data to queue
 	public void push(String data)
 	{
-		Node previous = rear;
-		rear = new Node();
-		rear.data = data;
-		rear.next = null;
-		
+		new Node();
 		if (isEmpty()) 
 		{
-			front = rear;
 		}
 		else 
 		{
-			previous.next = rear;
 		}
 		size++;
 		System.out.println(data);

@@ -2,8 +2,6 @@ package com.bridgelabz.algorithmprograms;
 
 import java.util.Scanner;
 
-import javax.swing.SortingFocusTraversalPolicy;
-
 import com.bridgelabz.utility.Utility;
 
 public class ToBinaryNibble {
@@ -13,6 +11,7 @@ public class ToBinaryNibble {
 		System.out.println("enter the integer value : ");
 		int integer=scanner.nextInt();
 		Utility.intToBinary(integer);
+		scanner.close();
 	}
 
 }

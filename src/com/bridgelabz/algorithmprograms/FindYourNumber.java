@@ -1,7 +1,5 @@
 package com.bridgelabz.algorithmprograms;
 
-import java.util.Scanner;
-
 import com.bridgelabz.utility.Utility;
 
 /**purpose : class defines, find the number which is 

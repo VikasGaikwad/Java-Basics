@@ -11,11 +11,12 @@ public class LeapYear
 
 	public static void main(String [] args)
 	{
-		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
+	
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the year : ");
-		int year=sc.nextInt();
-		utility.isLeapYear(year);
+		int year=scanner.nextInt();
+		Utility.isLeapYear(year);
+		scanner.close();
 
 
 	}	

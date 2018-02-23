@@ -11,12 +11,13 @@ import com.bridgelabz.utility.Utility;
  */
 public class FlipCoin {
 	public static void main(String[] args) {
-		//FlipCoin fc=new FlipCoin();
+	
 		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("how many times do you want to flip the coin");
-		int times=sc.nextInt();
+		int times=scanner.nextInt();
 		utility.flipCoins(times);
+		scanner.close();
 
 	}
 

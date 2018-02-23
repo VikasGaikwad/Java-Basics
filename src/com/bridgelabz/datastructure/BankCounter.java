@@ -4,10 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-import javax.xml.namespace.QName;
-
-import com.bridgelabz.utility.Utility;
-
 public class BankCounter {
 	
 
@@ -32,9 +28,9 @@ public class BankCounter {
 	}
 		while(queue.size()>0)
 		{
-			Bank bank = new Bank(queue.poll(),Integer.parseInt(queue.poll()),Integer.parseInt(queue.poll()));
+			Bank bank = new Bank(queue.poll(),Integer.parseInt(queue.poll()),Integer.parseInt(queue.poll()), null);
 			bank.process();
 		}
-
+scanner.close();
 }
 }

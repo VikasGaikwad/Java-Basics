@@ -4,15 +4,16 @@ import java.util.*;
 public class MonthPay{
 
 	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter value of Principal Loan Amount (P) :");
-		double P = sc.nextDouble();
+		double P = scanner.nextDouble();
 		System.out.println("Enter years (Y) :");
-		double Y = sc.nextDouble();
+		double Y = scanner.nextDouble();
 		System.out.println("Enter monthly interest in percentage (R) :");
-		double R = sc.nextDouble();
+		double R = scanner.nextDouble();
 		
 		System.out.println("Monthly Payment is : "+String.format("%.2f",(Example.mothlyPayment(P,Y,R))));
+		scanner.close();
 	}
 }	
 class Example{	

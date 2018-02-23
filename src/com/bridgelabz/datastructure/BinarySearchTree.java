@@ -20,8 +20,7 @@ public class BinarySearchTree{
 		
 }
 	public static void main(String[] args) {
-		BinarySearchTree obj=new BinarySearchTree();
-		Scanner scanner=new Scanner(System.in);
+		Scanner scanner=new Scanner(System.in);	
 		System.out.println("enter the value to search passible binary trees : ");
 		long number=scanner.nextLong();
 		scanner.close();

@@ -53,8 +53,9 @@ public class CompanyShare {
 				System.out.println("Wrong Entry \n ");
 				break;
 			}
-
+			scanner.close();
 		}
+		
 	}
 
 }

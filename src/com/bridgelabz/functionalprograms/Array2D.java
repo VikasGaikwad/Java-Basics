@@ -14,7 +14,7 @@ import com.bridgelabz.utility.Utility;
  */
 public class Array2D {
 	public static void main(String[] args) {
-		Utility utility=new Utility();
+	
 
 		int rows = 0, columns = 0, choice;
 
@@ -44,7 +44,7 @@ public class Array2D {
 				for (int i = 0; i < rows; i++)
 					for (int j = 0; j < columns; j++)
 						integer[i][j] = scanner.nextInt();
-				utility.print2DArray(integer, rows, columns);
+				Utility.print2DArray(integer, rows, columns);
 				break;
 
 			case 2:
@@ -52,7 +52,7 @@ public class Array2D {
 				for (int i = 0; i < rows; i++)
 					for (int j = 0; j < columns; j++)
 						doubles[i][j] = scanner.nextDouble();
-				utility.print2DArray(doubles, rows, columns);
+				Utility.print2DArray(doubles, rows, columns);
 				break;
 
 			case 3:
@@ -60,7 +60,7 @@ public class Array2D {
 				for (int i = 0; i < rows; i++)
 					for (int j = 0; j < columns; j++)
 						booleans[i][j] = scanner.nextBoolean();
-				utility.print2DArray(booleans, rows, columns);
+				Utility.print2DArray(booleans, rows, columns);
 				break;
 			}
 
@@ -68,18 +68,4 @@ public class Array2D {
 		scanner.close();
 	}
 
-	
-
-	/*public static <T> void print2DArray(T[][] arrayElements, int rows, int columns) {
-		PrintWriter writer = new PrintWriter(System.out);
-
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
-				writer.print(arrayElements[i][j] + " ");
-				writer.flush();
-			}
-			System.out.println();
-		}
-
-	}*/
 }

@@ -10,7 +10,7 @@ public class Bank {
 	static public int Bankbalance=2000;
 	Scanner scanner = new Scanner(System.in);
 
-	public Bank(String Name,int Accno,int balance) {
+	public Bank(String Name,int Accno,int balance, String name) {
 
 		this.name= name;
 		this.Accno = Accno;
@@ -85,7 +85,7 @@ public class Bank {
 	public void deposite(int amount)
 	{
 		balance+=amount;
-		this.Bankbalance+=amount;
+		Bank.Bankbalance+=amount;
 		System.out.println(amount+"is added to A/c No "+Accno+" new balance "+balance);
 	}
 

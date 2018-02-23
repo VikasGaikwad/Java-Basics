@@ -16,45 +16,44 @@ import java.util.regex.Pattern;
 
 
 
-/**
+/**purpose: This class is used to define the all functions.
  * @author bridgeit
  * @since:19 sep 2018
  */
 public class Utility {
-	public static void scannerInt(int x) {
-		Scanner scanner=new Scanner(System.in);
+
+	static Scanner scanner=new Scanner(System.in);
+	public static int scannerInt(int x) {		
 		int number=scanner.nextInt();
+		return number;
 	}
-	public static void scannerString(File file) {
-		Scanner scanner=new Scanner(System.in);
+	public static String scannerString(String stringFind) {
 		String string=scanner.next();
-	}
-
-	public static void scannerdouble(double x) {
-		Scanner scanner=new Scanner(System.in);
-		double doubleValue=scanner.nextDouble();
-	}
-
-
+		return string;
+	}		
 	/**
-	 * Function to replace the String.
-	 * 
-	 * @param str1
-	 * @param str2
+	 * @return the starting time.
 	 */
-	public static Scanner scanner=new Scanner(System.in);
 	public static long startTime() {
 		long a = System.nanoTime();
 		elapsedTime(a, a);
 		return a;
 	}
 
+	/**
+	 * @return the end time
+	 */
 	public static long endTime() {
 		long b = System.nanoTime();
 		elapsedTime(b, b);
 		return b;
 	}
 
+	/**
+	 * @param a- start time
+	 * @param b- end time
+	 * @return-returns the elapsed time.
+	 */
 	public static long elapsedTime(long a, long b) {
 		long elapsedTime = b - a;
 		System.out.println("Time require to call method in millis: " + (elapsedTime / 1000) / 60);
@@ -62,6 +61,10 @@ public class Utility {
 
 	}
 
+	/**
+	 * @param str1-old string
+	 * @param str2-new string
+	 */
 	public static void stringReplace(String str1, String str2) {
 		System.out.println(str1.replaceAll("<<UserName>>", str2));
 
@@ -114,8 +117,8 @@ public class Utility {
 	/**
 	 * Function to calculate the power of given integer number.
 	 * 
-	 * @param value
-	 * @return power
+	 * @param value-integer value
+	 * @return power-power of integer value.
 	 */
 	public static int powerOfTwo(int value) {
 		System.out.println("the power of 2^" + value + " is " + (Math.pow(2, value)));
@@ -168,21 +171,18 @@ public class Utility {
 	/**
 	 * Function Print Number of Wins and Percentage of Win and Loss. .
 	 * 
-	 * @param stake
-	 * @param goal
-	 * @param trial
+	 * @param stake-initial value of money
+	 * @param goal-target value of money
+	 * @param trial- total trial to play the game.
 	 */
 	public static void gambler(int stake, int goal, int trial) {
-		int win = 0;
-		int bet = 0;
+		int win = 0;		
 		int lose = 0;
 		for (int i = 0; i < trial; i++) {
 			int cash = stake;
 
 			while ((cash > 0) && (cash < goal)) {
-				double r = Math.random();
-
-				bet++;
+				
 				if (Math.random() > .5)
 					cash++;
 
@@ -207,9 +207,9 @@ public class Utility {
 	/**
 	 * Function to print array elements.
 	 * 
-	 * @param arrayElements
-	 * @param rows
-	 * @param columns
+	 * @param arrayElements-size of array elements
+	 * @param rows-size of rows
+	 * @param columns-size of columns
 	 */
 	public static <T> void print2DArray(T[][] arrayElements, int rows, int columns) {
 		PrintWriter writer = new PrintWriter(System.out);
@@ -227,7 +227,7 @@ public class Utility {
 	/**
 	 * Function for finding triplets from entered values.
 	 * 
-	 * @param arr
+	 * @param arr-total size of array elements.
 	 */
 	public static void sumOfThree(int[] arr) {
 		int count = 0;
@@ -251,10 +251,10 @@ public class Utility {
 	}
 
 	/**
-	 * Function to check the distance from origin origin.
+	 * Function to check the distance from origin .
 	 * 
-	 * @param X
-	 * @param Y
+	 * @param X-x origin
+	 * @param Y-y origin
 	 */
 	public static void distance(int X, int Y) {
 		double ans = Math.sqrt(Math.pow(X, 2) + Math.pow(Y, 2));
@@ -264,53 +264,51 @@ public class Utility {
 	/**
 	 * function to calculate the Quadratic value.
 	 * 
-	 * @param a
-	 * @param b
-	 * @param c
+	 * @param a-value a
+	 * @param b-value b
+	 * @param c-value c
 	 */
 	public static void quadratic(double a, double b, double c) {
 		double delta = (b * b) - (4 * a * c);
 		System.out.println(delta);
 		double X1 = (-b + Math.sqrt(delta) / (2 * a));
-		double X2 = (-b - Math.sqrt(delta) / (2 * a));
-		float xx = (int) X1;
+		double X2 = (-b - Math.sqrt(delta) / (2 * a));		
 		System.out.println("Root 1 of X :" + X1);
 		System.out.println("Root 2 of X :" + X2);
-		// return 0;
+
 	}
 
 	/**
 	 * To fix the first position element and pass remaining string to the same
 	 * function
 	 * 
-	 * @param l
-	 * @param r
+	 * @param l-left value
+	 * @param r-right value
 	 */
-	public void permute(String str, int l, int r) {
-		if (l == r) {
-			System.out.println("l==r :");
+	public void permute(String str, int left, int right) {
+		if (left == right) {
+			System.out.println("left==right :");
 			System.out.println(str);
 		} else {
-			for (int i = l; i <= r; i++) {
+			for (int i = left; i <= right; i++) {
 				System.out.println("Before swap :" + str);
-				str = swap(str, l, i);
+				str = swap(str, left, i);
 				System.out.println("After swap :" + str);
-				permute(str, l + 1, r);
+				permute(str, left + 1, right);
 
 			}
 		}
 	}
 
 	/**
-	 * @param To
-	 *            interchanging the position of i and j
+	 * @param To interchanging the position of i and j
 	 * @param i
 	 * @param j
 	 * @return
 	 */
-	public String swap(String a, int i, int j) {
+	public String swap(String string, int i, int j) {
 		char temp;
-		char[] charArray = a.toCharArray();
+		char[] charArray = string.toCharArray();
 		temp = charArray[i];
 		charArray[i] = charArray[j];
 		charArray[j] = temp;
@@ -318,11 +316,12 @@ public class Utility {
 	}
 
 	/**
-	 * Function for Comparing chacractors of two String.
-	 * 
-	 * @param string1
-	 * @param string2
-	 *            desc- replaceAll() is used to remove all the white spaces.
+	 * Function for Comparing characters of two String.
+	 * @param string1-user input string
+	 * @param string2-user input string
+	 * Disc- replaceAll() is used to remove all the white spaces.
+	 * 		toCharArray() is used to convert the string into character array.
+	 * 		sort()-used to sort the characters in ascending order.
 	 */
 	public static void anagram(String string1, String string2) {
 		String whitespace1 = string1.replaceAll("\\s", "");
@@ -340,63 +339,7 @@ public class Utility {
 		}
 	}
 
-	/**
-	 * Function to display prime numbers in given range.
-	 * 
-	 * @param x
-	 */
-	/*
-	 * public static void primeNumber(int x) { int arr_anagram[]=new int[1000]; int
-	 * k=0; for (int i = 2; i < x; i++) { boolean checkPrime = true; for (int j = 2;
-	 * j < i; j++) { if (i % j == 0) { checkPrime = false; break; } }
-	 * 
-	 * if (checkPrime) { arr_anagram[k]=i; k++; System.out.println(i + " ");
-	 * 
-	 * }
-	 * 
-	 * } }
-	 */
 
-	/**
-	 * Function to check given number is prime or not.
-	 * 
-	 * @param x
-	 */
-	/*
-	 * public static boolean checkPrime(int x) { int count = 0; for (int i = 1; i <=
-	 * x; i++) { if (x % i == 0) { count++; } } if (count == 2) return true; return
-	 * false; }
-	 */
-
-	/**
-	 * Function to check the prime number is prime or not
-	 * 
-	 * @param x
-	 */
-	/*
-	 * public static void paliPrime(int x) { for (int i = 1; i <= x; i++) { int
-	 * count = 0; for (int j = 1; j <= i; j++) { if (i % j == 0) { count++;
-	 * 
-	 * } } if (count == 2) {
-	 * 
-	 * int num = i; int rev = 0; int sum = 0; while (num > 0) { rev = num % 10; sum
-	 * = (sum * 10) + rev; num = num / 10; } if (sum == i) { System.out.println();
-	 * System.out.print(i + " ");
-	 * 
-	 * } }
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
-
-	/**
-	 * Funtion is defined entered two numbers/strings are anagram or not.
-	 * 
-	 * @param anagram1
-	 * @param anagram2
-	 * @return
-	 */
 	public static boolean anagramDetection(String anagram1, String anagram2) {
 
 		char char1[] = anagram1.toCharArray();
@@ -415,12 +358,12 @@ public class Utility {
 	/**
 	 * Function to define the number is prime or not.
 	 * 
-	 * @param start
-	 * @return
+	 * @param number-to check weather the number is prime or not.
+	 * @return- it returns the prime number.
 	 */
-	public static String isPrimeNumber(int start) {
+	public static String isPrimeNumber(int number) {
 		String primeNumber = "";
-		for (int i = 1; i <= start; i++) {
+		for (int i = 1; i <= number; i++) {
 			int counter = 0;
 			for (int num = i; num >= 1; num--) {
 				if (i % num == 0) {
@@ -434,15 +377,14 @@ public class Utility {
 		return primeNumber;
 	}
 
-	/**
-	 * Function defines the number is Palindrome or not.
-	 * 
-	 * @param arraysAnagram
+
+	/**Function defines the number is Palindrome or not.
+	 * @param palindromeString-user input number.
 	 */
-	public static void palindrom(String[] arraysAnagram) {
-		int[] numbers = new int[arraysAnagram.length];
-		for (int i = 0; i < arraysAnagram.length; i++) {
-			numbers[i] = Integer.parseInt(arraysAnagram[i]);
+	public static void palindrom(String[] palindromeString) {
+		int[] numbers = new int[palindromeString.length];
+		for (int i = 0; i < palindromeString.length; i++) {
+			numbers[i] = Integer.parseInt(palindromeString[i]);
 		}
 		int temp, reverse_num, rem = 0, i = 0, num = 0;
 		while (i < numbers.length) {
@@ -463,8 +405,8 @@ public class Utility {
 	/**
 	 * Function to calculate the windchill
 	 * 
-	 * @param T
-	 * @param V
+	 * @param T-temperature
+	 * @param V-value
 	 */
 	public static void windChill(double T, double V) {
 
@@ -479,7 +421,7 @@ public class Utility {
 	 * Function defines that outputs the binary (base 2) representation of the
 	 * decimal number typed as the input.
 	 * 
-	 * @param num
+	 * @param num-binary number
 	 */
 	public static void toBinary(int num) {
 		String binary = Integer.toBinaryString(num);
@@ -517,21 +459,17 @@ public class Utility {
 	 * 
 	 */
 	public static void findYournumber() {
-		Scanner sc = new Scanner(System.in);
-
 		System.out.println("Enter a num for range");
-
-		int N = (int) Math.pow(2, sc.nextInt());
+		int N = (int) Math.pow(2, scanner.nextInt());
 		int range = N - 1;
 		System.out.println("Think num between " + 0 + " to " + range);
-
 		int low = 0;
 		int high = range;
 		int mid = (low + high) / 2;
 		while (low != mid) {
 
 			System.out.println("Is your num present in " + low + " To " + mid + " Enter True or False");
-			boolean flag = sc.nextBoolean();
+			boolean flag = scanner.nextBoolean();
 			if (flag == true) {
 
 				high = mid;
@@ -543,14 +481,14 @@ public class Utility {
 			}
 		}
 		System.out.println("Which one is our num " + low + " or " + high);
-		int ans = sc.nextInt();
+		int ans = scanner.nextInt();
 		System.out.println("Your Num is " + ans);
 	}
 
 	/**
 	 * Function is used to convert integer to Binary
 	 * 
-	 * @param integer
+	 * @param integer-user input integer number.
 	 */
 	public static void intToBinary(int integer) {
 		String as = Integer.toBinaryString(integer);
@@ -558,14 +496,12 @@ public class Utility {
 		nibbleCounting(as);
 	}
 
-	/**
-	 * Function is defined for conversion of Binary to integer
-	 * 
-	 * @param as
+	/**Function is defined for conversion of Binary to integer
+	 * @param binaryNumber-user input binary number.
 	 */
-	public static void binaryToInt(String as) {
-		int x = Integer.parseInt(as, 2);
-		System.out.println("\n Binary to decimal : " + Integer.parseInt(as, 2));
+	public static void binaryToInt(String binaryNumber) {
+		int x = Integer.parseInt(binaryNumber, 2);
+		System.out.println("\n Binary to decimal : " + Integer.parseInt(binaryNumber, 2));
 		if (resultantPowerOfTwo(x))
 			System.out.println("Yes");
 		else
@@ -576,11 +512,11 @@ public class Utility {
 	/**
 	 * Function is used to sorting the integer array using merge sort.
 	 * 
-	 * @param a
-	 * @param low
-	 * @param high
+	 * @param number-integer number which we want to find
+	 * @param low-starting index of array
+	 * @param high-end index of array
 	 */
-	public static void sort(int[] a, int low, int high)
+	public static void sort(int[] number, int low, int high)
 
 	{
 
@@ -594,9 +530,9 @@ public class Utility {
 
 		// recursively sort
 
-		sort(a, low, mid);
+		sort(number, low, mid);
 
-		sort(a, mid, high);
+		sort(number, mid, high);
 
 		// merge two sorted subarrays
 
@@ -610,52 +546,48 @@ public class Utility {
 
 			if (i == mid)
 
-				temp[k] = a[j++];
+				temp[k] = number[j++];
 
 			else if (j == high)
 
-				temp[k] = a[i++];
+				temp[k] = number[i++];
 
-			else if (a[j] < a[i])
+			else if (number[j] < number[i])
 
-				temp[k] = a[j++];
+				temp[k] = number[j++];
 
 			else
 
-				temp[k] = a[i++];
+				temp[k] = number[i++];
 
 		}
 
 		for (int k = 0; k < N; k++)
 
-			a[low + k] = temp[k];
+			number[low + k] = temp[k];
 
 	}
 
 	/**
 	 * Function is defined to swap the nibble of Binary stream.
 	 * 
-	 * @param as
+	 * @param string-user input string which having binary values
 	 */
-	public static void nibbleCounting(String as) {
-		char[] array = as.toCharArray();
-		while (as.length() != 8) {
-			as = 0 + as;
-
+	public static void nibbleCounting(String string) {	
+		while (string.length() != 8) {
+			string = 0 + string;
 		}
 		int j = 4;
-		char[] array1 = as.toCharArray();
-		for (int i = 0; i < array1.length / 2; i++) {
-			char temp = array1[i];
-			array1[i] = array1[j];
-			array1[j] = temp;
+		char[] array = string.toCharArray();
+		for (int i = 0; i < array.length / 2; i++) {
+			char temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
 			j++;
 		}
-
 		System.out.println("\n after swapping nibble : ");
-		System.out.println(array1);
-
-		String array3 = String.valueOf(array1);
+		System.out.println(array);
+		String array3 = String.valueOf(array);
 		binaryToInt(array3);
 
 	}
@@ -663,50 +595,50 @@ public class Utility {
 	/**
 	 * Function is defined to check the int number is resultant power of two or not.
 	 * 
-	 * @param x
-	 * @return
+	 * @param number-user input integer number.
+	 * @return-returns the resultant power of two.
 	 */
-	public static boolean resultantPowerOfTwo(int x) {
-		if (x == 0)
+	public static boolean resultantPowerOfTwo(int number) {
+		if (number == 0)
 			return false;
 
-		while (x != 1) {
-			if (x % 2 != 0)
+		while (number != 1) {
+			if (number % 2 != 0)
 				return false;
-			x = x / 2;
+			number = number / 2;
 		}
-		if (x % 2 != 0)
+		if (number % 2 != 0)
 			System.out.println("Yes");
 		else
 			System.out.println("No");
 		return true;
 
 	}
-	/**funtion reads the file from file manager.
-	 * 
+
+	/**function reads the file from system.
+	 * @param file-path/location of file.
 	 */
 	public static void readFile(File file) {
 		try {
-			//File file=new File("/home/bridgeit/Documents/Programs/Java Basics/src/Unoredered.txt");
 			BufferedReader bufferedReader=new BufferedReader(new FileReader(file));
 			String  words=bufferedReader.readLine();
 			fileDataList(words);
-
+			bufferedReader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	/**function used to writing data to the file.
-	 * @param linkedlist
+	 * @param linkedlist-LinkedList class's object.
 	 */
-	public static void writeFile(LinkedList linkedlist) {
+	public static void writeFile(LinkedList<String> linkedlist) {
 		try {
 			FileWriter fileWriter=new FileWriter("/home/bridgeit/Documents/Programs/Java Basics/src/Unoredered.txt");
 			for(int i=0;i<linkedlist.size();i++) {
 				String addWord=linkedlist.get(i)+" ";
 				fileWriter.write(addWord);
 				fileWriter.flush();
-				//fileWriter.close();
+				fileWriter.close();
 
 			}
 
@@ -715,33 +647,29 @@ public class Utility {
 			System.out.println(e);
 		}
 	}
-	/**function used to list the data from file.
-	 * @param words
+	/**function used to read the data from file.
+	 * @param string-user input string.
 	 */
-	public static void fileDataList(String words) {
-		String [] string=words.split(" ");
-		for(String element:string) {
+	public static void fileDataList(String string) {
+		String [] word=string.split(" ");
+		for(String element:word) {
 			System.out.println(element);
 		}
 		LinkedList<String> linkedlist=new LinkedList<String>();
-		for(int i=0;i<string.length;i++)
+		for(int i=0;i<word.length;i++)
 		{
-			linkedlist.add(string[i]);
+			linkedlist.add(word[i]);
 
 
 		}
 		System.out.println(linkedlist);
 		searchFromFile(linkedlist);
 	}
-	/**function used to search the int from file.
-	 * @param linkedlist
-	 */
-	/**
-	 * @param linkedlist
-	 */
-	@SuppressWarnings({ "unchecked", "resource" })
-	public static void searchFromFile(@SuppressWarnings("rawtypes") LinkedList linkedlist) {
-		Scanner scanner=new Scanner(System.in);
+	/**function used to search the integer value from file.
+	 * @param linkedlist-object of LinkedList Class.
+	 */	
+	public static void searchFromFile(LinkedList<String> linkedlist) {
+	
 		System.out.println("enter the word to search from file : ");
 		String search=scanner.nextLine();
 		boolean found = true;
@@ -753,21 +681,16 @@ public class Utility {
 				linkedlist.remove(search);
 				writeFile(linkedlist);
 				break;
-
 			}
-
 		}
-
 		if(found == true) {
 
 			linkedlist.add(search);
 			writeFile(linkedlist);
-
 		}
-
 	}
-	/**function used to sread values from file.
-	 * @param file
+	/**function used to read values from file.
+	 * @param file-location of file.
 	 */
 	public static void readFromFile(File file) {
 		try {
@@ -776,21 +699,24 @@ public class Utility {
 			String  words=bufferedReader.readLine();
 
 			filesDataList(words);
-
+			bufferedReader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	public static void filesDataList(String words) {
-		String [] string=words.split(" ");
-		Arrays.sort(string);
-		for(String element:string) {
+	/**function used to read data from file.
+	 * @param string-user input string.
+	 */
+	public static void filesDataList(String string) {
+		String [] word=string.split(" ");
+		Arrays.sort(word);
+		for(String element:word) {
 			System.out.println(element);
 		}
 		LinkedList<String> linkedlist=new LinkedList<String>();
-		for(int i=0;i<string.length;i++)
+		for(int i=0;i<word.length;i++)
 		{
-			linkedlist.add(string[i]);
+			linkedlist.add(word[i]);
 
 
 		}
@@ -800,9 +726,9 @@ public class Utility {
 	/**function used to search the int from file.
 	 * @param linkedlist
 	 */
-	@SuppressWarnings({ "unchecked", "resource" })
-	public static void searchingFromFile(@SuppressWarnings("rawtypes") LinkedList linkedlist) {
-		Scanner scanner=new Scanner(System.in);
+
+	public static void searchingFromFile(LinkedList<String> linkedlist) {
+		
 		System.out.println("enter the number to search from file : ");
 		String search=scanner.nextLine();
 		boolean found = true;
@@ -814,23 +740,18 @@ public class Utility {
 				linkedlist.remove(search);
 				writeToFile(linkedlist);
 				break;
-
 			}
-
 		}
-
 		if(found == true) {
-
 			linkedlist.add(search);
 			writeToFile(linkedlist);
-
 		}
 
 	}
 	/**function used to write data to file.
-	 * @param linkedlist
+	 * @param linkedlist-object of LinkedList class.
 	 */
-	public static void writeToFile(LinkedList linkedlist) {
+	public static void writeToFile(LinkedList<String> linkedlist) {
 		try {
 			FileWriter fileWriter=new FileWriter("/home/bridgeit/Documents/Programs/Java Basics/src/com/bridgelabz/datastructure/int.txt");
 			for(int i=0;i<linkedlist.size();i++) {
@@ -838,7 +759,7 @@ public class Utility {
 				fileWriter.write(addWord);
 
 				fileWriter.flush();
-				//fileWriter.close();
+				fileWriter.close();
 
 			}
 
@@ -848,24 +769,23 @@ public class Utility {
 		}
 	}
 	/**function is used to check parenthesis.
-	 * @param exp
-	 * @param stk
+	 * @param expression-user input mathematical expression.
+	 * @param stack-putting open parenthesis in stack.
 	 */
-	public static void balanceParanthesis(String exp, Stack<Integer> stk)
+	public static void balanceParanthesis(String expression, Stack<Integer> stack)
 	{
-		int length = exp.length();
+		int length = expression.length();
 
 		System.out.println("\nMatches and Mismatches:\n");
 		for (int i = 0; i < length; i++) 
 		{
-			char ch = exp.charAt(i);
+			char ch = expression.charAt(i);
 			if (ch == '(')
-				stk.push(i);
+				stack.push(i);
 
 			else if (ch == ')') 
 			{
-				try {
-					int p = stk.pop();
+				try {					
 					System.out.println("parenthes is matched");
 				} catch (Exception e) 
 				{
@@ -873,25 +793,26 @@ public class Utility {
 				}
 			}
 		}
-		while (!stk.isEmpty()) {
-			System.out.println((stk.pop()) + " is un matched");
+		while (!stack.isEmpty()) {
+			System.out.println((stack.pop()) + " is un matched");
 		}
-}
+	}
 	/*
 	 * This Function calls All Sorting algorithm
 	 * @param string[]
 	 * @param int []
 	 */
 	public static void callAlgos(String[] sTring, int[] iNteger) 
-	{
-		// TODO Auto-generated method stub
+	{		
+		
 		String [] algoArray = {"binarySearchString","binarySearchInt","insertionSortString","insertionSortInt","bubbleSortString","bubbleSortInt"};
 		double elapsedTime[] = new double[algoArray.length];
 		double startTime,endTime,eTime=0;
 		int k=0;
 		startTime = System.nanoTime();
 		System.out.println("Enter The String That You Want To Find");
-		String stringFind = scanner.next();
+		String stringFind = null ;
+		scannerString(stringFind);
 		if(Utility.binarySearchString(Utility.bubbleSortString(sTring),stringFind))
 			System.out.println("Found");
 		else
@@ -900,10 +821,11 @@ public class Utility {
 		eTime = (endTime-startTime)*Math.pow(10, -9);
 		System.out.println("Time required to do binary search of String is = "+eTime+" seconds");
 		elapsedTime[k++] = eTime;
-		
+
 		startTime = System.nanoTime();
 		System.out.println("Enter The value That You Want To Find");
-		int findNumber = scanner.nextInt();
+		int findNumber = 0;
+		scannerInt(findNumber);
 		if(Utility.binarySearchInt(Utility.bubbleSortInt(iNteger),findNumber))
 			System.out.println("Found");
 		else
@@ -912,29 +834,29 @@ public class Utility {
 		eTime = (endTime-startTime)*Math.pow(10, -9);
 		System.out.println("Time required to do binary search of Integers is = "+eTime+" seconds");
 		elapsedTime[k++] = eTime;
-		
+
 		startTime = System.nanoTime();
 		Utility.insertionSortString(sTring);
 		endTime  = System.nanoTime();
 		eTime = (endTime-startTime)*Math.pow(10, -9);
 		System.out.println("Time required to do insertion Sort of String is = "+eTime+" seconds");
 		elapsedTime[k++] = eTime;
-		
+
 		startTime = System.nanoTime();
 		Utility.insertionSortInt(iNteger);
 		endTime  = System.nanoTime();
 		eTime = ((endTime-startTime)*Math.pow(10, -9));
 		System.out.println("Time required to do insertion Sort of Integers is = "+eTime+" seconds");
 		elapsedTime[k++] = eTime;
-		
+
 		startTime = System.nanoTime();
 		Utility.bubbleSortString(sTring);
 		endTime  = System.nanoTime();
 		eTime = (endTime-startTime)*Math.pow(10, -9);
 		System.out.println("Time required to do bubble Sort of String is = "+eTime+" seconds");
 		elapsedTime[k++] = eTime;
-		
-		
+
+
 		startTime = System.nanoTime();
 		Utility.bubbleSortInt(iNteger);
 		endTime  = System.nanoTime();
@@ -945,12 +867,12 @@ public class Utility {
 	}
 	/*
 	 * To arrange elapsedtime of each sorting method
-	 * @param elapsedTime[]
-	 * @param algoArray[]  
+	 * @param elapsedTime[]-total time of execution of method.
+	 * @param algoArray[]-array with its parameter.
 	 */
 	public static void sortElapsedTime(double []elapsedTime,String[]algoArray) 
 	{
-		// TODO Auto-generated method stub
+	
 		int i,j;
 		for(i=0;i<elapsedTime.length;i++)
 		{
@@ -967,587 +889,532 @@ public class Utility {
 					algoArray[i] = algoArray[j];
 					algoArray[j] = temp1;
 				}
-			 
+
 			}
-			
+
 		}
 		System.out.println("Sorted Array In Ascending Order:");
 		for(i=elapsedTime.length-1;i>=0;i--)
 		{
 			System.out.println(algoArray[i]+" = "+elapsedTime[i]);
 		}
-		
+
 	}
-	 /*
-	  * binarySearchString function to read string and find whether the user 
-	  * expected word is there in the string or not
-	  */
-	 public static boolean binarySearchString(String [] city,String key)
-	 {
-		 int i,j;
-			int len = city.length; 
-			for(i=0;i<city.length;i++)
-			{
-				for(j=i+1;j<city.length;j++)
-				{
-					if(city[i].compareTo(city[j])>0)
-					{
-						String str;
-						str = city[i];
-						city[i] = city[j];
-						city[j] = str;
-					}
-				}
-			}
-			for(i=0;i<len ;i++)
-			{
-				System.out.print(city[i]+" ");
-			}
-			System.out.println();
-			int mid = len/2,start = 0,end = len-1;
-			for(i=0;i<len ;i++)
-			{
-				int num;
-				num=key.compareTo(city[mid]);
-				if(num==0)
-				{	
-					return true;
-					
-				}
-				else if (num<0)
-				{
-					end = mid--; 
-					mid = (start+end)/2;
-				}		
-				else
-				{
-					start = mid++;
-					mid = (start+end)/2;
-				}
-			}
-			return false; 
-		}
-			
-		/*
-		 *function is used to Bubble Sort for Integers
-		 */
 
-		public static int[] bubbleSortInt(int[] iNteger) 
+	/** binarySearchString function to read string and find whether the user 
+	 * expected word is there in the string or not
+	 * @param string-user input string value.
+	 * @param key-its a word which is to be find from string.
+	 * @return-returns true if found, else false. 
+	 */
+	public static boolean binarySearchString(String [] string,String key)
+	{
+		int i,j;
+		int len = string.length; 
+		for(i=0;i<string.length;i++)
 		{
-			// TODO Auto-generated method stub
-			for(int i = 0;i<iNteger.length;i++)
+			for(j=i+1;j<string.length;j++)
 			{
-				for(int j = i+1;j<iNteger.length;j++)
+				if(string[i].compareTo(string[j])>0)
 				{
-					if(iNteger[j]<iNteger[i])
-					{
-						int temp = iNteger[i];
-						iNteger[i] = iNteger[j] ;
-						iNteger[j] = temp;
-					}
+					String str;
+					str = string[i];
+					string[i] = string[j];
+					string[j] = str;
 				}
 			}
-			System.out.println("Sorted Array Of BubbleSort:");
-			for(int i = 0;i<iNteger.length;i++)
-			{
-				System.out.print( iNteger[i]+"   ");
-			}
-			System.out.println();
-			return iNteger;
 		}
-		
-		/*
-		 * function is used to Bubble Sort for Strings
-		 */
-		public static String[] bubbleSortString(String[] sTring) 
+		for(i=0;i<len ;i++)
 		{
-			// TODO Auto-generated method stub
-			for(int i = 0;i<sTring.length;i++)
-			{
-				for(int j = i+1;j<sTring.length;j++)
-				{
-					if(sTring[j].compareTo(sTring[i])<0)
-					{
-						String temp = sTring[i];
-						sTring[i] = sTring[j] ;
-						sTring[j] = temp;
-					}
-				}
-			}
-			System.out.println("Sorted Array Of BubbleSort:");
-			for(int i = 0;i<sTring.length;i++)
-			{
-				System.out.print( sTring[i]+"   ");
-			}
-			System.out.println();	
-			return sTring;
+			System.out.print(string[i]+" ");
 		}
-		/*
-		 * function is used to Insertion Sort for Integers
-		 */
-
-		public static void insertionSortInt(int[] iNteger) 
+		System.out.println();
+		int mid = len/2,start = 0,end = len-1;
+		for(i=0;i<len ;i++)
 		{
-			// TODO Auto-generated method stub
-			int i,j;
-			
-			for(j=1;j<iNteger.length;j++)
-			{
-				i = j-1;  
-				while(i>=0)
-				{
-					if(iNteger[j]<(iNteger[i]))
-					{
-						int  str;
-						str = iNteger[j];
-						iNteger[j] = iNteger[i];
-						iNteger[i] = str;
-					}
-					i--;
-				}
-				
-			}
-			System.out.println("Sorted Array Of Insertion Sort:");
-			for(i = 0;i<iNteger.length;i++)
-			{
-				System.out.print( iNteger[i]+"   ");
-			}
-			System.out.println();
-		}
-		/*function is used to soerting the string using insertion sort
-		 * 
-		 */
-		public static void insertionSortString(String[] string) 
-		{
-			// TODO Auto-generated method stub
-			int i,j;
-			for(i = 1;i<string.length;i++) 
-			{
-				for(j =i;j>0;j--) 
-				{
-					if(string[j].compareTo(string[j-1])<0) 
-					{
-						 String temp = string[j];
-						 string[j] = string[j-1];
-						 string[j-1] = temp;
-					}
-				}
-			}
-			
-			for(i=0;i<string.length;i++)
-				System.out.print(string[i]+" ");
-			System.out.println();
-		}
-		/*function is used to search the binary integer range.
-		 * binary Search for Integers
-		 */
-		public static boolean binarySearchInt(int[] iNteger,int key) 
-		{
-			// TODO Auto-generated method stub
-			
-			int i,j;
-			
-			int mid = iNteger.length/2,start = 0,end = iNteger.length-1;
-			for(i=0;i<iNteger.length ;i++)
-			{
-				if(key==iNteger[mid])
-				{
-					return true;
-					
-				}else if(key<iNteger[mid])
-				{
-					end = mid-1; 
-					mid = (start+end)/2;
-				}
-				else
-				{
-					start = mid+1;
-					mid = (start+end)/2;
-				}
-			}
-
-			return false;
-}
-		/**function will check the year is leap or not
-		 * @param year
-		 * @return
-		 */
-		public static boolean LeapYear(int year)
-		{
-			if(year%400 == 0||year%4 == 0 && year%100!=0)
+			int num;
+			num=key.compareTo(string[mid]);
+			if(num==0)
+			{	
 				return true;
+
+			}
+			else if (num<0)
+			{
+				end = mid--; 
+				mid = (start+end)/2;
+			}		
 			else
-				return false;
-			
-		}
-		/**function is defined for display the actual 
-		 * date of calander.
-		 * @param d
-		 * @param m
-		 * @param y
-		 * @return
-		 */
-		public static int weekDay(int d,int m,int y)
-		{
-			int y1=0,x,m1,d1;
-			y1 = y - (14 - m) / 12;
-			x = y1 + y1/4 -y1/100 + y1/400;
-			m1 = m + 12 * ((14 - m) / 12) - 2;
-			d1 = (d+ x + 31*m1 / 12) % 7;
-			return d1;
-			
-		}
-		/**function is used to diaplay the calander using queue.
-		 * @param month
-		 * @param year
-		 */
-		public static void queueCalender(int month, int year)
-		{
-			// TODO Auto-generated method stub
-			int count=0;
-			int number =1;
-			LinkedListQueue<LinkedListQueue<String>> queue = new LinkedListQueue<LinkedListQueue<String>>();
-			for(int i=0;i<6;i++) 
 			{
+				start = mid++;
+				mid = (start+end)/2;
+			}
+		}
+		return false; 
+	}
+
+
+
+	/**function is used to sorting numbers using Bubble Sort.
+	 * @param iNteger-user input integer numbers.
+	 * @return-sorted numbers in ascending order.
+	 */
+	public static int[] bubbleSortInt(int[] intNumber) 
+	{
+		for(int i = 0;i<intNumber.length;i++)
+		{
+			for(int j = i+1;j<intNumber.length;j++)
+			{
+				if(intNumber[j]<intNumber[i])
+				{
+					int temp = intNumber[i];
+					intNumber[i] = intNumber[j] ;
+					intNumber[j] = temp;
+				}
+			}
+		}
+		System.out.println("Sorted Array Of BubbleSort:");
+		for(int i = 0;i<intNumber.length;i++)
+		{
+			System.out.print( intNumber[i]+"   ");
+		}
+		System.out.println();
+		return intNumber;
+	}
+
+
+	/**function is used to Bubble Sort for Strings
+	 * @param string-user input string
+	 * @return-returns sorted string in ascending order.
+	 */
+	public static String[] bubbleSortString(String[] string) 
+	{
+		for(int i = 0;i<string.length;i++)
+		{
+			for(int j = i+1;j<string.length;j++)
+			{
+				if(string[j].compareTo(string[i])<0)
+				{
+					String temp = string[i];
+					string[i] = string[j] ;
+					string[j] = temp;
+				}
+			}
+		}
+		System.out.println("Sorted Array Of BubbleSort:");
+		for(int i = 0;i<string.length;i++)
+		{
+			System.out.print( string[i]+"   ");
+		}
+		System.out.println();	
+		return string;
+	}
+
+	/**function is used to Insertion Sort for Integers
+	 * @param numbers-user input numbers.
+	 */
+	public static void insertionSortInt(int[] numbers) 	{
+		int i,j;
+
+		for(j=1;j<numbers.length;j++)
+		{
+			i = j-1;  
+			while(i>=0)
+			{
+				if(numbers[j]<(numbers[i]))
+				{
+					int  str;
+					str = numbers[j];
+					numbers[j] = numbers[i];
+					numbers[i] = str;
+				}
+				i--;
+			}
+
+		}
+		System.out.println("Sorted Array Of Insertion Sort:");
+		for(i = 0;i<numbers.length;i++)
+		{
+			System.out.print( numbers[i]+"   ");
+		}
+		System.out.println();
+	}
+
+	/**function is used to sorting the string using insertion sort
+	 * @param string-user input string .
+	 */
+	public static void insertionSortString(String[] string) 
+	{		
+		int i,j;
+		for(i = 1;i<string.length;i++) 
+		{
+			for(j =i;j>0;j--) 
+			{
+				if(string[j].compareTo(string[j-1])<0) 
+				{
+					String temp = string[j];
+					string[j] = string[j-1];
+					string[j-1] = temp;
+				}
+			}
+		}
+
+		for(i=0;i<string.length;i++)
+			System.out.print(string[i]+" ");
+		System.out.println();
+	}
+
+	/**function is used to search the binary number by given key.
+	 * @param numbers-user input binary numbers.
+	 * @param key-key number which is to be found.
+	 * @return-if found return true,else return false.
+	 */
+	public static boolean binarySearchInt(int[] numbers,int key) 
+	{
+		int i;
+
+		int mid = numbers.length/2,start = 0,end = numbers.length-1;
+		for(i=0;i<numbers.length ;i++)
+		{
+			if(key==numbers[mid])
+			{
+				return true;
+
+			}else if(key<numbers[mid])
+			{
+				end = mid-1; 
+				mid = (start+end)/2;
+			}
+			else
+			{
+				start = mid+1;
+				mid = (start+end)/2;
+			}
+		}
+
+		return false;
+	}
+	/**function will check the year is leap or not
+	 * @param year in integer format
+	 * @return- return true if year is leap , else return false.
+	 */
+	public static boolean LeapYear(int year)
+	{
+		if(year%400 == 0||year%4 == 0 && year%100!=0)
+			return true;
+		else
+			return false;
+
+	}
+
+	/**function is defined for display the actual date of calendar.
+	 * @param date-integer value date
+	 * @param month-integer value month
+	 * @param year-integer value year.
+	 * @return date.
+	 */
+	public static int weekDay(int date,int month,int year)
+	{
+		int y1=0,x,m1,d1;
+		y1 = year - (14 - month) / 12;
+		x = y1 + y1/4 -y1/100 + y1/400;
+		m1 = month + 12 * ((14 - month) / 12) - 2;
+		d1 = (date+ x + 31*m1 / 12) % 7;
+		return d1;
+
+	}
+	/**function is used to display the calendar using queue.
+	 * @param month-user input month in integer.
+	 * @param year-user input year in integer.
+	 */
+	public static void queueCalender(int month, int year)
+	{
+		int count=0;
+		int number =1;
+		LinkedListQueue<LinkedListQueue<String>> queue = new LinkedListQueue<LinkedListQueue<String>>();
+		for(int i=0;i<6;i++) 
+		{
 			queue.enqueue(new LinkedListQueue<String>());
-			}
-			//to return the day where we will start the month
-			int day=weekDay(number,month, year);
-			//making a Queue to store the days of the week
-			queue.getAtPosition(0).enqueue("sun");
-			queue.getAtPosition(0).enqueue("mon");
-			queue.getAtPosition(0).enqueue("tue");
-			queue.getAtPosition(0).enqueue("wed");
-			queue.getAtPosition(0).enqueue("thr");
-			queue.getAtPosition(0).enqueue("fri");
-			queue.getAtPosition(0).enqueue("sat");
-			
-			//array list for number of days that a month carries
-			int []daysOfTheMonths = {0,31,28,31,30,31,30,31,31,30,31,30,31};
-			String[] months = {"",                              
-			           "January", "February", "March","April", "May", "June","July", "August", "September",
-			           "October", "November", "December"
-			       		};
-			//Setting feb as 29 if the year is leap
-			if(LeapYear(year)&& month==2)
-				daysOfTheMonths[2]=29;
-			
-			for(int j = 1; j < 7; j++ ) 
-			{
-				for(int k =0;k<7;k++) 
-				{
-					if(count < day) 
-					{
-						queue.getAtPosition(j).enqueue("   ");
-						count++;
-					}
-					else if(number<=daysOfTheMonths[month]) 
-					{
-						if(number<10)
-							queue.getAtPosition(j).enqueue(" "+Integer.toString(number++)+" ");
-						else
-						queue.getAtPosition(j).enqueue(Integer.toString(number++)+" ");
-					}
-				}
-		    }
-			System.out.println(" "+months[month]+" "+year);
-			for(int i=0;i<6;i++) 
-			{
-				for(int j =0;j<7;j++)
-				{
-					String date =queue.getAtPosition(i).dequeue();
-					if(date==null)
-					{
-						break;
-					}
-					System.out.print(" "+date);
-				}
-				System.out.println();
-			}
 		}
-		 
-			/**function is used to store the queue in stack and dispaly 
-			 * the calander..
-			 * @param month
-			 * @param year
-			 */
-			public static void stackCalender(int month, int year) 
+		//to return the day where we will start the month
+		int day=weekDay(number,month, year);
+		//making a Queue to store the days of the week
+		queue.getAtPosition(0).enqueue("sun");
+		queue.getAtPosition(0).enqueue("mon");
+		queue.getAtPosition(0).enqueue("tue");
+		queue.getAtPosition(0).enqueue("wed");
+		queue.getAtPosition(0).enqueue("thr");
+		queue.getAtPosition(0).enqueue("fri");
+		queue.getAtPosition(0).enqueue("sat");
+
+		//array list for number of days that a month carries
+		int []daysOfTheMonths = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+		String[] months = {"",                              
+				"January", "February", "March","April", "May", "June","July", "August", "September",
+				"October", "November", "December"
+		};
+		//Setting feb as 29 if the year is leap
+		if(LeapYear(year)&& month==2)
+			daysOfTheMonths[2]=29;
+
+		for(int j = 1; j < 7; j++ ) 
+		{
+			for(int k =0;k<7;k++) 
 			{
-					// TODO Auto-generated method stub
-				int count=0;
-				int number =1;
-				int indexCounter =0;
-				int loopCounter =0;
-				LinkedListStack<String> stack1=new LinkedListStack<>();
-				LinkedListStack<String> stack2 = new LinkedListStack<String>();
-				String []weekDays = {"sun","mon","tue","wed","thr","fri","sat"};
-				
-				//array list for number of days that a month carries
-				int []daysMonth = {0,31,28,31,30,31,30,31,31,30,31,30,31};
-						
-				//Setting feb as 29 if the year is leap
-				if(LeapYear(year) && month==2)
-					daysMonth[2]=29;
-				
-				//to return the day where we will start the month
-				int day=weekDay(number,month, year);		
-				
-				//for(int i = 0; i < 7; i++ ) {
-				while(count < day) {
-					stack1.push("   ");
-				    count++;
+				if(count < day) 
+				{
+					queue.getAtPosition(j).enqueue("   ");
+					count++;
 				}
-				while(number<=daysMonth[month]) 
+				else if(number<=daysOfTheMonths[month]) 
 				{
 					if(number<10)
-						stack1.push(" "+Integer.toString(number++)+" ");
+						queue.getAtPosition(j).enqueue(" "+Integer.toString(number++)+" ");
 					else
-						stack1.push(Integer.toString(number++)+" ");
-				}
-				//to make sure that printing array doesnt runs out of loop
-				indexCounter =count+(number-1);
-				
-				//moving elements from one stack to another
-				for(int i=stack1.size()-1;i>=0;i--) 
-				{
-					stack2.push(stack1.pop());
-				}
-				
-				//Displaying the Calander
-				//month and year
-				System.out.println(" "+daysMonth[month]+" "+year);
-				//days of the week
-				for (int i = 0; i < weekDays.length; i++) 
-				{
-					System.out.print(" "+weekDays[i]);
-				}
-				System.out.println();
-				for(int i =0;i<6;i++) 
-				{
-					for(int j=0;j<7;j++) 
-					{
-						if(loopCounter==indexCounter)
-							break;
-						System.out.print(" "+stack2.pop());
-						loopCounter++;
-					}
-					System.out.println();
+						queue.getAtPosition(j).enqueue(Integer.toString(number++)+" ");
 				}
 			}
-			/**function is used to print prime numbers using 2D array
-			 * @param startOfRange
-			 * @param endOfRange
-			 */
-			public static void print2DArray(int startOfRange, int endOfRange) {
-				int start = 0;
-				int end = 100;
-				ArrayList<ArrayList<Integer>> arraylist = new ArrayList<ArrayList<Integer>>();
-				for (int i = 0; i < 10; i++) {
-					arraylist.add(new ArrayList<Integer>());
-				}
-				for (int i = 0; i < 10; i++) {
-					for (int j = start; j <= endOfRange; j++) {
-						if (checkPrimeNumber(j) && j > start && j <= end)
-							arraylist.get(i).add(j);
-					}
-					start += 100;
-					end += 100;
-				}
-				for (int i = 0; i < 10; i++) {
-					for (int j = 0; j < arraylist.get(i).size(); j++) {
-						System.out.print(arraylist.get(i).get(j) + " ");
-					}
-					System.out.println();
-				}
-			}
-			/**function is used to check the prime numbers.
-			 * @param number
-			 * @return
-			 */
-			public static boolean checkPrimeNumber(int number) {
-				boolean isPrime=false;
-				int count=0;
-				if (number < 2)
-				{
-					return false;
-				} else {
-					int temp;
-					for (int i = 2; i <= number / 2; i++) {
-						temp = number % i;
-						if (temp == 0) {
-							return false;
-
-						}
-					}
-					return true;
-				}
-
 		}
-			/**function is used add number in 2D array
-			 * @param size
-			 */
-			public static void twoDAnagram(int size) {
-
-				int number = size;
-				boolean check3, check2, check1;
-				@SuppressWarnings("unused")
-				int k = 1;
-				int temp =100;
-				for (int i = 11; i < size; i++)
+		System.out.println(" "+months[month]+" "+year);
+		for(int i=0;i<6;i++) 
+		{
+			for(int j =0;j<7;j++)
+			{
+				String date =queue.getAtPosition(i).dequeue();
+				if(date==null)
 				{
-					for (int j = i + 1; j < number - 1; j++)
-					{
-						check3 = anagramNum(i, j);
-						check1 = primeNum(i);
-						check2 = primeNum(j);
-
-						if (check3 && check2 && check1) 
-						{
-
-							if(j>temp){
-								System.out.println();
-								temp = temp+100;
-							}
-							System.out.print(" " + i + " ");
-							System.out.print(" " + j + " ");
-
-						}
-
-					}
+					break;
 				}
-				System.out.println();
+				System.out.print(" "+date);
 			}
-			/**function is used to check the numbr is prime or not
-			 * @param num
-			 * @return
-			 */
-			public static boolean primeNum(int num) {
+			System.out.println();
+		}
+	}
 
-				if (num < 2)
-				{
+	/**function is used to store the queue in stack and display 
+	 * the calendar..
+	 * @param month-user input integer value month
+	 * @param year-user input integer value year
+	 */
+	public static void stackCalender(int month, int year) 
+	{	
+		int count=0;
+		int number =1;
+		int indexCounter =0;
+		int loopCounter =0;
+		LinkedListStack<String> stack1=new LinkedListStack<>();
+		LinkedListStack<String> stack2 = new LinkedListStack<String>();
+		String []weekDays = {"sun","mon","tue","wed","thr","fri","sat"};	
+		int []daysMonth = {0,31,28,31,30,31,30,31,31,30,31,30,31};		
+		if(LeapYear(year) && month==2)
+			daysMonth[2]=29;	
+		int day=weekDay(number,month, year);		
+		while(count < day) {
+			stack1.push("   ");
+			count++;
+		}
+		while(number<=daysMonth[month]) 
+		{
+			if(number<10)
+				stack1.push(" "+Integer.toString(number++)+" ");
+			else
+				stack1.push(Integer.toString(number++)+" ");
+		}		
+		indexCounter =count+(number-1);
+
+		for(int i=stack1.size()-1;i>=0;i--) 
+		{
+			stack2.push(stack1.pop());
+		}
+
+		System.out.println(" "+daysMonth[month]+" "+year);
+
+		for (int i = 0; i < weekDays.length; i++) 
+		{
+			System.out.print(" "+weekDays[i]);
+		}
+		System.out.println();
+		for(int i =0;i<6;i++) 
+		{
+			for(int j=0;j<7;j++) 
+			{
+				if(loopCounter==indexCounter)
+					break;
+				System.out.print(" "+stack2.pop());
+				loopCounter++;
+			}
+			System.out.println();
+		}
+	}
+	/**function is used to print prime numbers using 2D array
+	 * @param startOfRange-user input to get minimum value range.
+	 * @param endOfRange-user input to get maximum value range.
+	 */
+	public static void print2DArray(int startOfRange, int endOfRange) {
+		int start = 0;
+		int end = 100;
+		ArrayList<ArrayList<Integer>> arraylist = new ArrayList<ArrayList<Integer>>();
+		for (int i = 0; i < 10; i++) {
+			arraylist.add(new ArrayList<Integer>());
+		}
+		for (int i = 0; i < 10; i++) {
+			for (int j = start; j <= endOfRange; j++) {
+				if (checkPrimeNumber(j) && j > start && j <= end)
+					arraylist.get(i).add(j);
+			}
+			start += 100;
+			end += 100;
+		}
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < arraylist.get(i).size(); j++) {
+				System.out.print(arraylist.get(i).get(j) + " ");
+			}
+			System.out.println();
+		}
+	}
+	/**function is used to check the prime numbers.
+	 * @param number-user input integer number.
+	 * @return-return true if number is prime, else return false.
+	 */
+	public static boolean checkPrimeNumber(int number) {	
+		if (number < 2)
+		{
+			return false;
+		} else {
+			int temp;
+			for (int i = 2; i <= number / 2; i++) {
+				temp = number % i;
+				if (temp == 0) {
 					return false;
-				} else {
-					int temp;
-					for (int i = 2; i <= num / 2; i++) {
-						temp = num % i;
-						if (temp == 0) {
-							return false;
 
-						}
+				}
+			}
+			return true;
+		}
+
+	}
+	/**function is used add number in 2D array
+	 * @param size-size if array in integer
+	 */
+	public static void twoDAnagram(int size) {
+
+		int number = size;
+		boolean check3, check2, check1;
+		@SuppressWarnings("unused")
+		int k = 1;
+		int temp =100;
+		for (int i = 11; i < size; i++)
+		{
+			for (int j = i + 1; j < number - 1; j++)
+			{
+				check3 = anagramNum(i, j);
+				check1 = primeNum(i);
+				check2 = primeNum(j);
+
+				if (check3 && check2 && check1) 
+				{
+
+					if(j>temp){
+						System.out.println();
+						temp = temp+100;
 					}
-					return true;
+					System.out.print(" " + i + " ");
+					System.out.print(" " + j + " ");
+
 				}
 
 			}
+		}
+		System.out.println();
+	}
+	/**function is used to check the number is prime or not
+	 * @param num-user input integer number
+	 * @return-return true if number is prime, else return false.
+	 */
+	public static boolean primeNum(int num) {
 
-			/**function is used to check the anagram
-			 * @param num
-			 * @param num1
-			 * @return
-			 */
-			public static boolean anagramNum(int num, int num1) {
-				String str1 = "";
-				String str2 = "";
-				str1 = String.valueOf(num);
-				str2 = String.valueOf(num1);
-				char[] charFromWord = str1.toCharArray();
-				char[] charFromAnagram = str2.toCharArray();
-				Arrays.sort(charFromWord);
-				Arrays.sort(charFromAnagram);
-				return Arrays.equals(charFromWord, charFromAnagram);
-
-			}
-			/**function is used to check the the number
-			 * inside the queue is anagram or not
-			 * @param size
-			 */
-			public static void twoDAnagramQueue(int size) {
-				Queue queue = new Queue();
-				int number = size;
-				boolean status2, status, status1;
-				int k = 1;
-				int temp =100;
-				for (int i = 11; i < size; i++)
-				{
-					for (int j = i + 1; j < number - 1; j++)
-					{
-						status2 = anagramNumQueue(i, j);
-						status1 = primeNumQueue(i);
-						status = primeNumQueue(j);
-						
-						if (status2 && status && status1) 
-						{
-		 
-
-							queue.enqueue(i);
-
-							queue.enqueue(j);
-							
-						}
-
-					}
-				}
-				queue.print();
-				
-			}
-			/**function is used to check the prime number from queue
-			 * @param num
-			 * @return
-			 */
-			public static boolean primeNumQueue(int num) {
-				
-				if (num < 2)
-				{
+		if (num < 2)
+		{
+			return false;
+		} else {
+			int temp;
+			for (int i = 2; i <= num / 2; i++) {
+				temp = num % i;
+				if (temp == 0) {
 					return false;
-				} else {
-					int temp;
-					for (int i = 2; i <= num / 2; i++) {
-						temp = num % i;
-						if (temp == 0) {
-							return false;
 
-						}
-					}
-					return true;
+				}
+			}
+			return true;
+		}
+
+	}
+
+	/**function is used to check the entered two numbers are anagram or not.
+	 * @param number1-user enter integer number.
+	 * @param num1-user entered integer number.
+	 * @return-return true if number is prime, else return false.
+	 */
+	public static boolean anagramNum(int number1, int number2) {
+		String str1 = "";
+		String str2 = "";
+		str1 = String.valueOf(number1);
+		str2 = String.valueOf(number2);
+		char[] charFromWord = str1.toCharArray();
+		char[] charFromAnagram = str2.toCharArray();
+		Arrays.sort(charFromWord);
+		Arrays.sort(charFromAnagram);
+		return Arrays.equals(charFromWord, charFromAnagram);
+
+	}
+	/**function is used to check the the number
+	 * inside the queue is anagram or not
+	 * @param size-size of queue.
+	 */
+	public static void twoDAnagramQueue(int size) {
+		Queue queue = new Queue();
+		int number = size;
+		boolean status2, status, status1;		
+		for (int i = 11; i < size; i++)
+		{
+			for (int j = i + 1; j < number - 1; j++)
+			{
+				status2 = anagramNum(i, j);
+				status1 = primeNum(i);
+				status = primeNum(j);
+
+				if (status2 && status && status1) 
+				{
+					queue.enqueue(i);
+
+					queue.enqueue(j);
+
 				}
 
 			}
+		}
+		queue.print();
 
-			/**function is used to check the anagram number from queue
-			 * @param num
-			 * @param num1
-			 * @return
-			 */
-			public static boolean anagramNumQueue(int num, int num1) {
-				String str1 = "";
-				String str2 = "";
-				str1 = String.valueOf(num);
-				str2 = String.valueOf(num1);
-				char[] charFromWord = str1.toCharArray();
-				char[] charFromAnagram = str2.toCharArray();
-				Arrays.sort(charFromWord);
-				Arrays.sort(charFromAnagram);
-				return Arrays.equals(charFromWord, charFromAnagram);
+	}
 
-			}
-			/**
-			 * @param message-getting string from Expression class to change with expression.
-			 * @param strToBeReplace-accept the pattern which is to be changed.
-			 * @param replceStr-replace the string with new pattern.
-			 * @return-return the message
-			 */
-			public static String replaceMent(String message,String strToBeReplace,String replceStr) {
-				
-				Pattern pattern = Pattern.compile(strToBeReplace);
-				Matcher matcher = pattern.matcher(message);
-				while(matcher.find()) {
-					message = matcher.replaceAll(matcher.quoteReplacement(replceStr));
-				}
-				return message;
-			}
-			
+	/**
+	 * @param message-getting string from Expression class to change with expression.
+	 * @param strToBeReplace-accept the pattern which is to be changed.
+	 * @param replceStr-replace the string with new pattern.
+	 * @return-return the message
+	 */
+	public static String replaceMent(String message,String strToBeReplace,String replceStr) {
+
+		Pattern pattern = Pattern.compile(strToBeReplace);
+		Matcher matcher = pattern.matcher(message);
+		while(matcher.find()) {
+			message = matcher.replaceAll(Matcher.quoteReplacement(replceStr));
+		}
+		return message;
+	}
+
 
 }
 
-			
-			
+
+

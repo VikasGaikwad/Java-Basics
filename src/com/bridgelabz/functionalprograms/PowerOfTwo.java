@@ -16,11 +16,12 @@ public class PowerOfTwo {
 
 	public static void main(String args[])
 	{
-		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
+	
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the value");
 		int value=Integer.parseInt(args[0]);
-		utility.powerOfTwo(value);
+		Utility.powerOfTwo(value);
+		scanner.close();
 
 	}
 }

@@ -11,14 +11,14 @@ import com.bridgelabz.utility.Utility;
  */
 public class WindChill {
 	public static void main(String []args) {
-		Utility utility=new Utility();
-		Scanner sc = new Scanner(System.in);
+		
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Temperature :");
-		double T = sc.nextDouble();
+		double T = scanner.nextDouble();
 		System.out.println("Enter wind speed/hour :");
-		double V = sc.nextInt();
-		utility.windChill(T,V);
-	
+		double V = scanner.nextInt();
+		Utility.windChill(T,V);
+	scanner.close();
 		
 	}
 }

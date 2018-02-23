@@ -8,14 +8,15 @@ public class VendingMachine{
 	static int i=0;
 	static int Total=0;
 	public static void main(String args[]) {
-		Scanner sc =new Scanner(System.in);
+		Scanner scanner =new Scanner(System.in);
 		
 		
 		System.out.println("Enter a amount :");
-		int amount = sc.nextInt();
+		int amount = scanner.nextInt();
 		
 		calculate cal[] = new calculate[8];
 		vendingMachin(amount,cal);
+		scanner.close();
 		
 	}	
 

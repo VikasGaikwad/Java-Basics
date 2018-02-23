@@ -23,18 +23,18 @@ public class Hashing {
 			intArray[i] = Integer.parseInt(strArray[i].trim());
 
 		}
-		HashMap hs = new HashMap();
-		LinkedList linkedlist1 = new LinkedList();
-		LinkedList linkedlist2 = new LinkedList();
-		LinkedList linkedlist3 = new LinkedList();
-		LinkedList linkedlist4 = new LinkedList();
-		LinkedList linkedlist5 = new LinkedList();
-		LinkedList linkedlist6 = new LinkedList();
-		LinkedList linkedlist7 = new LinkedList();
-		LinkedList linkedlist8 = new LinkedList();
-		LinkedList linkedlist9 = new LinkedList();
-		LinkedList linkedlist10 = new LinkedList();
-		LinkedList linkedlist11 = new LinkedList();
+		HashMap<Integer, LinkedList<Integer>> hs = new HashMap<Integer, LinkedList<Integer>>();
+		LinkedList<Integer> linkedlist1 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist2 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist3 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist4 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist5 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist6 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist7 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist8 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist9 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist10 = new LinkedList<Integer>();
+		LinkedList<Integer> linkedlist11 = new LinkedList<Integer>();
 
 		for (Integer ele : intArray) {
 			int rem = ele % 11;
@@ -90,7 +90,7 @@ public class Hashing {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the number to search....");
 		int search = scanner.nextInt();
-		int remainder = search % 11, searchValue = 0;
+		int remainder = search % 11;
 		;
 		String strNum = "";
 		switch (remainder) {
@@ -160,8 +160,8 @@ public class Hashing {
 		scanner.close();
 	}
 
-	public static LinkedList serachMethod(LinkedList linkedList, int search, int k) {
-		Iterator iterator = linkedList.iterator();
+	public static LinkedList<Integer> serachMethod(LinkedList<Integer> linkedList, int search, int k) {
+		Iterator<Integer> iterator = linkedList.iterator();
 		boolean found = false;
 		while (iterator.hasNext()) {
 			if (iterator.next().equals(search)) {

@@ -12,14 +12,15 @@ import com.bridgelabz.utility.Utility;
 public class Quadratic {
 
 	public static void main(String []args) {
-		Utility utility=new Utility();
-		Scanner sc= new Scanner(System.in);
+	
+		Scanner scanner= new Scanner(System.in);
 		System.out.println("Enter value of a :");
-		double a = sc.nextDouble();
+		double a = scanner.nextDouble();
 		System.out.println("Enter value of b :");
-		double b = sc.nextDouble();
+		double b = scanner.nextDouble();
 		System.out.println("Enter value of c :");
-		double c = sc.nextDouble();
+		double c = scanner.nextDouble();
 		Utility.quadratic(a, b, c);
+		scanner.close();
 	}
 }

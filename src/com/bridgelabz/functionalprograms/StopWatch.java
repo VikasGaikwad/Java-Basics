@@ -13,8 +13,7 @@ public class StopWatch {
 		long Starttime = System.nanoTime();
 		
 		for(int i=0;i<1000000;i++) 
-		{			
-			Object obj = new Object();
+		{
 		}
 		
 		long Endtime = System.nanoTime();

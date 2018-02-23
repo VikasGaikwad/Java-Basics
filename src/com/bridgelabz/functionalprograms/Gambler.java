@@ -12,15 +12,15 @@ import com.bridgelabz.utility.Utility;
 public class Gambler {
 	
 	public static void main(String[] args) {
-		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the stake money : ");
-		int stake=sc.nextInt();
+		int stake=scanner.nextInt();
 		System.out.println("enter the winnig target : ");
-		int goal=sc.nextInt();
+		int goal=scanner.nextInt();
 		System.out.println(" enter the trials : ");
-		int trial=sc.nextInt();
-		utility.gambler(stake,goal,trial);
+		int trial=scanner.nextInt();
+		Utility.gambler(stake,goal,trial);
+		scanner.close();
 	}
 
 }

@@ -17,11 +17,11 @@ public class CalenderProgram {
      * To print the calender by calculating day of the week.
      */
     public static void main(String[] args) {
-    	Scanner sc = new Scanner(System.in);
+    	Scanner scanner = new Scanner(System.in);
     	System.out.println("Enter month");
-    	int month = sc.nextInt(); 
+    	int month = scanner.nextInt(); 
          System.out.println("Enter year"); 
-        int year = sc.nextInt(); 
+        int year = scanner.nextInt(); 
        
         String[] months = {"","Jan","Feb","March","April","May","June","July","Aug","Sept","Oct","Nove","Dec"};
 
@@ -44,5 +44,6 @@ public class CalenderProgram {
             	System.out.println();
           }
         } 
+        scanner.close();
     }
 }

@@ -10,10 +10,11 @@ public class CalendarQueue_9 {
 		 {
 			 Scanner scanner=new Scanner(System.in);
 			 System.out.println("Enter Month:");
-		     int month = Utility.scanner.nextInt();
+		     int month =scanner.nextInt();
 		     System.out.println("Enter Year:");
-		     int year = Utility.scanner.nextInt();     
+		     int year =scanner.nextInt();     
 		     Utility.queueCalender(month,year);
+		     scanner.close();
 		 }
 	}
 

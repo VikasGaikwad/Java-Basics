@@ -24,5 +24,6 @@ public class StaticMethod
 				iNteger [i]= scanner.nextInt();
 			}
 			Utility.callAlgos(sTring,iNteger);
+			scanner.close();
 		}
 }

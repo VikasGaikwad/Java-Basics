@@ -12,12 +12,12 @@ import com.bridgelabz.utility.Utility;
 public class PrimeFactors {
 	public static void main(String args[])
 	{
-		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
-		System.out.println("enter the number which u want prime factors");
-		int number=sc.nextInt();
-		utility.primeFactors(number);
 		
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("enter the number which u want prime factors");
+		int number=scanner.nextInt();
+		Utility.primeFactors(number);
+		scanner.close();
 
 	}	
 }

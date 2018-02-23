@@ -11,21 +11,21 @@ public class MergeSort
 
 	{
 
-		Scanner scan = new Scanner( System.in );        
+		Scanner scanner = new Scanner( System.in );        
 
 		System.out.println("Merge Sort Test\n");
 
 		
 		System.out.println("Enter number of integer elements");
 
-		int n = scan.nextInt();
+		int n = scanner.nextInt();
 		int arr[] = new int[ n ];
 
 		System.out.println("\nEnter "+ n +" integer elements");
 
 		for (int i = 0; i < n; i++)
 
-			arr[i] = scan.nextInt();
+			arr[i] = scanner.nextInt();
 		Utility.sort(arr, 0, n);
 
 
@@ -35,7 +35,8 @@ public class MergeSort
 
 			System.out.print(arr[i]+" ");            
 
-		System.out.println();            
+		System.out.println();      
+		scanner.close();
 
 	}    
 

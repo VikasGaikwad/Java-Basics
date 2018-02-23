@@ -10,26 +10,26 @@ import com.bridgelabz.utility.Utility;
  */
 public class BubbleSortString {
 	public static void main(String[] args) {
-		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
+		Scanner scanner=new Scanner(System.in);
+
+
 		System.out.println("how many Strings u want to enter :");
-		int size=sc.nextInt();
-		//String [] arr=new String[size];
-		//String[] Array;
+		int size=scanner.nextInt();
+
 		String []arr=new String[size];
-		
-System.out.println("enter "+ size+" elements one by one");
-		
+
+		System.out.println("enter "+ size+" elements one by one");
+
 		for(int i=0;i<size;i++){
-			
-			arr[i]=sc.next();
+
+			arr[i]=scanner.next();
 		}
 		long Starttime = System.nanoTime();
-		utility.bubbleSortString(arr);
+		Utility.bubbleSortString(arr);
 		long Endtime = System.nanoTime();
 		long elapsedTime = Endtime - Starttime; 	
 		System.out.println("Time require to call method in millis: "+(elapsedTime/1000)/60);
-		
+		scanner.close();
 	}
 
 }

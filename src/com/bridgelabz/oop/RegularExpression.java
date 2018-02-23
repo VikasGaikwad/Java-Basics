@@ -24,8 +24,6 @@ public class RegularExpression {
 	
 	public static void main(String args[]) {
 		int index=0;
-		Expression exp = new Expression();
-		
 		System.out.println("Enter a full name:");
 		String fullName = sc.nextLine();
 		

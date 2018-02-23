@@ -16,8 +16,7 @@ public static void main(String[] args) {
 		Stack stack = new Stack();
 		int number = size;
 		boolean status2, status, status1;
-		int k = 1;
-		int temp =100;
+		
 		for (int i = 11; i < size; i++)
 		{
 			for (int j = i + 1; j < number - 1; j++)

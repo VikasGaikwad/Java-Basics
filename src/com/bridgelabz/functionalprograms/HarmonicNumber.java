@@ -8,12 +8,12 @@ public class HarmonicNumber {
 	
 	
 	public static void main(String[] args) {
-		Utility utility=new Utility();
-		Scanner sc=new Scanner(System.in);
+	
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the number which u want to check : ");
-		int num=sc.nextInt();
-		utility.harmonicNumber(num);
-		sc.close();
+		int num=scanner.nextInt();
+		Utility.harmonicNumber(num);
+		scanner.close();
 		
 	}
 

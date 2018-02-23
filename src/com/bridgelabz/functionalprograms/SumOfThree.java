@@ -15,24 +15,24 @@ public class SumOfThree{
 	
 	public static void main(String[] args)
 	{	
-		Utility utility = new Utility();
 		
-		Scanner sc=new Scanner(System.in);
+		
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the size of array : ");
-		int size_of_array=sc.nextInt();
+		int size_of_array=scanner.nextInt();
 
 		int arr[]=new int[size_of_array];
 
 		System.out.println("enter the elements in  array : ");
 		for(int i=0;i<arr.length;i++)
 		{
-			arr[i]=sc.nextInt();
+			arr[i]=scanner.nextInt();
 		}
 
-		utility.sumOfThree(arr);
+		Utility.sumOfThree(arr);
 
 
-
+scanner.close();
 	}		
 
 }

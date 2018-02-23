@@ -5,12 +5,12 @@ import java.util.Scanner;
 class Sample{
 	private char [][] board;
 	private char currentPlayerChoice;
-	
+	static Scanner scanner =new Scanner(System.in);
 	Sample(){
-		Scanner sc =new Scanner(System.in);
+		
 		board = new char[3][3];
 		System.out.println("Enter choice X or O :");
-		char choice = sc.next().charAt(0);
+		char choice = scanner.next().charAt(0);
 		this.setCurrentPlayerChoice(choice);
 		System.out.println("Game Start :");
 		initializeBoard();
@@ -117,18 +117,17 @@ class Sample{
 public class TicTacToe{
 
 	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		Sample obj = new Sample();
 		obj.printBoard();
-		char ch;
 		int count=0;
 			while(true) {
 				
 				System.out.println("Player : "+obj.getCurrentPlayerChoice()+" turn");
 				
 				System.out.println("Enter position of Row & Column");
-				int r = sc.nextInt();
-				int c = sc.nextInt();
+				int r = scanner.nextInt();
+				int c = scanner.nextInt();
 				obj.EnterMark(r, c);
 				obj.printBoard();
 				if(obj.checkWinner()) {
@@ -142,7 +141,8 @@ public class TicTacToe{
 					break;
 				}
 			}
-			
+		scanner.close();	
 	}
+	
 }
 	

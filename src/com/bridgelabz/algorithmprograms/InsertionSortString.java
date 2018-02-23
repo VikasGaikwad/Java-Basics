@@ -12,17 +12,17 @@ import com.bridgelabz.utility.Utility;
  */
 public class InsertionSortString {
 	public static void main(String []args) {
-	Utility utility=new Utility();
-	Scanner sc = new Scanner(System.in);
+	
+	Scanner scanner = new Scanner(System.in);
 	System.out.println("enter the string: ");
-	String str=sc.nextLine();
+	String str=scanner.nextLine();
 	String [] string=str.split(" ");
 	System.out.println("before sort : ");
 	for(String element:string) {
 	System.out.println(element);
 	}
-	utility.insertionSortString(string);
-	
+	Utility.insertionSortString(string);
+	scanner.close();
 	
 }
 

@@ -4,24 +4,24 @@ import java.util.Scanner;
 
 public class DayOfWeek{
 	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
-		String string=null;
+		Scanner scanner = new Scanner(System.in);
+		
 		boolean flag=true;
 		while(flag) {
 			System.out.println("enter month : ");
-			int month=sc.nextInt();
+			int month=scanner.nextInt();
 			if(month>12||month<1) {
 				System.out.println("enter the month betwee 1 and 12 ");
 				continue;
 			}
 			System.out.println("enter date : ");
-			int day=sc.nextInt();
+			int day=scanner.nextInt();
 			if(day<0||day>31) {
 				System.out.println("enter the date between 0 to 31 : ");
 				continue;
 			}
 			System.out.println("enter the year : ");
-			int year=sc.nextInt();
+			int year=scanner.nextInt();
 			if(year<1||year>10000) {
 				System.out.println("enter the year between 1 to 10000");
 				continue;
@@ -59,6 +59,7 @@ public class DayOfWeek{
 			}
 
 		}
+		scanner.close();
 
 	}
 

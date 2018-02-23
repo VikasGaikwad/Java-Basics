@@ -31,11 +31,12 @@ public class CouponNum{
 
 
 	public static void main(String args[]) {
-		CouponNum cn=new CouponNum();
-		Scanner sc=new Scanner(System.in);
+		
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("how many Distinct Numbers do you want to generate : ");
-		int numbers=sc.nextInt();
-		cn.couponNumbers(numbers);
+		int numbers=scanner.nextInt();
+		CouponNum.couponNumbers(numbers);
+		scanner.close();
 
 	}
 }

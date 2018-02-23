@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class ComputeSqrt{
 
 	public static void main(String args[]) {
-		Scanner sc =new Scanner(System.in);
+		Scanner scanner =new Scanner(System.in);
 		System.out.println("enter number : ");
-		double nonnegative = sc.nextDouble(); 
+		double nonnegative = scanner.nextDouble(); 
 		double epsilon = 1e-15;
 		double t = nonnegative; 
 		
@@ -17,6 +17,7 @@ public class ComputeSqrt{
 		
 		} 
 		System.out.println(t); 
+		scanner.close();
 	}
 }
 

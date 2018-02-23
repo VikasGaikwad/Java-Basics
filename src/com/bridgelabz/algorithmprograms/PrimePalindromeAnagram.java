@@ -1,6 +1,5 @@
 package com.bridgelabz.algorithmprograms;
 
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
@@ -13,13 +12,11 @@ import com.bridgelabz.utility.Utility;
 public class PrimePalindromeAnagram {
 	
 	public static void main(String[] args) { 
-		Utility utility=new Utility();
-	
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter last number to find the prime number upto ....");
 		int start=scanner.nextInt();
 		//int end=scanner.nextInt();
-		String primeNumber=utility.isPrimeNumber(start);
+		String primeNumber=Utility.isPrimeNumber(start);
 
 
 		String[] anagram=primeNumber.split(" ");//when space comes, will hit to new line
@@ -33,7 +30,7 @@ public class PrimePalindromeAnagram {
 		System.out.println("The Angram number are.......");
 		for(int i=0;i<anagram.length;i++){
 			for(int j=i+1;j<anagram.length;j++) {
-				if(utility.anagramDetection(anagram[i],anagram[j])) {
+				if(Utility.anagramDetection(anagram[i],anagram[j])) {
 					object.add(anagram[i]);
 					object.add(anagram[j]);
 				}
@@ -44,7 +41,7 @@ public class PrimePalindromeAnagram {
 		String[] anagramNumber=new String[object.size()];
 
 		object.toArray(anagramNumber);
-		utility.palindrom(anagramNumber);
+		Utility.palindrom(anagramNumber);
 		scanner.close();
 	}
 

@@ -9,7 +9,6 @@ public class Permutation
     	Utility utility=new Utility();
         String str = "ABCD";
         int n = str.length();
-        Permutation permutation = new Permutation();
         utility.permute(str, 0, n-1);
     }
     
